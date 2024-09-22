@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nullák és Egyesek Csapat</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <div class="container">
+
+        <h1 class="section-title">Nullák és Egyesek csapat tagjai: </h1>
+
+        <div class="team-container">
+            <div class="team-member" onclick="toggleDetails('nyako')">
+                <h1>Nyakó Sándor</h1>
+                <div id="nyako" class="details">
+                    <h2>Tankör: G2BI</h2>
+                    <h2>Neptun kód: PHRO7R</h2>
+                    <h3>Pozíció: Projektvezető, munkanapló</h3>
+                    <h5>Email: sandor.nyako@student.uni-miskolc.hu</h5>
+                </div>
+            </div>
+
+            <div class="team-member" onclick="toggleDetails('rethy')">
+                <h1>Réthy Tamás</h1>
+                <div id="rethy" class="details">
+                    <h2>Tankör: G2BGI</h2>
+                    <h2>Neptun kód: ANLQ73</h2>
+                    <h3>Pozíció: Prezentáció készítés</h3>
+                    <h5>Email: tamas.rethy@student.uni-miskolc.hu</h5>
+                </div>
+            </div>
+
+            <div class="team-member" onclick="toggleDetails('emodi')">
+                <h1>Emődi Máté</h1>
+                <div id="emodi" class="details">
+                    <h2>Tankör: G2BI</h2>
+                    <h2>Neptun kód: GT43W5</h2>
+                    <h3>Pozíció: Dokumentáció</h3>
+                    <h5>Email: mate.emodi@student.uni-miskolc.hu</h5>
+                </div>
+            </div>
+
+            <div class="team-member" onclick="toggleDetails('egyed')">
+                <h1>Egyed Martin</h1>
+                <div id="egyed" class="details">
+                    <h2>Tankör: G2BI</h2>
+                    <h2>Neptun kód: CLZPRE</h2>
+                    <h3>Pozíció: Tervező felelős</h3>
+                    <h5>Email: martin.egyed@student.uni-miskolc.hu</h5>
+                </div>
+            </div>
+
+            <div class="team-member" onclick="toggleDetails('magyar')">
+                <h1>Magyar Máté</h1>
+                <div id="magyar" class="details">
+                    <h2>Tankör: G2BGI</h2>
+                    <h2>Neptun kód: C0F6SR</h2>
+                    <h3>Pozíció: Dokumentáció</h3>
+                    <h5>Email: mate.magyar@student.uni-miskolc.hu</h5>
+                </div>
+            </div>
+        </div>
+        <h1 class="section-title">Dokumentumok: </h1>
+        <div class="team-container">    
+            <div class="doc-tile" onclick="openDocument('doc1')">
+                <a href="docs/h1.html"><h1>H1</h1></a>
+            </div>
+    
+            <div class="doc-tile" onclick="openDocument('doc2')">
+                <h1>H2</h1>
+            </div>
+    
+            <div class="doc-tile" onclick="openDocument('doc3')">
+                <h1>H3</h1>
+            </div>
+    
+            <div class="doc-tile" onclick="openDocument('doc4')">
+                <h1>H4</h1>
+            </div>
+    
+            <div class="doc-tile" onclick="openDocument('doc5')">
+                <h1>H5</h1>
+            </div>
+            
+            <div class="doc-tile" onclick="openDocument('doc5')">
+                <a href="docs/projektnaplo.html"><h1>Munkanapló</h1></a>
+            </div>
+        </div>
+    
+        </div>
+        
+    </div>
+    <script src="scripts.js"></script>
+</body>
+</html>
