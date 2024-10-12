@@ -1,11 +1,32 @@
 <!DOCTYPE html>
 <html>
-    <html lang="hu">
+<html lang="hu">
 
 <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>H2 - Vízió dokumentum</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>H2 - Vízió dokumentum</title>
+
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            font-size: 18px;
+            text-align: left;
+        }
+
+        th,
+        td {
+            padding: 12px;
+            border: 1px solid #ddd;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
+
 </head>
 
 <body>
@@ -23,140 +44,327 @@
         <p><a href="#szotar">10. Szótár</a></p>
     </div>
     <div class="section" id="bevezetes">
-    <h1>1. Bevezetés</h1>
-    <p>Az alkalmazás célja, hogy segítse a felhasználókat a bevásárlási és készletkezelési feladatok egyszerűsítésében.
-        A program olyan integrált megoldást kínál, amely lehetővé teszi a felhasználóknak, hogy hatékonyan nyomon
-        kövessék háztartásuk készleteit, azokból kapjanak recept ajánlásokat. Illetve akciós árakat találjanak a közeli
-        üzletekben, és tudatos döntéseket hozzanak vásárlás során. Ezzel idő- és pénzmegtakarítást biztosít, és
-        támogatja az egészségtudatos életmódot. Mindemellett a közösségi interakcióra is lehetőséget nyújt, legyen szó
-        megosztott receptekről, vagy közös bevásárlólisták vezetéséről.</p>
+        <h1>1. Bevezetés</h1>
+        <p>Az alkalmazás célja, hogy segítse a felhasználókat a bevásárlási és készletkezelési feladatok
+            egyszerűsítésében.
+            A program olyan integrált megoldást kínál, amely lehetővé teszi a felhasználóknak, hogy hatékonyan nyomon
+            kövessék háztartásuk készleteit, azokból kapjanak recept ajánlásokat. Illetve akciós árakat találjanak a
+            közeli
+            üzletekben, és tudatos döntéseket hozzanak vásárlás során. Ezzel idő- és pénzmegtakarítást biztosít, és
+            támogatja az egészségtudatos életmódot. Mindemellett a közösségi interakcióra is lehetőséget nyújt, legyen
+            szó
+            megosztott receptekről, vagy közös bevásárlólisták vezetéséről.</p>
     </div>
     <br>
     <br>
 
     <div class="section" id="alkalmazas-helye">
-    <h1>2. Az alkalmazás helye</h1>
-    <h2>2.1 Üzleti lehetőségek</h2>
-    <p>A piac egyre inkább az okos bevásárlás és készletkezelés felé mozdul, mivel a felhasználók időhiányosak és
-        költséghatékonyságra törekednek. Az alkalmazás segít a felhasználóknak felfedezni a legjobb akciókat a
-        környékükön, tájékozott döntéseket hozni és csökkenteni kiadásaikat. Emellett az egészségtudatos felhasználók
-        eszközöket keresnek étrendjük nyomon követésére, lehetővé téve számukra, hogy aktuális készleteik alapján
-        egészséges recepteket találjanak, osszanak meg egymással.</p>
-    <h2>2.2 A probléma megfogalmazása</h2>
-    <p>Sok háztartás nehezen követi nyomon otthoni készleteit, ami túlköltekezéshez és élelmiszerpazarláshoz vezet. A
-        vásárlási szokások eltérőek, így nehéz olyan termékeket találni, amelyek megfelelnek az egyéni igényeknek,
-        miközben a legjobb árakat keresik. Emellett nő az igény a táplálkozás és kalóriafigyelés iránt, valamint a
-        felhasználók szívesen osztanak meg recepteket az egészséges étkezés érdekében. Az alkalmazás ajánlásokat nyújt a
-        felhasználók készletei alapján, inspirációt adva az otthoni főzéshez és elősegítve a közösségi élmények
-        megosztását.</p>
-    <h2>2.3 Az elkészült termék helye</h2>
-    <p>Az alkalmazás egy átfogó platformként szolgál, amely ötvözi a készletkezelést, bevásárlólista készítést,
-        táplálkozási nyomon követést, ár-összehasonlítást és receptajánlást egyetlen eszközben. Ezáltal más bevásárlási
-        és életmód alkalmazásokkal összehasonlítva is különlegessé válik, hiszen a felhasználói élményt a közösségi
-        megosztás és a közös lista használata gazdagítja, miközben az aktuális készletek alapján ajánlott receptekkel
-        inspirálja a felhasználókat az egészséges étkezésre.</p>
+        <h1>2. Az alkalmazás helye</h1>
+        <h2>2.1 Üzleti lehetőségek</h2>
+        <p>A piac egyre inkább az okos bevásárlás és készletkezelés felé mozdul, mivel a felhasználók időhiányosak és
+            költséghatékonyságra törekednek. Az alkalmazás segít a felhasználóknak felfedezni a legjobb akciókat a
+            környékükön, tájékozott döntéseket hozni és csökkenteni kiadásaikat. Emellett az egészségtudatos
+            felhasználók
+            eszközöket keresnek étrendjük nyomon követésére, lehetővé téve számukra, hogy aktuális készleteik alapján
+            egészséges recepteket találjanak, osszanak meg egymással.</p>
+        <h2>2.2 A probléma megfogalmazása</h2>
+        <p>Sok háztartás nehezen követi nyomon otthoni készleteit, ami túlköltekezéshez és élelmiszerpazarláshoz vezet.
+            A
+            vásárlási szokások eltérőek, így nehéz olyan termékeket találni, amelyek megfelelnek az egyéni igényeknek,
+            miközben a legjobb árakat keresik. Emellett nő az igény a táplálkozás és kalóriafigyelés iránt, valamint a
+            felhasználók szívesen osztanak meg recepteket az egészséges étkezés érdekében. Az alkalmazás ajánlásokat
+            nyújt a
+            felhasználók készletei alapján, inspirációt adva az otthoni főzéshez és elősegítve a közösségi élmények
+            megosztását.</p>
+        <h2>2.3 Az elkészült termék helye</h2>
+        <p>Az alkalmazás egy átfogó platformként szolgál, amely ötvözi a készletkezelést, bevásárlólista készítést,
+            táplálkozási nyomon követést, ár-összehasonlítást és receptajánlást egyetlen eszközben. Ezáltal más
+            bevásárlási
+            és életmód alkalmazásokkal összehasonlítva is különlegessé válik, hiszen a felhasználói élményt a közösségi
+            megosztás és a közös lista használata gazdagítja, miközben az aktuális készletek alapján ajánlott
+            receptekkel
+            inspirálja a felhasználókat az egészséges étkezésre.</p>
     </div>
-    <h1>3. Érintettek és felhasználók</h1>
-    <h2>3.1 Az érintettek összefoglalása</h2>
-    <h2></h2>
-    <p>
-    </p>
-    <h2></h2>
-    <h2>3.2 A felhasználók összefoglalása</h2>
-    <h2>3.3 Felhasználói környezet</h2>
-    <p>Az alkalmazás Android és iOS mobil platformokon, valamint egy webes felületen keresztül lesz elérhető, ami
-        rugalmas hozzáférést biztosít a felhasználók számára bármilyen helyzetben.</p>
-    <h1>4. A végtermék áttekintése</h1>
-    <h2>4.1 A termék kapcsolatai</h2>
-    <p>Az alkalmazás fő funkcionális komponensei:</p>
-    <p>Készletkezelő Modul: Nyomon követi a készleteket.</p>
-    <p>Vásárlólista Készítő: Egyszerűsíti a bevásárlólisták készítését.</p>
-    <p>Ár-összehasonlító Eszköz: Összehasonlítja az árakat.</p>
-    <p>Táplálkozási Nyomon Követés: Figyeli a kalóriabevitelt.</p>
-    <p>Receptajánló Rendszer: Személyre szabott recepteket ajánl.</p>
-    <p>Közösségi Megosztás Funkció: Lehetővé teszi a receptek megosztását.</p>
-    <p>Hely a nagyobb rendszerben</p>
-    <p>Felhasználói Interfész: Interakció a funkciókkal.</p>
-    <p>Adatbázis: Felhasználói és termékadatok tárolása.</p>
-    <p>API Integráció: Külső szolgáltatások kapcsolódása.</p>
-    <h2>4.2 A termék használatának előnyei</h2>
-    <p></p>
-    <p>
-    </p>
-    <p></p>
-    <h2>4.3 Feltételezések és függőségek</h2>
-    <p>Adatbázis Mérete: Az adatbázis mérete nem haladhatja meg a szolgáltató által biztosított lemezterületet.</p>
-    <p>Hálózati Kapacitás: A hálózat sebessége és stabilitása megfelelő a felhasználói igények kiszolgálásához.</p>
-    <p>Felhasználói Szám: A rendszer képes kezelni a várt felhasználói számot és a terhelést.</p>
-    <p>API Elérhetőség: A külső API-k folyamatosan elérhetők és működnek a megfelelő adatátvitelhez.</p>
-    <p>Szolgáltató Támogatása: A szolgáltató technikai támogatása és karbantartása elérhető a rendszer működése alatt.
-    </p>
-    <h2>4.4 Költségbecslés</h2>
-    <p>Várható költségek:</p>
-    <p>Fejlesztői munkaerő költsége</p>
-    <p>Hardver költségek</p>
-    <p>Szoftver költségek</p>
-    <p>Promóció költségek</p>
-    <p>Egyéb költségek</p>
-    <p>Körülbelül: 1.500.000 Ft</p>
-    <h2>4.5 Installáció</h2>
-    <p>Telepítő Program: Felhasználóbarát telepítő az alkalmazás automatikus telepítéséhez.</p>
-    <p>Szerver Előfeltételek: Megfelelő szerverkapacitás és operációs rendszer biztosítása.</p>
-    <p>Betanítás: Képzés az üzemeltető személyzet számára a rendszer működéséről.</p>
-    <p>Adatbiztonság: Intézkedések az adatvédelem és biztonság érdekében.</p>
-    <p>Útmutatók: Részletes online dokumentáció a felhasználók számára.</p>
-    <p>
-    </p>
-    <p></p>
-    <h1>5. A végtermék jellemzői, biztosított szolgáltatások</h1>
-    <p>Bevásárlási lista kezelése</p>
-    <p>Készletfigyelés</p>
-    <p>Ár-összehasonlítás</p>
-    <p>Táplálkozási és kalóriafigyelés</p>
-    <p>Receptek megosztása és közösségi funkciók</p>
-    <h1>6. Korlátozások</h1>
-    <p>Hardver Korlátozások: A rendszernek gyengébb hardverű mobiltelefonokon is működnie kell.</p>
-    <p>Jogszabályi Megfelelőség: Meg kell felelnie az adatvédelmi és fogyasztóvédelmi törvényeknek.</p>
-    <p>Hálózati Feltételek: Stabil internetkapcsolat szükséges a felhőalapú funkciókhoz.</p>
-    <h1>7. Minőségi elvárások</h1>
-    <p>Teljesítmény: Zökkenőmentes működés különböző terhelések mellett.</p>
-    <p>Válaszidő: Az alkalmazás válaszideje nem haladhatja meg a 2 másodpercet.</p>
-    <p>Biztonság: Magas szintű adatvédelem és biztonság, beleértve a titkosítást.</p>
-    <p>Felhasználóbarátság: Intuitív és könnyen navigálható felület.</p>
-    <p>Ügyfélszolgálat: Azonnali segítségnyújtás online felületen, ahol egy hibajegy nyitásával a felhasználó könnyen
-        leírhatja problémáit az alkalmazással kapcsolatban.</p>
-    <p>Súgó: Részletes súgó és online dokumentáció a felhasználók számára, amely segít az alkalmazás funkcióinak
-        használatában és a problémák megoldásában.</p>
-    <p>
-    </p>
-    <p></p>
+    <br>
+    <br>
+
+    <div class="section" id="erintettek-es-felhasznalok">
+        <h1>3. Érintettek és felhasználók</h1>
+        <h2>3.1 Az érintettek összefoglalása</h2>
+        <table>
+            <tr>
+                <th>Elnevezés</th>
+                <th>Leírás</th>
+                <th>Szerep</th>
+            </tr>
+            <tr>
+                <td>Fejlesztő csapat</td>
+                <td>A szoftver fejlesztéséért és karbantartásáért felelős technikai szakértők.</td>
+                <td>Fejlesztés: Felelősek a funkciók megvalósításáért és a rendszer karbantartásáért.</td>
+            </tr>
+            <tr>
+                <td>Kereskedők és üzletek</td>
+                <td>Üzletek és beszállítók, akik promóciókat és akciókat kínálnak az alkalmazáson keresztül.</td>
+                <td>Partner: Folyamatosan friss információkat adnak az aktuális árakról és akciókról.</td>
+            </tr>
+            <tr>
+                <td>Adatkezelők</td>
+                <td>Az alkalmazás adatainak (árak, táplálkozási adatok) naprakész és pontos biztosításáért felelős
+                    személyek.</td>
+                <td>Karbantartás: Adatokat elemeznek, frissítenek és tesztelik az adatok pontosságát.</td>
+            </tr>
+        </table>
+        <h2>3.2 A felhasználók összefoglalása</h2>
+        <table>
+            <tr>
+                <th>Elnevezés</th>
+                <th>Leírás</th>
+                <th>Szerep</th>
+            </tr>
+            <tr>
+                <td>Családok</td>
+                <td>Olyan háztartások, amelyek rendszeresen bevásárolnak és szükségük van közös listákra.</td>
+                <td>Felhasználók: Használják az alkalmazást, visszajelzéseikkel segítenek a funkciók optimalizálásában.
+                </td>
+            </tr>
+            <tr>
+                <td>Költségtudatos vásárlók</td>
+                <td>Azok a felhasználók, akik számára fontos az ár-összehasonlítás és a költséghatékony vásárlás.</td>
+                <td>Felhasználók: Felhasználói visszajelzéseikkel segítik a táplálkozási funkciók fejlesztését.</td>
+            </tr>
+            <tr>
+                <td>Egészségtudatos felhasználók</td>
+                <td>Az egészségtudatos életmódot követők, akik figyelik étrendjüket, kalóriabevitelüket.</td>
+                <td>Felhasználók: Felhasználói visszajelzéseikkel segítik a táplálkozási funkciók fejlesztését.</td>
+            </tr>
+        </table>
+        <h2>3.3 Felhasználói környezet</h2>
+        <p>Az alkalmazás Android és iOS mobil platformokon, valamint egy webes felületen keresztül lesz elérhető, ami
+            rugalmas hozzáférést biztosít a felhasználók számára bármilyen helyzetben.</p>
+    </div>
+    <br>
+    <br>
+
+    <div class="section" id="vegtermek-attekintese">
+        <h1>4. A végtermék áttekintése</h1>
+        <h2>4.1 A termék kapcsolatai</h2>
+        <p>Az alkalmazás fő funkcionális komponensei:</p>
+        <ul>
+            <li>Készletkezelő Modul: Nyomon követi a készleteket.</li>
+            <li>Vásárlólista Készítő: Egyszerűsíti a bevásárlólisták készítését.</li>
+            <li>Ár-összehasonlító Eszköz: Összehasonlítja az árakat.</li>
+            <li>Táplálkozási Nyomon Követés: Figyeli a kalóriabevitelt.</li>
+            <li>Receptajánló Rendszer: Személyre szabott recepteket ajánl.</li>
+            <li>Közösségi Megosztás Funkció: Lehetővé teszi a receptek megosztását.</li>
+        </ul>
+
+        <p><strong>Hely a nagyobb rendszerben:</strong></p>
+        <ul>
+            <li>Felhasználói Interfész: Interakció a funkciókkal.</li>
+            <li>Adatbázis: Felhasználói és termékadatok tárolása.</li>
+            <li>API Integráció: Külső szolgáltatások kapcsolódása.</li>
+        </ul>
+
+        <h2>4.2 A termék használatának előnyei</h2>
+
+        <table>
+            <tr>
+                <th>A megrendelő haszna (előnyei)</th>
+                <th>Az ezt támogató rendszer jellemzői</th>
+            </tr>
+            <tr>
+                <td>Egyszerűsödik a bevásárlás</td>
+                <td>
+                    1. A felhasználók könnyen nyomon követhetik készleteiket.<br>
+                    2. A rendszer javaslatokat tesz az aktuális készletek és vásárlási szokások alapján.
+                </td>
+            </tr>
+            <tr>
+                <td>Költséghatékonyság</td>
+                <td>
+                    1. A felhasználók összehasonlíthatják az árakat különböző üzletekben.<br>
+                    2. A rendszer jelzi a legjobb akciókat a közelben.
+                </td>
+            </tr>
+            <tr>
+                <td>Egészséges táplálkozás</td>
+                <td>
+                    1. A felhasználók figyelemmel kísérhetik kalóriabevitelüket.<br>
+                    2. A rendszer személyre szabott recepteket ajánl az aktuális készletek alapján.
+                </td>
+            </tr>
+            <tr>
+                <td>Közösségi élmények</td>
+                <td>
+                    1. A felhasználók megoszthatják receptjeiket és vásárlási tippjeiket.<br>
+                    2. A rendszer közös lista funkciót biztosít a családtagoknak.
+                </td>
+            </tr>
+        </table>
+
+        <h2>4.3 Feltételezések és függőségek</h2>
+        <ul>
+            <li>Adatbázis Mérete: Az adatbázis mérete nem haladhatja meg a szolgáltató által biztosított lemezterületet.
+            </li>
+            <li>Hálózati Kapacitás: A hálózat sebessége és stabilitása megfelelő a felhasználói igények kiszolgálásához.
+            </li>
+            <li>Felhasználói Szám: A rendszer képes kezelni a várt felhasználói számot és a terhelést.</li>
+            <li>API Elérhetőség: A külső API-k folyamatosan elérhetők és működnek a megfelelő adatátvitelhez.</li>
+            <li>Szolgáltató Támogatása: A szolgáltató technikai támogatása és karbantartása elérhető a rendszer működése
+                alatt.</li>
+        </ul>
+        <h2>4.3 Feltételezések és függőségek</h2>
+        <ol>
+            <li><strong>Adatbázis Mérete:</strong> Az adatbázis mérete nem haladhatja meg a szolgáltató által
+                biztosított
+                lemezterületet.</li>
+            <li><strong>Hálózati Kapacitás:</strong> A hálózat sebessége és stabilitása megfelelő a felhasználói igények
+                kiszolgálásához.</li>
+            <li><strong>Felhasználói Szám:</strong> A rendszer képes kezelni a várt felhasználói számot és a terhelést.
+            </li>
+            <li><strong>API Elérhetőség:</strong> A külső API-k folyamatosan elérhetők és működnek a megfelelő
+                adatátvitelhez.</li>
+            <li><strong>Szolgáltató Támogatása:</strong> A szolgáltató technikai támogatása és karbantartása elérhető a
+                rendszer működése alatt.</li>
+        </ol>
+
+        <h2>4.4 Költségbecslés</h2>
+        <p>Várható költségek:</p>
+        <ul>
+            <li>Fejlesztői munkaerő költsége</li>
+            <li>Hardver költségek</li>
+            <li>Szoftver költségek</li>
+            <li>Promóció költségek</li>
+            <li>Egyéb költségek</li>
+        </ul>
+        <p><strong>Körülbelül:</strong> 1.500.000 Ft</p>
+
+        <h2>4.5 Installáció</h2>
+        <p><strong>Telepítő Program:</strong> Felhasználóbarát telepítő az alkalmazás automatikus telepítéséhez.</p>
+        <p><strong>Szerver Előfeltételek:</strong> Megfelelő szerverkapacitás és operációs rendszer biztosítása.</p>
+        <p><strong>Betanítás:</strong> Képzés az üzemeltető személyzet számára a rendszer működéséről.</p>
+        <p><strong>Adatbiztonság:</strong> Intézkedések az adatvédelem és biztonság érdekében.</p>
+        <p><strong>Útmutatók:</strong> Részletes online dokumentáció a felhasználók számára.</p>
+    </div>
+    <br>
+    <br>
+
+    <div class="section" id="vegtermek-jellemzoi">
+        <h1>5. A végtermék jellemzői, biztosított szolgáltatások</h1>
+        <ul>
+            <li>Bevásárlási lista kezelése</li>
+            <li>Készletfigyelés</li>
+            <li>Ár-összehasonlítás</li>
+            <li>Táplálkozási és kalóriafigyelés</li>
+            <li>Receptek megosztása és közösségi funkciók</li>
+        </ul>
+    </div>
+    <br>
+    <br>
+
+    <div class="section" id="korlatozasok">
+        <h1>6. Korlátozások</h1>
+        <p>Hardver Korlátozások: A rendszernek gyengébb hardverű mobiltelefonokon is működnie kell.</p>
+        <p>Jogszabályi Megfelelőség: Meg kell felelnie az adatvédelmi és fogyasztóvédelmi törvényeknek.</p>
+        <p>Hálózati Feltételek: Stabil internetkapcsolat szükséges a felhőalapú funkciókhoz.</p>
+    </div>
+    <br>
+    <br>
+
+    <div class="section" id="minosegi-elvarasok">
+        <h1>7. Minőségi elvárások</h1>
+        <p>Teljesítmény: Zökkenőmentes működés különböző terhelések mellett.</p>
+        <p>Válaszidő: Az alkalmazás válaszideje nem haladhatja meg a 2 másodpercet.</p>
+        <p>Biztonság: Magas szintű adatvédelem és biztonság, beleértve a titkosítást.</p>
+        <p>Felhasználóbarátság: Intuitív és könnyen navigálható felület.</p>
+        <p>Ügyfélszolgálat: Azonnali segítségnyújtás online felületen, ahol egy hibajegy nyitásával a felhasználó
+            könnyen leírhatja problémáit az alkalmazással kapcsolatban.</p>
+        <p>Súgó: Részletes súgó és online dokumentáció a felhasználók számára, amely segít az alkalmazás funkcióinak
+            használatában és a problémák megoldásában.</p>
+    </div>
+    <br>
+    <br>
+
+    <div class="section" id="kovetelmenyek">
     <h1>8. Dokumentációkkal kapcsolatos követelmények</h1>
     <p>A projekt tervezése, illetve fejlesztése közben elkészült, valamint a jövőben elkészülő dokumentumok listája:</p>
-    <p>Analízis modell</p>
-    <p>Fejlesztői csoport adatok</p>
-    <p>Felhasználói dokumentáció</p>
-    <p>Munkanapló</p>
-    <p>Projekt előkészítés</p>
-    <p>Projekt terv</p>
-    <p>Rendszertervezés</p>
-    <p>Software követelmény specifikáció (SRS)</p>
-    <p>Szótár</p>
-    <p>Telepítési és kezelési útmutató</p>
-    <p>Vízió dokumentum</p>
+    <ul>
+        <li>Analízis modell</li>
+        <li>Fejlesztői csoport adatok</li>
+        <li>Felhasználói dokumentáció</li>
+        <li>Munkanapló</li>
+        <li>Projekt előkészítés</li>
+        <li>Projekt terv</li>
+        <li>Rendszertervezés</li>
+        <li>Software követelmény specifikáció (SRS)</li>
+        <li>Szótár</li>
+        <li>Telepítési és kezelési útmutató</li>
+        <li>Vízió dokumentum</li>
+    </ul>
+    </div>
+    <br>
+    <br>
+
+    <div class="section" id="kockazat-lista">
     <h1>9. Kockázat lista</h1>
     <p>Határidő Kockázatok: A projekt határidejének túllépése.</p>
     <p>Funkcionális Kockázatok: A követelmények nem megfelelő értelmezése vagy változása.</p>
     <p>Technológiai Kockázatok: Elavult vagy nem megfelelően működő technológiák.</p>
     <p>Költség Kockázatok: A költségek túllépése.</p>
-    <p>
-    </p>
-    <p></p>
+    </div>
+    <br>
+    <br>
+
+    <div class="section" id="szotar">
     <h1>10. Szótár</h1>
-    <p></p>
-    <p></p>
-    <p></p>
-    <p></p>
-    <p></p>
+    <table>
+        <tr>
+            <th>Kifejezés</th>
+            <th>Magyarázat</th>
+        </tr>
+        <tr>
+            <td>API</td>
+            <td>Alkalmazásprogramozási interfész, amely lehetővé teszi a különböző szoftverek közötti kommunikációt.
+            </td>
+        </tr>
+        <tr>
+            <td>Dokumentáció</td>
+            <td>Írásos anyag, amely információt és útmutatást nyújt egy termék vagy rendszer használatához.</td>
+        </tr>
+        <tr>
+            <td>Hibaelhárítás</td>
+            <td>Problémák azonosítása és megoldása egy rendszer működésében.</td>
+        </tr>
+        <tr>
+            <td>Telepítés</td>
+            <td>A szoftver vagy rendszer telepítési folyamata, amely során az alkalmazás működőképessé válik.</td>
+        </tr>
+        <tr>
+            <td>Felhasználói felület</td>
+            <td>Az a része a szoftvernek, amellyel a felhasználók interakcióba lépnek.</td>
+        </tr>
+        <tr>
+            <td>Kockázat</td>
+            <td>Olyan tényező, amely befolyásolhatja egy projekt sikerét.</td>
+        </tr>
+        <tr>
+            <td>Kapacitás</td>
+            <td>A rendszer vagy eszköz maximális teljesítménye vagy tárolási lehetősége.</td>
+        </tr>
+        <tr>
+            <td>Funkcionalitás</td>
+            <td>Az alkalmazás által nyújtott szolgáltatások és képességek összessége.</td>
+        </tr>
+        <tr>
+            <td>Skálázhatóság</td>
+            <td>A rendszer képessége a növekvő igények kielégítésére anélkül, hogy teljesítménye romlana.</td>
+        </tr>
+        <tr>
+            <td>Integráció</td>
+            <td>Különböző rendszerek és alkalmazások közötti együttműködés megvalósítása.</td>
+        </tr>
+    </table>
+</div>
 </body>
 
 </html>
