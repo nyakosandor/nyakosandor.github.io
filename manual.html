@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SmartCart Felhasználói Dokumentáció</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+            margin-left: 350px;
+            margin-right: 350px;
+            background: linear-gradient(to right, rgb(239, 193, 108), white);
+        }
+        h1, h2, h3 {
+            color: #ff5100;
+        }
+        p {
+            line-height: 1.6;
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        ul.toc li {
+            margin-bottom: 5px;
+        }
+        ul.toc a {
+            color: #3700ff;
+            text-decoration: none;
+        }
+        ul.toc a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>SmartCart Felhasználói Dokumentáció</h1>
+    
+    <!-- Tartalomjegyzék -->
+    <h2>Tartalomjegyzék</h2>
+    <ul class="toc">
+        <li><a href="#login">Bejelentkezési és regisztrációs képernyők</a></li>
+        <li><a href="#main-features">Fő funkciók</a>
+    </ul>
+    <br>
+    <br>
+    
+    <!-- Bejelentkezési és regisztrációs képernyők -->
+    <h2 id="login">Bejelentkezési és regisztrációs képernyők</h2>
+    <p>A SmartCart alkalmazás elindítása után a login panel felületét látják. Itt regisztrálhatnak meguknak felhasználót, vagy bejelentkezhetnek egy már meglévőbe.</p>
+
+    <h3>Bejelentkezés</h3>
+    <ol>
+        <li><strong>Bejelentkezési panel</strong> – A "Bejelentkezés" fül kiválasztása után a felhasználók megadhatják:
+            <ul>
+                <li><strong>Felhasználónév</strong> – Írják be a regisztrációkor megadott felhasználónevüket.</li>
+                <li><strong>Jelszó</strong> – Adják meg a fiókhoz tartozó jelszót.</li>
+            </ul>
+        </li>
+        <li>A szükséges adatok megadása után a "Bejelentkezés" gomb megnyomásával a felhasználók hozzáférhetnek az alkalmazás összes funkciójához.</li>
+    </ol>
+
+    <h3>Regisztráció</h3>
+    <ol>
+        <li><strong>Regisztrációs panel</strong> – Az "Regisztráció" fül kiválasztásával a felhasználók új fiókot hozhatnak létre. A következő adatokat szükséges megadni:
+            <ul>
+                <li><strong>Vezetéknév</strong> – A felhasználó vezetékneve.</li>
+                <li><strong>Keresztnév</strong> – A felhasználó keresztneve.</li>
+                <li><strong>Felhasználónév</strong> – Az egyedi felhasználónév, amit a bejelentkezéshez használnak majd.</li>
+                <li><strong>Jelszó</strong> – A fiókhoz tartozó biztonságos jelszó.</li>
+            </ul>
+        </li>
+        <li>Az összes mező kitöltése után a "Regisztráció" gomb megnyomásával a felhasználók új fiókot hozhatnak létre, és beléphetnek az alkalmazásba.</li>
+    </ol>
+    <br>
+    <div class="image-row">
+        <img src="app_loginpanel1.png" alt="loginpanel1" style="max-width:35%;">
+        <img src="app_loginpanel2.png" alt="loginanel2" style="max-width:35%;">
+    </div>
+    <br>
+    <br>
+
+    <!-- Fő funkciók -->
+    <h2 id="main-features">Fő funkciók</h2>
+    <h3 id="shopping-list">Bevásárlólista</h3>
+    <p>A bevásárlólista funkció lehetővé teszi a felhasználók számára, hogy listát készítsenek a vásárolni kívánt termékekről. Az alábbi lehetőségek állnak rendelkezésre:</p>
+    <ul>
+        <li><strong>Termék neve és mennyisége</strong> – A felhasználók megadhatják a termék nevét és mennyiségét, majd a "Hozzáadás" gombbal felvehetik a listára.</li>
+        <li><strong>Termékek megjelenítése</strong> – A listán lévő termékek mennyiséggel együtt jelennek meg.</li>
+    </ul>
+
+
+    <h3>Táplálkozási adatok</h3>
+    <p>A SmartCart táplálkozási adatokat is biztosít a felhasználók számára:</p>
+    <ul>
+        <li><strong>Kalória és tápanyag tartalom</strong> – A felhasználók nyomon követhetik a napi kalória-, fehérje-, szénhidrát- és zsírbevitelüket.</li>
+        <li><strong>Részletes adatok</strong> – A "Részletes adatok" gomb megnyomásával a felhasználók részletes információkat kapnak az egyes tápanyagok arányairól.</li>
+        <br>
+        <img src="app_taplalkozasiadatok.png" alt="taplalkozasiadatok" style="max-width:35%;">
+        <br>
+        <br>
+    </ul>
+
+    <h3>Helymeghatározás alapú funkciók</h3>
+    <p>A helymeghatározás alapú funkciók segítségével a SmartCart alkalmazás személyre szabott ajánlatokat és navigációt biztosít a felhasználók számára:</p>
+    <ul>
+        <li><strong>Bolti ajánlatok megjelenítése</strong> – Az alkalmazás megmutatja a felhasználók közelében lévő boltok aktuális akcióit, figyelembe véve a helymeghatározás adatait.</li>
+        <li><strong>Üzletek elérhetőségei és térképnézet</strong> – Az alkalmazás térképet és műholdas nézetet kínál, hogy a felhasználók könnyen tájékozódhassanak az üzletek pontos helyéről.</li>
+        <br>
+        <img src="app_helyalapu.png" alt="helyalapu" style="max-width:35%;">
+        <br>
+        <br>
+    </ul>
+
+    
+    <h3>Közösségi funkciók</h3>
+    <p>A SmartCart közösségi funkciói lehetővé teszik a felhasználók számára, hogy megoszthassák vásárlási és táplálkozási adataikat barátaikkal:</p>
+    <ul>
+        <li><strong>Barátok meghívása</strong> – A felhasználók meghívhatják barátaikat az alkalmazás használatára.</li>
+        <li><strong>Recept megosztása</strong> – Lehetőség van saját receptek megosztására.</li>
+        <li><strong>Akció megosztása</strong> – Az aktuális akciókat is megoszthatják ismerőseikkel.</li>
+        <li><strong>Közös lista</strong> – A közös lista használata lehetővé teszi a közös bevásárlólista kezelését egy háztartáson belül.</li>
+    </ul>
+
+    <h3>Receptek</h3>
+    <p>A SmartCart alkalmazás recept funkciójával a felhasználók létrehozhatnak és megoszthatnak saját receptjeiket:</p>
+    <ul>
+        <li><strong>Új recept hozzáadása</strong> – A felhasználók új recepteket vihetnek fel az alkalmazásba manuálisan.</li>
+        <li><strong>Recept böngészése</strong> – A felhasználók böngészhetnek a már megosztott recepek között, vagy interneteléréssel újakat kereshetnek.
+        <br>
+        <br>
+        <img src="app_kozossegi.png" alt="kozossegi" style="max-width:35%;">       
