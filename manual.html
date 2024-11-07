@@ -42,13 +42,20 @@
     <h2>Tartalomjegyzék</h2>
     <ul class="toc">
         <li><a href="#login">Bejelentkezési és regisztrációs képernyők</a></li>
-        <li><a href="#main-features">Fő funkciók</a>
+    <li><a href="#shopping-list">Bevásárlólista</a></li>
+    <li><a href="#items-on-list">Termékek megjelenítése a listán</a></li>
+    <li><a href="#list-sync">Lista szinkronizálása és megosztása</a></li>
+    <li><a href="#dynamic-recommendations">Dinamikus ajánlások</a></li>
+    <li><a href="#location-features">Helymeghatározás alapú funkciók</a></li>
+    <li><a href="#stock monitoring">Készletfigyelés</a></li>
+    <li><a href="#items">Termékek</a></li>
+    <li><a href="#social-functions">Közösségi funkciók</a></li>
+    <li><a href="#recipes">Receptek</a></li>
     </ul>
     <br>
     <br>
     
-    <!-- Bejelentkezési és regisztrációs képernyők -->
-    <h2 id="login">Bejelentkezési és regisztrációs képernyők</h2>
+    <h1 id="login">Bejelentkezési és regisztrációs képernyők</h1>
     <p>A SmartCart alkalmazás elindítása után a login panel felületét látják. Itt regisztrálhatnak meguknak felhasználót, vagy bejelentkezhetnek egy már meglévőbe.</p>
 
     <h3>Bejelentkezés</h3>
@@ -82,72 +89,114 @@
     <br>
     <br>
 
-    <!-- Fő funkciók -->
-    <h2 id="main-features">Fő funkciók</h2>
-    <h3 id="shopping-list">Bevásárlólista</h3>
+
+    <h1>Fő funkciók</h1>
+    <h2 id="shopping-list">1. Bevásárlólista</h3>
     <p>A bevásárlólista funkció lehetővé teszi a felhasználók számára, hogy listát készítsenek a vásárolni kívánt termékekről. Az alábbi lehetőségek állnak rendelkezésre:</p>
     <ul>
-        <li><strong>Termék neve és mennyisége</strong> – A felhasználók megadhatják a termék nevét és mennyiségét, majd a "Hozzáadás" gombbal felvehetik a listára.</li>
-        <li><strong>Termékek megjelenítése</strong> – A listán lévő termékek mennyiséggel együtt jelennek meg.</li>
+        <h3>Termék neve és mennyisége</h3>
+            <ul>
+                <li>A felhasználók egy szövegmezőben beírhatják a termék nevét és egy külön mezőben a mennyiséget.</li>
+                <li>A "Hozzáadás" gomb megnyomásával a termék és a mennyiség bekerül a listára.</li>
+                <br>
+                <li><strong>Validáció</strong>: Üres mező esetén a "Hozzáadás" gomb nem elérhető, figyelmeztetés nem jelenik meg.</li>
+                <li><strong>Egység kiválasztása</strong>: A mennyiséghez választható egységek (pl. darab, kg, liter) legördülő menüből választhatók ki.</li>
+            </ul>
+        </li>
+    </ul>
+    <br>
+
+    <h2 id="items-on-list">2. Termékek megjelenítése a listán</h2>
+    <ul>
+        <h3>Listanézet</h3>
+            <ul>
+                <li>A bevásárlólistán szereplő termékek és azok mennyisége táblázatos formában jelennek meg.</li>
+                <li>Minden tételnél legyen egy kis ikon vagy jelzés az egység típusához <em>(pl.: darab, kg).</em> </li>
+            </ul>
+        </li>
+        <br>
+            <ul>
+                <li><strong>Tételek szerkesztése</strong>: Az adott termék kiválasztása után a felhasználó módosíthatja a nevét és a mennyiségét, majd egy <em>"Mentés" </em>gombbal frissítheti a listán.</li>
+                <li><strong>Tételek törlése</strong>: A törlés ikon vagy gomb lehetővé teszi a felhasználónak, hogy eltávolítsa a terméket a listáról.</li>
+            </ul>
+        </li>
+    </ul>
+    <br>
+
+    <h2 id="list-sync">3. Lista szinkronizálása és megosztása</h2>
+    <ul>
+        <li><strong>Lista mentése és szinkronizálása</strong>: A lista automatikusan mentésre kerül a felhasználó profiljához, és több eszköz között is szinkronizálható legyen.</li>
+        <li><strong>Közös lista használata</strong>: A felhasználók meghívhatnak másokat a bevásárlólistához, és valós idejű szerkesztés válik lehetővé. Ha egy tételt hozzáadnak vagy módosítanak, az azonnal frissül minden csatlakoztatott eszközön.</li>
     </ul>
 
-
-    <h3>Táplálkozási adatok</h3>
-    <p>A SmartCart táplálkozási adatokat is biztosít a felhasználók számára:</p>
+    <h2 id="dynamic-recommendations">4. Dinamikus ajánlások</h2>
     <ul>
-        <li><strong>Kalória és tápanyag tartalom</strong> – A felhasználók nyomon követhetik a napi kalória-, fehérje-, szénhidrát- és zsírbevitelüket.</li>
-        <li><strong>Részletes adatok</strong> – A "Részletes adatok" gomb megnyomásával a felhasználók részletes információkat kapnak az egyes tápanyagok arányairól.</li>
+        <h3>Ajánlások korábbi listák alapján</h3>
+            <ul>
+                <li>A rendszer javaslatokat kínál korábbi bevásárlólisták alapján egy adatbázisból, figyelve a szezonális vagy rendszeresen vásárolt termékek fajtáját.</li>
+                <li>Ezek az ajánlások az <em>"Ajánlott termékek"</em> szekcióban jelenhetnek meg, és akár egy kattintással hozzáadhatók a bevásárlólistához.</li>
+            </ul>
+        </li>
         <br>
         <img src="screenshots/app_taplalkozasiadatok.png" alt="taplalkozasiadatok" style="max-width:35%;">
         <br>
         <br>
     </ul>
 
-    <h3>Helymeghatározás alapú funkciók</h3>
-    <p>A helymeghatározás alapú funkciók segítségével a SmartCart alkalmazás személyre szabott ajánlatokat és navigációt biztosít a felhasználók számára:</p>
+    <h2 id="location-features">5. Helymeghatározás alapú funkciók</h2>
     <ul>
-        <li><strong>Bolti ajánlatok megjelenítése</strong> – Az alkalmazás megmutatja a felhasználók közelében lévő boltok aktuális akcióit, figyelembe véve a helymeghatározás adatait.</li>
-        <li><strong>Üzletek elérhetőségei és térképnézet</strong> – Az alkalmazás térképet és műholdas nézetet kínál, hogy a felhasználók könnyen tájékozódhassanak az üzletek pontos helyéről.</li>
-        <br>
-        <img src="screenshots/app_helyalapu.png" alt="helyalapu" style="max-width:35%;">
-        <br>
-        <br>
+    <h3>Boltok, bolti ajánlatok megjelenítése</h3>
+    
+        <li><strong>Automatikus ajánlatok</strong>: Az alkalmazás a felhasználó jelenlegi helyzetének meghatározásával (hálózati alapú GPS helymeghatározás) automatikusan megkeresi a közelben található szupermarketeket, boltokat.</li>
+        <li><strong>Akciók listája</strong>: Az alkalmazás lekéri az adott bolt adatbázisából az aktív akciókat, és megjeleníti azokat kártya nézetben.</li>
+        <li><strong>Személyre szabott ajánlások</strong>: Az alkalmazás figyelembe veszi a felhasználó korábbi vásárlási szokásait, és ezek alapján kiemelt ajánlatokat jelenít meg a közelben lévő boltok kínálatából.</li>
     </ul>
 
-    <h3 id="inventory-tracking">Készletfigyelés</h3>
-    <p>A készletfigyelés funkcióval a felhasználók nyomon követhetik az otthoni termékek készletét és azok lejárati idejét:</p>
+    <h3>Üzletek elérhetőségei és térképnézet</h3>
     <ul>
-        <li><strong>Lejárati figyelmeztetés</strong> – A rendszer figyelmeztetést ad, ha egy termék hamarosan lejár, például "2 nap múlva lejár" jelzéssel, piros színnel kiemelve.</li>
-        <li><strong>Kifogyási állapot</strong> – Ha egy termék kifogyóban van, a rendszer "Kifogyóban" státusszal jelzi, szintén kiemelve.</li>
-        <li><strong>Készlet frissítése</strong> – A "Készlet frissítése" gomb segítségével a felhasználók manuálisan frissíthetik a készlet állapotát.</li>
-       
+        <li><strong>Interaktív térkép</strong>: A térképen megjelennek a felhasználó közelében lévő boltok ikonokkal jelölve. Az ikonok függnek az bolt fajtájától <em>(pl.: szupermarket, vegyesbolt)</em></li>
+        <li><strong>Navigációs opciók</strong>: A felhasználók rákattinthatnak az egyes boltok ikonjaira, ahol részletes információkat láthatnak, például a bolt pontos címe, nyitvatartási idő, elérhetőségek.</li>
+        <li><strong>Térkép- és műholdas nézet váltás</strong>: Az alkalmazás támogatja a térkép- és műholdas nézet közötti váltást egy jobb sarokban található gombbal, hogy a felhasználók a számukra szimpatikusabb nézetet használhassák.</li>
+        <li><strong>Útvonaltervezés</strong>: Az alkalmazásba integrált térkép API lehetőséget biztosít az útvonaltervezésre is, így a felhasználó könnyen megtalálhatja az útvonalat a választott bolt felé.</li>
     </ul>
+    <br>
 
-    <h3 id="product-prices">Termékek</h3>
-    <p>A Termékek funkció lehetővé teszi a felhasználók számára, hogy gyorsan áttekintsék az egyes termékek árát:</p>
+    <h2 id="stock monitoring">6. Készletfigyelés</h2>
     <ul>
-        <li><strong>Terméklista</strong> – A felhasználók láthatják az otthon elérhető termékek nevét és árát egy egyszerű listában, például "Tej – 300 Ft", "Kenyér – 150 Ft", stb.</li>
-        <li><strong>Költséghatékony vásárlás</strong> – Az aktuális árak megjelenítésével a felhasználók könnyen átláthatják, mely termékek vannak raktáron, és milyen költségekkel kell számolniuk a bevásárlás során.</li>
-     <br>
-        <img src="screenshots/app_termerkek.png" alt="termekek" style="max-width:35%;">
+        <li><strong>Lejárati figyelmeztetés:</strong> A rendszer automatikusan figyeli a termékek felhasználó által megadott lejárati idejét, és figyelmeztetést küld, ha egy termék hamarosan lejár.</li>
+        <li>Pl.: <em>"2 nap múlva lejár"</em> jelzés piros színnel kiemelve, hogy a felhasználó gyorsan észrevegye.</li>
         <br>
-        <br>
+        <li><strong>Kifogyási állapot:</strong> Ha egy termék közel áll a kifogyáshoz, a rendszer "Kifogyóban" státusszal jelzi ezt a felhasználónak. A <em>"Kifogyóban"</em> státusz szintén kiemelve jelenik meg, piros vagy más figyelemfelkeltő színnel.</li>
+        <li><strong>Készlet frissítése:</strong> A <em>"Készlet frissítése"</em> gomb lehetőséget biztosít a felhasználóknak, hogy manuálisan frissítsék a készlet állapotát. A gomb megnyomásával a rendszer újraellenőrzi a készlet adatait, és frissíti a státuszokat.</li>
+    </ul>
+    <br>
+
+    <h2 id="items">7. Termékek</h2>
+    <ul>
+        <li><strong>Terméklista:</strong> A felhasználók láthatják a manuálisan szerkeszthető táblázatban az otthon elérhető termékek nevét és árát.</li>
+        <li>Pl.:<em>"Tej – 300 Ft", "Kenyér – 150 Ft", "Sajt – 500 Ft".</em></li>
+    <br>
+        <li>Ez a lista vizuálisan jól elkülöníthető elemekből álljon, például sorokba rendezve, ahol a termék neve és ára külön oszlopban jelenik meg.</li>
+    <br>
+        <li><strong>Költséghatékony vásárlás:</strong> Az aktuális árak megjelenítése segíti a felhasználókat a költségek áttekintésében, így könnyen tervezhetik meg a következő bevásárlást. A felhasználók számára világosan látszik, mely termékek állnak rendelkezésre otthon, és azok ára a választott boltban, ami segít a vásárlási döntések meghozatalában.</li>
     </ul>
     
-    <h3>Közösségi funkciók</h3>
-    <p>A SmartCart közösségi funkciói lehetővé teszik a felhasználók számára, hogy megoszthassák vásárlási és táplálkozási adataikat barátaikkal:</p>
+    <h2 id="social-functions">8. Közösségi funkciók</h2>
     <ul>
-        <li><strong>Barátok meghívása</strong> – A felhasználók meghívhatják barátaikat az alkalmazás használatára.</li>
-        <li><strong>Recept megosztása</strong> – Lehetőség van saját receptek megosztására.</li>
-        <li><strong>Akció megosztása</strong> – Az aktuális akciókat is megoszthatják ismerőseikkel.</li>
-        <li><strong>Közös lista</strong> – A közös lista használata lehetővé teszi a közös bevásárlólista kezelését egy háztartáson belül.</li>
+        <li><strong>Barátok meghívása: </strong>A felhasználók meghívhatják barátaikat az alkalmazás használatára egy linkkel társított meghívó küldésével (pl.: SMS, iMessage, Messenger, stb), ami az alkalmazás App Store vagy Google Play oldalára irányítja a meghívottat. Amikor a meghívott személy regisztrál a kapot linken, automatikusan hozzáadódik a meghívó felhasználó barátai közé és egyből lehetővé téve a közös funkciók használatát.</li>
+    <br>
+        <li><strong>Recept megosztása:</strong> A felhasználók megoszthatják saját receptjeiket a barátaikkal vagy nyilvánosan az alkalmazás receptmegosztó felületén. A recept tartalmazza a hozzávalókat, az elkészítési időt, és a részletes lépéseket. Megosztás előtt a felhasználó választhat olyan opciót, hogy a recept privát vagy nyilvános legyen.</li>
+    <br> 
+        <li><strong>Akció megosztása:</strong> A felhasználók küldhetnek értesítőt a barátaiknak az aktuális akciókról, amelyeket az alkalmazás helymeghatározás alapján megjelenít. Az akció megosztásakor a felhasználók hozzáadhatják az akció részleteit, például a termék nevét, árát, és az akció végének dátumát. Az akciókat közvetlen üzenetként is megoszthatják a barátaikkal az alkalmazáson belül privát chatablak nyitásával.</li>
+    <br> 
+        <li><strong>Közös lista:</strong> A közös bevásárlólista funkció lehetővé teszi, hogy a felhasználók akár egy háztartáson belül közösen kezeljék ugyanazt bevásárlólistát. A listához minden felhasználó hozzáadhat és eltávolíthat tételeket, amelyek azonnal szinkronizálódnak minden csatlakoztatott felhasználó eszközén. A közös lista frissítése során az alkalmazás értesítést küld a többi felhasználónak a változásokról, így mindenki naprakész marad.</li>
     </ul>
 
-    <h3>Receptek</h3>
-    <p>A SmartCart alkalmazás recept funkciójával a felhasználók létrehozhatnak és megoszthatnak saját receptjeiket:</p>
+    <h2 id="recipes">9. Receptek</h2>
     <ul>
-        <li><strong>Új recept hozzáadása</strong> – A felhasználók új recepteket vihetnek fel az alkalmazásba manuálisan.</li>
-        <li><strong>Recept böngészése</strong> – A felhasználók böngészhetnek a már megosztott recepek között, vagy interneteléréssel újakat kereshetnek.
-        <br>
-        <br>
+        <li><strong>Új recept hozzáadása: </strong> A felhasználók manuálisan vihetnek fel új recepteket, megadva a recept nevét, hozzávalókat, elkészítési időt és lépésről-lépésre történő útmutatót. A felhasználó hozzáadhat képeket is a recepthez, hogy vizuálisan is megjelenítse az elkészítési folyamatot vagy a kész ételt. A mentett receptek a felhasználó profiljához kapcsolódnak, így könnyen elérhetők a későbbiekben is.</li>
+    <br>
+        <li><strong>Recept böngészése:</strong> A felhasználók böngészhetnek a mások által megosztott receptek között, kategóriák vagy népszerűség szerint szűrve a találatokat. Ha internetkapcsolatuk van, a felhasználók külső weboldalról is kereshetnek akár új recepteket, amelyek könnyedén hozzáadhatók az alkalmazás receptjeihez. Minden recepthez tartoznak értékelések és hozzászólások, így a felhasználók megoszthatják tapasztalataikat és ötleteiket a közösséggel.</li>
+    </ul>
+    <br>
         <img src="screenshots/app_kozossegi.png" alt="kozossegi" style="max-width:35%;">       
