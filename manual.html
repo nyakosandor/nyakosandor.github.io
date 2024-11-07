@@ -44,6 +44,7 @@
         <li><a href="#login">Bejelentkezési és regisztrációs képernyők</a></li>
     <li><a href="#shopping-list">Bevásárlólista</a></li>
     <li><a href="#items-on-list">Termékek megjelenítése a listán</a></li>
+    <li><a href="#nutritional-data">Táplálkozási adatok</a></li> 
     <li><a href="#list-sync">Lista szinkronizálása és megosztása</a></li>
     <li><a href="#dynamic-recommendations">Dinamikus ajánlások</a></li>
     <li><a href="#location-features">Helymeghatározás alapú funkciók</a></li>
@@ -123,13 +124,24 @@
     </ul>
     <br>
 
-    <h2 id="list-sync">3. Lista szinkronizálása és megosztása</h2>
+    <h2 id="nutritional-data">3. Táplálkozási adatok</h2>
+    <ul>
+        <li><strong>Kalóriabevitel és cél:</strong>: A felhasználók láthatják az aznapi kalóriabevitelüket és a kitűzött napi kalóriacéljukat. Az alkalmazás automatikusan frissíti a bevitt kalóriákat az elfogyasztott ételek alapján.</li>
+        <li><strong>Makrotápanyagok nyomon követése:</strong>: A felhasználók számára megjelenik a fehérje, szénhidrát és zsír bevitel aktuális mennyisége és a célérték. Ez segít a felhasználóknak az étrendjük optimalizálásában.</li>
+        <li><strong>Részletes adatok megtekintése:</strong>: Egy <em>"Részletes adatok"</em> gomb megnyomásával a felhasználók további táplálkozási információkat kaphatnak, például az étkezések részleteit, napi trendeket és heti összegzést.</li>
+        <br>
+        <img src="screenshots/app_taplalkozasiadatok.png" alt="taplalkozasiadatok" style="max-width:35%;">
+        <br>
+        <br>
+    </ul>
+
+    <h2 id="list-sync">4. Lista szinkronizálása és megosztása</h2>
     <ul>
         <li><strong>Lista mentése és szinkronizálása</strong>: A lista automatikusan mentésre kerül a felhasználó profiljához, és több eszköz között is szinkronizálható legyen.</li>
         <li><strong>Közös lista használata</strong>: A felhasználók meghívhatnak másokat a bevásárlólistához, és valós idejű szerkesztés válik lehetővé. Ha egy tételt hozzáadnak vagy módosítanak, az azonnal frissül minden csatlakoztatott eszközön.</li>
     </ul>
 
-    <h2 id="dynamic-recommendations">4. Dinamikus ajánlások</h2>
+    <h2 id="dynamic-recommendations">5. Dinamikus ajánlások</h2>
     <ul>
         <h3>Ajánlások korábbi listák alapján</h3>
             <ul>
@@ -138,18 +150,19 @@
             </ul>
         </li>
         <br>
-        <img src="screenshots/app_taplalkozasiadatok.png" alt="taplalkozasiadatok" style="max-width:35%;">
-        <br>
-        <br>
     </ul>
 
-    <h2 id="location-features">5. Helymeghatározás alapú funkciók</h2>
+    <h2 id="location-features">6. Helymeghatározás alapú funkciók</h2>
     <ul>
     <h3>Boltok, bolti ajánlatok megjelenítése</h3>
     
         <li><strong>Automatikus ajánlatok</strong>: Az alkalmazás a felhasználó jelenlegi helyzetének meghatározásával (hálózati alapú GPS helymeghatározás) automatikusan megkeresi a közelben található szupermarketeket, boltokat.</li>
         <li><strong>Akciók listája</strong>: Az alkalmazás lekéri az adott bolt adatbázisából az aktív akciókat, és megjeleníti azokat kártya nézetben.</li>
         <li><strong>Személyre szabott ajánlások</strong>: Az alkalmazás figyelembe veszi a felhasználó korábbi vásárlási szokásait, és ezek alapján kiemelt ajánlatokat jelenít meg a közelben lévő boltok kínálatából.</li>
+        <br>
+        <img src="screenshots/app_helyalapu.png" alt="helyalapu" style="max-width:35%;">
+        <br>
+        <br>
     </ul>
 
     <h3>Üzletek elérhetőségei és térképnézet</h3>
@@ -161,7 +174,7 @@
     </ul>
     <br>
 
-    <h2 id="stock monitoring">6. Készletfigyelés</h2>
+    <h2 id="stock monitoring">7. Készletfigyelés</h2>
     <ul>
         <li><strong>Lejárati figyelmeztetés:</strong> A rendszer automatikusan figyeli a termékek felhasználó által megadott lejárati idejét, és figyelmeztetést küld, ha egy termék hamarosan lejár.</li>
         <li>Pl.: <em>"2 nap múlva lejár"</em> jelzés piros színnel kiemelve, hogy a felhasználó gyorsan észrevegye.</li>
@@ -171,7 +184,7 @@
     </ul>
     <br>
 
-    <h2 id="items">7. Termékek</h2>
+    <h2 id="items">8. Termékek</h2>
     <ul>
         <li><strong>Terméklista:</strong> A felhasználók láthatják a manuálisan szerkeszthető táblázatban az otthon elérhető termékek nevét és árát.</li>
         <li>Pl.:<em>"Tej – 300 Ft", "Kenyér – 150 Ft", "Sajt – 500 Ft".</em></li>
@@ -179,9 +192,13 @@
         <li>Ez a lista vizuálisan jól elkülöníthető elemekből álljon, például sorokba rendezve, ahol a termék neve és ára külön oszlopban jelenik meg.</li>
     <br>
         <li><strong>Költséghatékony vásárlás:</strong> Az aktuális árak megjelenítése segíti a felhasználókat a költségek áttekintésében, így könnyen tervezhetik meg a következő bevásárlást. A felhasználók számára világosan látszik, mely termékek állnak rendelkezésre otthon, és azok ára a választott boltban, ami segít a vásárlási döntések meghozatalában.</li>
+    <br>
+    <img src="screenshots/app_termerkek.png" alt="termekek" style="max-width:35%;">
+    <br>
+    <br>
     </ul>
     
-    <h2 id="social-functions">8. Közösségi funkciók</h2>
+    <h2 id="social-functions">9. Közösségi funkciók</h2>
     <ul>
         <li><strong>Barátok meghívása: </strong>A felhasználók meghívhatják barátaikat az alkalmazás használatára egy linkkel társított meghívó küldésével (pl.: SMS, iMessage, Messenger, stb), ami az alkalmazás App Store vagy Google Play oldalára irányítja a meghívottat. Amikor a meghívott személy regisztrál a kapot linken, automatikusan hozzáadódik a meghívó felhasználó barátai közé és egyből lehetővé téve a közös funkciók használatát.</li>
     <br>
@@ -192,7 +209,7 @@
         <li><strong>Közös lista:</strong> A közös bevásárlólista funkció lehetővé teszi, hogy a felhasználók akár egy háztartáson belül közösen kezeljék ugyanazt bevásárlólistát. A listához minden felhasználó hozzáadhat és eltávolíthat tételeket, amelyek azonnal szinkronizálódnak minden csatlakoztatott felhasználó eszközén. A közös lista frissítése során az alkalmazás értesítést küld a többi felhasználónak a változásokról, így mindenki naprakész marad.</li>
     </ul>
 
-    <h2 id="recipes">9. Receptek</h2>
+    <h2 id="recipes">10. Receptek</h2>
     <ul>
         <li><strong>Új recept hozzáadása: </strong> A felhasználók manuálisan vihetnek fel új recepteket, megadva a recept nevét, hozzávalókat, elkészítési időt és lépésről-lépésre történő útmutatót. A felhasználó hozzáadhat képeket is a recepthez, hogy vizuálisan is megjelenítse az elkészítési folyamatot vagy a kész ételt. A mentett receptek a felhasználó profiljához kapcsolódnak, így könnyen elérhetők a későbbiekben is.</li>
     <br>
