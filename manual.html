@@ -1,1033 +1,219 @@
 <!DOCTYPE html>
 <html lang="hu">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SRS dokumentumok</title>
+    <title>SmartCart Felhasználói Dokumentáció</title>
     <style>
         body {
             font-family: Arial, sans-serif;
             padding: 20px;
-            line-height: 1.6;
             margin-left: 350px;
             margin-right: 350px;
             background: linear-gradient(to right, rgb(239, 193, 108), white);
         }
-
-        h1, h2, h3, h4 {
+        h1, h2, h3 {
             color: #ff5100;
         }
-
-        .toc a {
+        p {
+            line-height: 1.6;
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        ul.toc li {
+            margin-bottom: 5px;
+        }
+        ul.toc a {
+            color: #3700ff;
             text-decoration: none;
-            color: #4a90e2;
         }
-
-        .toc a:hover {
+        ul.toc a:hover {
             text-decoration: underline;
-        }
-
-        .toc {
-            margin-bottom: 30px;
-        }
-
-        .section {
-            margin-top: 20px;
         }
     </style>
 </head>
-
 <body>
-    <h1>SRS Dokumentum</h1>
 
-    <div class="toc">
-        <h2>Tartalomjegyzék</h2>
-
-        <p><a href="#bevezetes">1. Bevezetés</a></p>
-        <p><a href="#attekintes">2. Áttekintés</a></p>
-        <p><a href="#rendszerfunkciok">3. Rendszer funkciói</a></p>
-        <ul>
-            <p><a href="#3.1">3.1 Bevásárlólisták kezelése</a></p>
-            <p><a href="#3.2">3.2 Készletkezelés és figyelmeztetések</a></p>
-            <p><a href="#3.3">3.3 Ár-összehasonlítás</a></p>
-            <p><a href="#3.4">3.4 Táplálkozási- és kalóriafigyelés</a></p>
-            <p><a href="#3.5">3.5 Helymeghatározás alapú funkciók</a></p>
-            <p><a href="#3.6">3.6 Receptekkel kapcsolatos funkciók</a></p>
-            <p><a href="#3.7">3.7 Közösségi funkciók</a></p>
-        </ul>    
-        <p><a href="#hasznalhatosag">4. Használhatóság</a></p>
-        <p><a href="#megbizhatosag">5. Megbízhatóság</a></p>
-        <p><a href="#teljesitmeny">6. Teljesítmény</a></p>
-        <p><a href="#tamogatottsag">7. Támogatottság</a></p>
-        <p><a href="#tervezesi-korlatozasok">8. Tervezési korlátozások</a></p>
-        <p><a href="#online-dokumentacio">9. Online dokumentáció</a></p>
-        <p><a href="#felhasznalt-komponensek">10. Felhasznált kész komponensek</a></p>
-        <p><a href="#interfeszek">11. Interfészek</a></p>
-        <p><a href="#alkalmazasi-szabalyok">12. Alkalmazási szabályok</a></p>
-        <p><a href="#mellekletek">13. Mellékletek</a></p>
-
-    </div>
-
-    <!--1. Bevezetes-->
-    <div class="section" id="bevezetes">
-        <h2>1. Bevezetés</h2>
-
-        <h3>1.1 Célkitűzés</h3>
-        <p>A szoftver célja hogy a felhasználók bevásárlásaik és készleteik kezelését egyszerűbbé, átláthatóbbá és
-            hatékonyabbá tegye. A dinamikus ajánlások, ár-összehasonlítás és táplálkozási figyelés révén a felhasználók
-            időt és pénzt spórolhatnak, valamint egészségesebb döntéseket hozhatnak.</p>
-
-        <h3>1.2 Probléma megfogalmazása</h3>
-        <p>Sok felhasználó nehezen követi nyomon a háztartási készleteit, és gyakran szembesül azzal, hogy egyes
-            termékek lejárnak vagy elfogynak. Az árak összehasonlítása és az akciók keresése szintén időigényes.
-            Emellett a közös bevásárlólisták kezelése és a táplálkozási szokások figyelése nehézséget jelenthet,
-            különösen több személy részvételével.</p>
-
-        <h3>1.3 Célközönség</h3>
-        <p>Az alkalmazást elsősorban azoknak a felhasználóknak szánjuk, akik rendszeresen vásárolnak és szeretnék
-            egyszerűsíteni a bevásárlással kapcsolatos teendőket. Családok, párok, valamint egészségtudatos emberek
-            számára különösen hasznos, de általánosan
-            bárki számára előnyt jelenthet.</p>
-
-    </div>
+    <h1>SmartCart Felhasználói Dokumentáció</h1>
+    
+    <!-- Tartalomjegyzék -->
+    <h2>Tartalomjegyzék</h2>
+    <ul class="toc">
+        <li><a href="#login">Bejelentkezési és regisztrációs képernyők</a></li>
+    <li><a href="#shopping-list">Bevásárlólista</a></li>
+    <li><a href="#items-on-list">Termékek megjelenítése a listán</a></li>
+    <li><a href="#nutritional-data">Táplálkozási adatok</a></li> 
+    <li><a href="#list-sync">Lista szinkronizálása és megosztása</a></li>
+    <li><a href="#dynamic-recommendations">Dinamikus ajánlások</a></li>
+    <li><a href="#location-features">Helymeghatározás alapú funkciók</a></li>
+    <li><a href="#stock monitoring">Készletfigyelés</a></li>
+    <li><a href="#items">Termékek</a></li>
+    <li><a href="#social-functions">Közösségi funkciók</a></li>
+    <li><a href="#recipes">Receptek</a></li>
+    </ul>
     <br>
     <br>
-    <!--2. Attekintes-->
-    <div class="section" id="attekintes">
-        <h2>2. Áttekintés</h2>
-
-        <h3>2.1 Termék környezete</h3>
-        <p>Az alkalmazás egy modern okostelefonos platformra épül, iOS és Android operációs rendszerekre optimalizáltan.
-            Működéséhez internetkapcsolat szükséges, mivel adatokat tölt le különböző forrásokból, mint például üzleti
-            akciók és ár-összehasonlító rendszerek. A felhasználók személyes eszközeik (telefonok, tabletek)
-            segítségével érik el, és a közösségi interakció lehetőségét is kihasználhatják</p>
-
-        <h3>2.2 Legfontosabb funkciók</h3>
-        <ul>
-            <li>Bevásárlólisták kezelése: Dinamikusan frissíthető és kategorizálható bevásárlólisták, amelyek segítik a
-                vásárlás folyamatát.</li>
-            <li>Készletfigyelés: A felhasználók nyomon követhetik otthoni készleteiket, és értesítéseket kapnak a
-                kifogyó vagy lejáró termékekről.</li>
-            <li>Ár-összehasonlítás: Különböző üzletek árait hasonlítja össze, hogy a felhasználók megtalálják a legjobb
-                ajánlatokat.</li>
-            <li>Táplálkozási és kalóriafigyelés: Az alkalmazás segíti az egészséges étrend kialakítását
-                kalóriaszámlálással és táplálkozási </li>adatokkal.
-            <li>Receptek és közösségi interakció: Felhasználók recepteket oszthatnak meg, és bevásárlólistákat
-                használhatnak közösen.</li>
-        </ul>
-
-        <h3>2.3 A felhasználók jellemzői</h3>
-        <p>A célközönség olyan felhasználók, akik rendszeresen bevásárolnak és figyelmet fordítanak háztartásuk
-            készleteire, egészséges életmódra törekednek, vagy átláthatóbbá szeretnék tenni bevásárlási szokásaikat.
-            Ezen felhasználók gyakran közösségben élnek, mint családok vagy párok, akik a közös bevásárlólisták és
-            készletkezelés funkciókat kihasználják.</p>
-
-        <h3>2.4 Korlátozások</h3>
-        <ul>
-            <li>Internetes kapcsolat szükségessége: Az alkalmazás számos funkciója, mint például az ár-összehasonlítás
-                és akciók megjelenítése internetkapcsolatot igényel. </li>
-            <li>Adatvédelmi követelmények: A felhasználói szokások figyelése és a helymeghatározás alkalmazása
-                adatvédelmi kihívásokat jelenthet.</li>
-            <li>Korlátozott platform támogatás: Csak iOS és Android rendszereken működik.</li>
-        </ul>
-
-        <h3>Feltételezések és függőségek</h3>
-        <ul>
-            <li>Adatforrások: Az árak és akciók megjelenítéséhez külső forrásokhoz (üzletek adatbázisaihoz) szükséges
-                hozzáférés.</li>
-            <li>Felhasználói szokások: Az alkalmazás a felhasználók viselkedéséből származó adatokat használ, hogy
-                dinamikus ajánlásokat tegyen, feltételezve, hogy ezek az adatok elérhetők.</li>
-            <li>Eszköz kompatibilitás: Feltételezzük, hogy a felhasználók rendelkeznek olyan eszközökkel, amelyek
-                támogatják az alkalmazás futtatását (okostelefon vagy tablet internetkapcsolattal).</li>
-        </ul>
-
-        <h3>2.6 A követelmények csoportosításának szempontjai</h3>
-        <p>A követelményeket a következő csoportokba soroljuk:</p>
-        <ul>
-            <li>Funkcionális követelmények: Ide tartoznak az alkalmazás alapvető funkciói, mint a bevásárlólisták
-                kezelése, készletfigyelés ár-összehasonlítás, stb. </li>
-            <li>Nem funkcionális követelmények: Teljesítménnyel, biztonsággal, adatvédelemmel kapcsolatos elvárások.
-            </li>
-            <li>Külső interfészek: A szoftver kapcsolódása külső rendszerekhez (pl. ár-adatbázisok, boltok API-jai).
-            </li>
-            <li>Korlátozások: Az alkalmazás működési korlátai, mint például a platformtámogatás és a szükséges eszközök.
-            </li>
-        </ul>
-    </div>
-    <br>
-    <br>
-    <!-- 3. Rendszer funkciói -->
-    <div class="section" id="rendszerfunkciok">
-        <h2>3. Rendszer funkciói</h2>
-
-        <h2 id="3.1">3.1 Bevásárlólisták kezelése</h2>
-<p><strong>Leírás:</strong> Dinamikusan frissíthető és kategorizálható bevásárlólisták, amelyek segítik a vásárlás folyamatát.</p>
-
-<h3>3.1.1 Lista létrehozása és szerkesztése</h3>
-<ul>
-    <li><strong>Felhasználói műveletek:</strong> 
-        <ul>
-            <li>A felhasználó új bevásárlólistát hozhat létre egy megadott névvel (pl. "Hétvégi bevásárlás"), és kiválaszthat egy kategóriát (pl. élelmiszerek, háztartási cikkek).</li>
-            <li>Lista meglévő elemeinek szerkesztése, pl. név, kategória módosítása.</li>
-        </ul>
-    </li>
-    <li><strong>Bemenetek:</strong> Lista neve, kategória választása.</li>
-    <li><strong>Érvényesítések:</strong> 
-        <ul>
-            <li>A lista neve nem lehet üres, legalább 3 karakterből kell állnia.</li>
-            <li>Kategória kiválasztása kötelező.</li>
-        </ul>
-    </li>
-    <li><strong>Kimenetek és állapotváltozás:</strong> Új lista megjelenítése a fő képernyőn, frissített lista állapota és szerkesztett adatok tárolása.</li>
-</ul>
-
-<h3>3.1.2 Termékek hozzáadása és eltávolítása</h3>
-<ul>
-    <li><strong>Felhasználói műveletek:</strong> 
-        <ul>
-            <li>Új termék hozzáadása a listához név, kategória, mennyiség és egység megadásával.</li>
-            <li>Már meglévő termékek mennyiségének és adataiknak szerkesztése.</li>
-            <li>Termékek törlése a listából.</li>
-        </ul>
-    </li>
-    <li><strong>Bemenetek:</strong> Terméknév, kategória, mennyiség, egység.</li>
-    <li><strong>Érvényesítések:</strong> 
-        <ul>
-            <li>A terméknév legalább 2 karakter hosszú legyen.</li>
-            <li>Mennyiség pozitív szám, egység megadása kötelező.</li>
-        </ul>
-    </li>
-    <li><strong>Kimenetek és állapotváltozás:</strong> A lista azonnali frissítése a fő képernyőn, eltávolított termékek törlése a memóriából.</li>
-</ul>
-
-<h3>3.1.3 Közös lista használata</h3>
-<ul>
-    <li><strong>Felhasználói műveletek:</strong> 
-        <ul>
-            <li>A felhasználó megoszthatja a listát ismerősökkel (e-mail vagy alkalmazáson belüli meghívó küldésével).</li>
-            <li>Meghívott felhasználók a saját eszközeiken megtekinthetik, szerkeszthetik és bővíthetik a megosztott listát.</li>
-        </ul>
-    </li>
-    <li><strong>Bemenetek:</strong> Meghívott felhasználó e-mail címe, jogosultságok beállítása (pl. csak megtekintés vagy szerkesztés engedélyezése).</li>
-    <li><strong>Érvényesítések:</strong> 
-        <ul>
-            <li>Érvényes e-mail cím szükséges meghívás esetén.</li>
-            <li>A meghívott felhasználó alkalmazásfiókkal rendelkezzen.</li>
-        </ul>
-    </li>
-    <li><strong>Kimenetek és állapotváltozás:</strong> Meghívó küldése, listán belüli változtatások valós idejű szinkronizálása az összes meghívott eszközön.</li>
-</ul>
-
-<h3>3.1.4 Automatikus frissítések</h3>
-<ul>
-    <li><strong>Leírás:</strong> A rendszer automatikusan frissíti a bevásárlólistát, figyelembe véve a felhasználó korábbi vásárlásait és a készleten lévő termékek állapotát.</li>
-    <li><strong>Felhasználói műveletek:</strong> Az alkalmazás automatikusan javaslatokat ad a felhasználó számára a listához adható termékekről a korábbi vásárlások alapján.</li>
-    <li><strong>Kimenetek:</strong> Dinamikus javaslatok megjelenítése a bevásárlólista szerkesztő képernyőn, termékek automatikus hozzáadása a listához, ha kifogynak a készletből.</li>
-</ul>
-
-<h2 id="3.2">3.2 Készletkezelés és figyelmeztetések</h2>
-<p><strong>Leírás:</strong> A rendszer segíti a felhasználókat otthoni készleteik nyilvántartásában és figyelmeztetéseket biztosít a lejáró és alacsony készletű termékekről. Emellett részletes statisztikákat nyújt a felhasználó fogyasztási szokásairól.</p>
-
-<h3>3.2.1 Termékek nyilvántartása</h3>
-<ul>
-    <li><strong>Felhasználói műveletek:</strong> 
-        <ul>
-            <li>Új termék hozzáadása a készlethez manuálisan vagy a bevásárlás során automatikusan.</li>
-            <li>Meglévő termék mennyiségének frissítése, lejárati dátum módosítása.</li>
-        </ul>
-    </li>
-    <li><strong>Bemenetek:</strong> Terméknév, kategória, mennyiség, egység, lejárati dátum.</li>
-    <li><strong>Érvényesítések:</strong> 
-        <ul>
-            <li>Terméknév nem lehet üres, és legalább 2 karakter hosszúságú.</li>
-            <li>Lejárati dátum nem lehet korábbi a jelenlegi dátumnál.</li>
-            <li>Mennyiség csak pozitív szám lehet.</li>
-        </ul>
-    </li>
-    <li><strong>Kimenetek és állapotváltozás:</strong> A rendszer tárolja a készleten lévő termékek adatait, és azok elérhetők a készlet áttekintő felületen.</li>
-</ul>
-
-<h3>3.2.2 Lejárati és kifogyási figyelmeztetések</h3>
-<ul>
-    <li><strong>Felhasználói műveletek:</strong> A rendszer automatikusan ellenőrzi a készleten lévő termékek lejárati dátumát és mennyiségét, figyelmeztetve a felhasználót, ha egy termék hamarosan lejár vagy közel van a kifogyáshoz.</li>
-    <li><strong>Értesítési feltételek:</strong> 
-        <ul>
-            <li>Ha egy termék lejárati dátuma 3 napon belül esedékes, figyelmeztető értesítést küld a rendszer.</li>
-            <li>Ha egy termék mennyisége egy előre meghatározott alacsony szint alá csökken, a rendszer kifogyási értesítést küld.</li>
-        </ul>
-    </li>
-    <li><strong>Kimenetek:</strong> 
-        <ul>
-            <li>Push értesítések a közeledő lejáratról és alacsony készletről.</li>
-            <li>Értesítések megjelenítése az alkalmazás főképernyőjén.</li>
-        </ul>
-    </li>
-</ul>
-
-<h3>3.2.3 Készletértékelés</h3>
-<ul>
-    <li><strong>Leírás:</strong> A rendszer statisztikákat készít a felhasználó fogyasztási szokásairól, bemutatva, hogy milyen termékek fogynak el gyakran, illetve melyek maradnak meg hosszabb ideig.</li>
-    <li><strong>Felhasználói műveletek:</strong> 
-        <ul>
-            <li>A felhasználó hozzáférhet havi és éves összegző statisztikákhoz a készleten lévő termékek fogyásáról.</li>
-            <li>Termékek megtekintése, amelyek gyakran fogynak el, vagy hosszabb ideig tárolva vannak.</li>
-        </ul>
-    </li>
-    <li><strong>Kimenetek:</strong> 
-        <ul>
-            <li>Diagramok és listák, amelyek bemutatják a leggyakrabban fogyó és a legritkábban használt termékeket.</li>
-            <li>Statisztikák elérhetők az alkalmazás "Készletértékelés" menüpontjában.</li>
-        </ul>
-    </li>
-</ul>
-
-<h2 id="3.3">3.3 Ár-összehasonlítás</h2>
-<p><strong>Leírás:</strong> A rendszer különböző boltokból gyűjt árakat, hogy segítse a felhasználót a vásárlás során a legjobb árak megtalálásában, akciós ajánlatok követésében, és bevásárlólistához kapcsolódó kedvező árú termékek kiválasztásában.</p>
-
-<h3>3.3.1 Termék árak megjelenítése</h3>
-<ul>
-    <li><strong>Felhasználói műveletek:</strong> 
-        <ul>
-            <li>A felhasználó megtekintheti egy adott termék aktuális árait különböző boltokból, egy áttekinthető árösszehasonlító listában.</li>
-            <li>A felhasználó szűrhet boltokra, vagy kiválaszthatja a legkedvezőbb árú lehetőséget.</li>
-        </ul>
-    </li>
-    <li><strong>Bemenetek:</strong> Terméknév vagy termékkategória kiválasztása.</li>
-    <li><strong>Érvényesítések:</strong> 
-        <ul>
-            <li>A keresett terméknek rendelkezésre kell állnia a rendszer adatbázisában ahhoz, hogy árakat tudjon megjeleníteni.</li>
-        </ul>
-    </li>
-    <li><strong>Kimenetek:</strong> 
-        <ul>
-            <li>A termék aktuális árai különböző boltokban, megjelenítve az alkalmazás árösszehasonlító felületén.</li>
-            <li>Az árak listája a felhasználó által kiválasztott szűrők alkalmazásával jelenik meg.</li>
-        </ul>
-    </li>
-</ul>
-
-<h3>3.3.2 Akciók megjelenítése</h3>
-<ul>
-    <li><strong>Felhasználói műveletek:</strong> A felhasználó értesítést kap, ha egy közeli boltban akciós a kívánt termék.</li>
-    <li><strong>Bemenetek:</strong> Felhasználói helymeghatározás (GPS vagy manuálisan megadott hely), illetve a követett termékek listája.</li>
-    <li><strong>Érvényesítések:</strong> 
-        <ul>
-            <li>Az akciós értesítések fogadásához a felhasználónak engedélyeznie kell a helymeghatározást, vagy meg kell adnia a preferált boltokat.</li>
-        </ul>
-    </li>
-    <li><strong>Kimenetek:</strong> 
-        <ul>
-            <li>Push értesítések a közeli akciókról, amelyek elérhetők a felhasználó közelében lévő boltokban.</li>
-            <li>Az értesítések megjelenítése az alkalmazás főképernyőjén is.</li>
-        </ul>
-    </li>
-</ul>
-
-<h3>3.3.3 Legjobb ajánlatok keresése</h3>
-<ul>
-    <li><strong>Leírás:</strong> A rendszer automatikusan keresésbe kezd a felhasználó bevásárlólistáján szereplő termékek legjobb árai után, és ajánlatokat javasol, hogy a felhasználó a lehető legkedvezőbb áron vásárolhassa meg a termékeket.</li>
-    <li><strong>Felhasználói műveletek:</strong> 
-        <ul>
-            <li>A felhasználó bevásárlólistáján szereplő termékekhez automatikusan megjelennek a legjobb ajánlatok.</li>
-            <li>A felhasználó kiválaszthatja a listában a legolcsóbb opciókat egy-egy termékhez, vagy a listát az árak alapján rendezheti.</li>
-        </ul>
-    </li>
-    <li><strong>Kimenetek:</strong> 
-        <ul>
-            <li>Ajánlatok és kedvezmények megjelenítése a felhasználó bevásárlólistáján.</li>
-            <li>A legjobb árak megjelölése és összegzése a végösszeg csökkentése érdekében.</li>
-        </ul>
-    </li>
-</ul>
-
-<h2 id="3.4">3.4 Táplálkozási- és kalóriafigyelés</h2>
-<p><strong>Leírás:</strong> A rendszer segíti a felhasználót táplálkozási és kalóriafigyelésben, megjeleníti a termékek tápanyagtartalmát, kalóriaszámlálást tesz lehetővé, és étkezési szokások alapján ajánl recepteket és termékeket.</p>
-
-<h3>3.4.1 Termékek tápanyagtartalmának megjelenítése</h3>
-<ul>
-    <li><strong>Felhasználói műveletek:</strong> 
-        <ul>
-            <li>A felhasználó megtekintheti a bevásárlólistán vagy a készleten lévő termékek tápanyagtartalmát, beleértve a kalória-, zsír-, fehérje- és szénhidráttartalmat.</li>
-            <li>A felhasználó szűrheti a listát tápanyagok alapján, hogy könnyen azonosítsa a számára megfelelő termékeket.</li>
-        </ul>
-    </li>
-    <li><strong>Bemenetek:</strong> Terméknév, kiválasztott tápanyag szűrés.</li>
-    <li><strong>Érvényesítések:</strong> 
-        <ul>
-            <li>A rendszer csak olyan termékekhez jelenít meg tápanyagtartalmat, amelyek rendelkeznek ezzel az információval az adatbázisban.</li>
-        </ul>
-    </li>
-    <li><strong>Kimenetek:</strong> 
-        <ul>
-            <li>A termékek tápanyagtartalmának részletes megjelenítése a bevásárlólistán vagy a készleten.</li>
-            <li>A szűrt terméklista megjelenítése tápanyagtartalom alapján.</li>
-        </ul>
-    </li>
-</ul>
-
-<h3>3.4.2 Étkezési napló</h3>
-<ul>
-    <li><strong>Felhasználói műveletek:</strong> 
-        <ul>
-            <li>A felhasználó rögzítheti napi étkezéseit, beleértve az egyes ételek és termékek tápanyagtartalmát és kalóriabevitelét.</li>
-            <li>A felhasználó napi vagy heti összefoglalót kérhet a kalóriabevitelről.</li>
-        </ul>
-    </li>
-    <li><strong>Bemenetek:</strong> Elfogyasztott termékek neve, mennyiség, és adagok száma.</li>
-    <li><strong>Érvényesítések:</strong> 
-        <ul>
-            <li>A napi kalóriabevitel rögzítéséhez minden étkezésnek tartalmaznia kell legalább egy terméket vagy receptet.</li>
-        </ul>
-    </li>
-    <li><strong>Kimenetek:</strong> 
-        <ul>
-            <li>Napi étkezési napló, amely összegzi az elfogyasztott kalóriákat és tápanyagokat.</li>
-            <li>Heti összesített kalória- és tápanyagfogyasztás grafikus megjelenítése.</li>
-        </ul>
-    </li>
-</ul>
-
-<h3>3.4.3 Ajánlások és szokások figyelése</h3>
-<ul>
-    <li><strong>Leírás:</strong> A rendszer nyomon követi a felhasználó étkezési szokásait, és ezek alapján személyre szabott recepteket és termékeket ajánl, amelyek megfelelnek a táplálkozási céloknak.</li>
-    <li><strong>Felhasználói műveletek:</strong> 
-        <ul>
-            <li>A felhasználó beállíthatja a táplálkozási céljait, pl. fogyás, izomtömeg növelés vagy egészségesebb étkezés.</li>
-            <li>Az alkalmazás automatikusan ajánlhat alacsony kalóriatartalmú, magas fehérjetartalmú vagy más táplálkozási céloknak megfelelő termékeket és recepteket.</li>
-        </ul>
-    </li>
-    <li><strong>Bemenetek:</strong> Felhasználói célok (pl. fogyás, egészséges táplálkozás), korábbi étkezési napló adatai.</li>
-    <li><strong>Kimenetek:</strong> 
-        <ul>
-            <li>Receptek és termékek ajánlása a táplálkozási célok és a felhasználói szokások alapján.</li>
-            <li>Testreszabott tippek megjelenítése a felhasználó céljainak megfelelő táplálkozási szokások kialakításához.</li>
-        </ul>
-    </li>
-</ul>
-
-<h2 id="3.5">3.5 Helymeghatározás alapú funkciók</h2>
-<p><strong>Leírás:</strong> A rendszer GPS alapú funkciókat kínál a felhasználók számára, amelyek segítségével helyalapú ajánlatokat láthatnak, és navigálhatnak a legközelebbi boltokhoz, ahol a szükséges termékek elérhetők.</p>
-
-<h3>3.5.1 Bolti ajánlatok megjelenítése</h3>
-<ul>
-    <li><strong>Felhasználói műveletek:</strong> 
-        <ul>
-            <li>A felhasználó a közelében lévő boltok aktuális ajánlatait láthatja, beleértve a bevásárlólistáján szereplő termékekre vonatkozó akciókat.</li>
-            <li>A felhasználó szűrhet boltok szerint, vagy megadhatja, hogy csak a legközelebbi üzletek ajánlatait kívánja látni.</li>
-        </ul>
-    </li>
-    <li><strong>Bemenetek:</strong> GPS helymeghatározás vagy manuálisan megadott helyszín; szűrési preferenciák (pl. üzletek vagy termékek szerint).</li>
-    <li><strong>Érvényesítések:</strong> 
-        <ul>
-            <li>A funkció használatához engedélyezni kell a helymeghatározást, vagy manuálisan meg kell adni a felhasználó helyzetét.</li>
-        </ul>
-    </li>
-    <li><strong>Kimenetek:</strong> 
-        <ul>
-            <li>A közelben lévő boltok aktuális ajánlatai, különös tekintettel a felhasználó bevásárlólistáján szereplő termékekre.</li>
-            <li>Szűrt ajánlatok megjelenítése a felhasználó által megadott preferenciák alapján.</li>
-        </ul>
-    </li>
-</ul>
-
-<h3>3.5.2 Navigáció a legközelebbi bolthoz</h3>
-<ul>
-    <li><strong>Felhasználói műveletek:</strong> 
-        <ul>
-            <li>A felhasználó megtekintheti a legközelebbi boltok térképes megjelenítését, ahol a bevásárlólistáján szereplő termékek elérhetők.</li>
-            <li>A felhasználó útvonalat kaphat a kiválasztott bolt eléréséhez, beleértve a gyalogos vagy autós navigációs lehetőségeket.</li>
-        </ul>
-    </li>
-    <li><strong>Bemenetek:</strong> GPS helymeghatározás vagy manuálisan megadott helyszín; a felhasználó bevásárlólistája.</li>
-    <li><strong>Érvényesítések:</strong> 
-        <ul>
-            <li>A navigációs funkció használatához engedélyezni kell a helymeghatározást, vagy manuálisan meg kell adni a felhasználó helyzetét.</li>
-            <li>A bevásárlólistán szereplő termékek elérhetősége szükséges a kijelölt boltokban.</li>
-        </ul>
-    </li>
-    <li><strong>Kimenetek:</strong> 
-        <ul>
-            <li>Térkép és útvonal a legközelebbi bolt(ok)hoz, ahol a bevásárlólistán lévő termékek elérhetők.</li>
-            <li>Alternatív útvonalak vagy boltok javaslata, ha a felhasználó több lehetőséget is szeretne mérlegelni.</li>
-        </ul>
-    </li>
-</ul>
-
-<h2 id="3.6">3.6 Receptekkel kapcsolatos funkciók</h2>
-<p><strong>Leírás:</strong> A rendszer lehetőséget biztosít a felhasználóknak receptek létrehozására, megosztására, és receptekhez kapcsolódó bevásárlólisták automatikus generálására. Emellett közösségi interakciós funkciókat is nyújt, mint az értékelés és hozzászólások.</p>
-
-<h3>3.6.1 Receptek megosztása</h3>
-<ul>
-    <li><strong>Felhasználói műveletek:</strong> 
-        <ul>
-            <li>A felhasználó létrehozhat egy új receptet, beleértve az összetevőket, elkészítési útmutatót és képeket.</li>
-            <li>A felhasználó megoszthatja receptjét más felhasználókkal a platformon.</li>
-            <li>A felhasználó módosíthatja vagy törölheti saját receptjeit.</li>
-        </ul>
-    </li>
-    <li><strong>Bemenetek:</strong> Recept neve, hozzávalók, elkészítési útmutató, opcionális képek és címkék.</li>
-    <li><strong>Érvényesítések:</strong> 
-        <ul>
-            <li>A recept megosztásához minden kötelező mezőt (név, hozzávalók, elkészítési útmutató) ki kell tölteni.</li>
-            <li>A feltöltött képek fájlformátuma és mérete ellenőrzött.</li>
-        </ul>
-    </li>
-    <li><strong>Kimenetek:</strong> 
-        <ul>
-            <li>A megosztott recept megjelenik más felhasználók számára a rendszerben.</li>
-            <li>Visszajelzés a sikeres közzétételről vagy a szükséges javításokról.</li>
-        </ul>
-    </li>
-</ul>
-
-<h3>3.6.2 Receptekhez bevásárlólista</h3>
-<ul>
-    <li><strong>Felhasználói műveletek:</strong> 
-        <ul>
-            <li>A felhasználó kiválaszthat egy receptet, amely alapján az alkalmazás automatikusan létrehoz egy bevásárlólistát az összetevők alapján.</li>
-            <li>A felhasználó módosíthatja a generált bevásárlólistát, eltávolíthat vagy hozzáadhat tételeket.</li>
-        </ul>
-    </li>
-    <li><strong>Bemenetek:</strong> Recept neve és hozzávalók listája.</li>
-    <li><strong>Érvényesítések:</strong> 
-        <ul>
-            <li>A bevásárlólista létrehozásához a recept összetevőlistájának minden tétele elérhető az adatbázisban.</li>
-        </ul>
-    </li>
-    <li><strong>Kimenetek:</strong> 
-        <ul>
-            <li>A recept összetevőiből generált bevásárlólista, amely a felhasználó bevásárlólistái között megjelenik.</li>
-            <li>Visszajelzés a sikeres bevásárlólista generálásáról.</li>
-        </ul>
-    </li>
-</ul>
-
-<h3>3.6.3 Közösségi interakció</h3>
-<ul>
-    <li><strong>Felhasználói műveletek:</strong> 
-        <ul>
-            <li>A felhasználó értékelheti mások receptjeit, és csillagokkal vagy pontszámokkal rangsorolhatja azokat.</li>
-            <li>A felhasználó hozzászólásokat fűzhet mások receptjeihez, megoszthatja véleményét és javaslatait.</li>
-            <li>A felhasználó módosíthatja vagy törölheti saját értékeléseit és hozzászólásait.</li>
-        </ul>
-    </li>
-    <li><strong>Bemenetek:</strong> Értékelés (pl. csillagok száma), szöveges hozzászólás.</li>
-    <li><strong>Érvényesítések:</strong> 
-        <ul>
-            <li>A hozzászólások moderálásra kerülhetnek a nem megfelelő tartalmak kiszűrése érdekében.</li>
-            <li>Értékeléshez kötelező a csillag vagy pontszám kiválasztása.</li>
-        </ul>
-    </li>
-    <li><strong>Kimenetek:</strong> 
-        <ul>
-            <li>Az értékelés és hozzászólás megjelenik az adott recept alatt, elérhetővé téve más felhasználók számára.</li>
-            <li>Visszajelzés a sikeres értékelésről vagy hozzászólásról, illetve szükség esetén moderálási figyelmeztetés.</li>
-        </ul>
-    </li>
-</ul>
-
-
-<h2 id="3.7">3.7 Közösségi funkciók</h2>
-<p><strong>Leírás:</strong> A közösségi funkciók célja, hogy a felhasználók kapcsolatot teremtsenek másokkal az alkalmazáson belül, recepteket, akciókat és bevásárlólistákat osszanak meg, valamint értesítéseket küldjenek egymásnak a közös vásárlási élmény érdekében.</p>
-
-<h3>3.7.1 Barátok meghívása</h3>
-<ul>
-    <li><strong>Felhasználói műveletek:</strong>
-        <ul>
-            <li>A felhasználó meghívhatja ismerőseit az alkalmazás használatára egy hivatkozással, amely SMS-ben, iMessage-ben, Messengerben stb. küldhető el.</li>
-            <li>A meghívott személy regisztrációja után automatikusan hozzáadódik a meghívó felhasználó barátai közé.</li>
-            <li>Az új baráti kapcsolat létrejötte után a felhasználók hozzáférnek a közös funkciókhoz, mint a közös bevásárlólista és az akciók megosztása.</li>
-        </ul>
-    </li>
-    <li><strong>Bemenetek:</strong> Meghívási link generálása és küldési mód kiválasztása.</li>
-    <li><strong>Érvényesítések:</strong> 
-        <ul>
-            <li>Érvényes meghívó link generálása, amely az App Store vagy Google Play oldalára irányítja a meghívottat.</li>
-        </ul>
-    </li>
-    <li><strong>Kimenetek:</strong> Visszaigazolás a meghívó sikeres elküldéséről és a barát sikeres hozzáadásáról.</li>
-</ul>
-
-<h3>3.7.2 Recept megosztása</h3>
-<ul>
-    <li><strong>Felhasználói műveletek:</strong>
-        <ul>
-            <li>A felhasználó megoszthatja saját receptjeit barátaival vagy nyilvánosan az alkalmazáson belüli receptmegosztó felületen.</li>
-            <li>Megosztás előtt a felhasználó kiválaszthatja, hogy a recept privát vagy nyilvános legyen.</li>
-        </ul>
-    </li>
-    <li><strong>Bemenetek:</strong> Recept neve, hozzávalók, elkészítési idő, elkészítési útmutató, valamint megosztási beállítások (privát vagy nyilvános).</li>
-    <li><strong>Érvényesítések:</strong> 
-        <ul>
-            <li>A megosztani kívánt recept összes szükséges mezője ki legyen töltve.</li>
-            <li>A recept nyilvános megosztása esetén a rendszer ellenőrizze a tartalom helyességét és relevanciáját.</li>
-        </ul>
-    </li>
-    <li><strong>Kimenetek:</strong> A recept megosztása a kiválasztott beállítások szerint, elérhetővé téve barátok vagy a nyilvános közösség számára.</li>
-</ul>
-
-<h3>3.7.3 Akció megosztása</h3>
-<ul>
-    <li><strong>Felhasználói műveletek:</strong>
-        <ul>
-            <li>A felhasználó értesítést küldhet barátainak aktuális akciókról az alkalmazáson belül vagy közvetlen üzenetben a privát chatablakban.</li>
-            <li>Az akció megosztásakor a felhasználó megadhatja a termék nevét, árát és az akció lejárati dátumát.</li>
-        </ul>
-    </li>
-    <li><strong>Bemenetek:</strong> Termék neve, ára, akció lejárati dátuma, valamint a küldési mód (értesítés vagy privát üzenet).</li>
-    <li><strong>Érvényesítések:</strong> 
-        <ul>
-            <li>Csak a helymeghatározás alapján aktuális akciók megosztása engedélyezett, amelyek relevánsak a felhasználók számára.</li>
-            <li>Érvényes lejárati dátum és termékadatok megadása kötelező.</li>
-        </ul>
-    </li>
-    <li><strong>Kimenetek:</strong> Az akció értesítése elérhetővé válik a címzett felhasználók számára az alkalmazáson belül.</li>
-</ul>
-
-<h3>3.7.4 Közös lista</h3>
-<ul>
-    <li><strong>Felhasználói műveletek:</strong>
-        <ul>
-            <li>A felhasználók közösen kezelhetnek egy bevásárlólistát, amelyhez minden résztvevő hozzáadhat vagy törölhet tételeket.</li>
-            <li>Az alkalmazás valós időben szinkronizálja a listát, így minden résztvevő naprakész információval rendelkezik.</li>
-            <li>A lista frissítésekor a rendszer értesítést küld a résztvevőknek a változásokról.</li>
-        </ul>
-    </li>
-    <li><strong>Bemenetek:</strong> Listaelemek hozzáadása vagy törlése, értesítési beállítások.</li>
-    <li><strong>Érvényesítések:</strong> 
-        <ul>
-            <li>Az értesítési beállítások engedélyezése, hogy minden résztvevő értesítést kapjon a lista frissítéseiről.</li>
-        </ul>
-    </li>
-    <li><strong>Kimenetek:</strong> 
-        <ul>
-            <li>Valós idejű frissítés és értesítések a közös bevásárlólistán végzett változtatásokról.</li>
-            <li>A lista elemeinek azonnali szinkronizálása minden csatlakozott felhasználó eszközén.</li>
-        </ul>
-    </li>
-</ul>
-
-    </div>
-
-    <br>
-    <br>
-    <!-- 4. Használhatóság -->
-    <div class="section" id="hasznalhatosag">
-        <h2>4. Használhatóság</h2>
-
-        <h3>4.1 Betanulási idő</h3>
-        <ul>
-            <li>Kezdő felhasználók: Az alkalmazás egyszerű és intuitív felülete lehetővé teszi, hogy a kezdő
-                felhasználók minimális betanulási idővel (kb. 15-30 perc) elsajátítsák az alapfunkciókat, például a
-                bevásárlólista kezelését és a készletfigyelést.</li>
-            <li>Gyakorlott felhasználók: A gyakorlott felhasználók számára az alkalmazás funkcióinak teljes körű
-                kihasználása rövid, kb. 5-10 perc alatt elsajátítható, különös tekintettel az összetettebb funkciókra,
-                mint az ár-összehasonlítás és a közös listakezelés.</li>
-        </ul>
-
-        <h3>4.2 Feladatvégrehajtás ideje</h3>
-        <ul>
-            <li>Jelenlegi módszerek: A manuális bevásárlólista használata és a készletek kézi nyilvántartása, bevitele
-                jelentős időt vehet igénybe (átlagosan 15-20 perc lista létrehozására és frissítésére).</li>
-            <li>Más rendszerek: Hasonló alkalmazások használata esetén is 10-15 perc lehet egy lista kezelése vagy az
-                otthoni készlet feljegyzése.</li>
-            <li>Fejlesztendő rendszer: Az új rendszer lehetővé teszi, hogy a felhasználók 5-10 perc alatt hozzanak létre
-                és frissítsenek bevásárlólistákat, illetve kezeljék a készleteiket, mivel a rendszer dinamikus
-                ajánlásokat és automatikus figyelmeztetéseket biztosít.</li>
-        </ul>
-
-        <h3>4.3 Kezdő felhasználókat támogató funkciók</h3>
-        <ul>
-            <li>Interaktív bemutatók: Az alkalmazás indításakor rövid interaktív bemutatóvideó segíti a felhasználókat
-                az alapvető funkciók (lista létrehozása, készletkezelés) gyors megismerésében.</li>
-            <li>Segédletek és tippek: A rendszer kontextusérzékeny segítségnyújtási funkcióval van ellátva, amely minden
-                képernyőn tippeket kínál az adott funkció használatával kapcsolatban.</li>
-            <li>Egyszerűsített felület: A felhasználói felület egyszerűsített, logikusan tagolt kategóriákkal
-                rendelkezik, amelyek segítik a kezdő felhasználókat is az eligazodásban.</li>
-            <li>Egyértelmű piktogramok: A felhasználói felületen található ikonok, menüpontok gombjai jól látható helyen
-                helyezkednek el és egyértelmű megjelenést kaptak, hogy a felhasználói élmény még jobb legyen.</li>
-        </ul>
-
-        <h3>4.4 Betanulási lehetőségek</h3>
-        <ul>
-            <li>Online dokumentáció és súgó: Az alkalmazáshoz részletes online dokumentáció és súgórendszer érhető el,
-                amely lépésről lépésre mutatja be a funkciókat.</li>
-            <li>Videó tutoriálok: A fejlesztői csapat videó tutoriálokat biztosít a legfontosabb funkciók bemutatására.
-            </li>
-            <li>Támogatás: A felhasználók bármikor kérhetnek online támogatást a fejlesztőktől hibajegy nyitásával.</li>
-        </ul>
-
-        <h3>4.5 Felhasználói felület ismerőssége</h3>
-        <ul>
-            <li>Hasonlóságok más rendszerekkel: Az alkalmazás felülete hasonlít más bevásárlási alkalmazásokhoz, így az
-                olyan felhasználók, akik hasonló rendszereket használtak, könnyen átállhatnak erre a platformra.</li>
-            <li>Egyedi megoldások: A dinamikus ajánlások és a közös lista kezelése egyedi megoldásokat kínál, amelyek
-                újszerűek, de könnyen elsajátíthatók.</li>
-        </ul>
-
-        <h3>4.6 Összhang más alkalmazásokkal</h3>
-        <ul>
-            <li>Más alkalmazásokkal való integráció: A rendszer kompatibilis más lista- és jegyzetkészítő
-                alkalmazásokkal (pl. Google Keep, AnyList), így a felhasználók meglévő listáikat könnyen átvihetik az
-                alkalmazásba.</li>
-        </ul>
-    </div>
-
-    <br>
-    <br>
-
-    <!-- 5. Megbízhatóság -->
-    <div class="section" id="megbizhatosag">
-        <h2>5. Megbízhatóság</h2>
-
-        <h3>5.1 Rendelkezésre állás</h3>
-        <ul>
-            <li>Teljes rendelkezésre állás: Az alkalmazásnak az év 99,5%-ában rendelkezésre kell állnia, hogy a
-                felhasználók zökkenőmentesen elérhessék a funkciókat. Ez évente legfeljebb 43,8 órás leállást tesz
-                lehetővé.</li>
-            <li>Karbantartási idő: A technikai karbantartásokat éjszakai időszakban kell elvégezni (pl. havonta egy
-                alkalommal, legfeljebb 2 órás időtartamban), hogy minimalizálják a felhasználókra gyakorolt hatást.</li>
-            <li>Korlátozott használhatóság: Karbantartási idő alatt a rendszer alapfunkciói (például a bevásárlólista
-                megtekintése) korlátozottan elérhetők maradnak, de az ár-összehasonlítás és online frissítések leállnak.
-            </li>
-        </ul>
-
-        <h3>5.2 MTBF (Mean Time Between Failures)</h3>
-        <ul>
-            <li>Átlagos idő a hibák között: A rendszernek legalább 1000 órás MTBF-t kell biztosítania, azaz átlagosan
-                legalább 1000 óra működést várunk el hiba nélkül. Ez biztosítja a rendszer hosszú távú stabilitását és
-                megbízhatóságát.</li>
-        </ul>
-
-        <h3>5.3 MTTR (Mean Time To Repair)</h3>
-        <ul>
-            <li>Átlagos hibaelhárítási idő: Ha hiba lép fel, az átlagos javítási idő (MTTR) nem haladhatja meg a 2 órát,
-                azonban ez az idő a hiba súlyosságától is függ. Ettől függetlenül a fejlesztők gyorsan reagálnak az
-                esetleges hibákra, és a felhasználók számára mihamarabb visszaáll a rendszer teljes funkcionalitása.
-            </li>
-        </ul>
-
-        <h3>5.4 A rendszer eredményeinek pontossága</h3>
-        <ul>
-            <li>Adatok pontossága: Az alkalmazás által megjelenített adatok (pl. árak, akciók, lejárati dátumok)
-                pontosságát 95%-os szinten kell biztosítani. A külső adatforrások esetleges pontatlansága esetén is
-                törekedni kell az információk naprakész és helyes megjelenítésére.</li>
-            <li>Táplálkozási és kalóriaadatok pontossága: A rendszer által megadott táplálkozási és kalóriaadatok
-                minimum 98%-os pontossággal kell hogy rendelkezzenek, figyelembe véve a termékekről rendelkezésre álló
-                legfrissebb tápérték adatokat.</li>
-        </ul>
-    </div>
-
-    <br>
-    <br>
-
-    <!-- 6. Teljesítmény -->
-    <div class="section" id="teljesitmeny">
-        <h2>6. Teljesítmény</h2>
-
-        <h3>6.1 Válaszidők</h3>
-        <ul>
-            <li>Általános válaszidők: Az alkalmazás alapfunkcióinak (például a bevásárlólisták betöltése,
-                készletkezelés) válaszideje nem haladhatja meg a 2 másodpercet normál használat esetén.</li>
-            <li>Kritikus funkciók válaszideje: Az ár-összehasonlító funkció és az akciós ajánlatok betöltése legfeljebb
-                5 másodpercet vehet igénybe, figyelembe véve a külső adatforrásoktól való függőséget.</li>
-            <li>Receptek megosztása és betöltése: A felhasználók által feltöltött receptek és hozzávalók listájának
-                betöltése 3 másodpercen belül megtörténik, még nagyobb adatbázis esetén is.</li>
-        </ul>
-
-        <h3>6.2 Teljesítmény korlátozott használhatóság idején</h3>
-        <ul>
-            <li>Karbantartás alatti teljesítmény: Karbantartási időszakokban a rendszer alapfunkciói (például a
-                bevásárlólista megtekintése) elérhetők maradnak, és a válaszidő nem haladhatja meg az 5 másodpercet. Az
-                ár-összehasonlító és akciós funkciók ideiglenesen letiltásra kerülnek.</li>
-            <li>Csökkentett terhelésű üzemmód: A karbantartás alatt a rendszer erőforrás-igényei optimalizálódnak, hogy
-                a felhasználók minimális funkciókkal is használhassák az alkalmazást.</li>
-        </ul>
-
-        <h3>6.3 Erőforrás-igények</h3>
-        <ul>
-            <li>Processzor sebesség: A rendszer minimális követelménye egy 1,5 GHz-es processzor, amely biztosítja az
-                alkalmazás zavartalan működését, különösen nagyobb adatmennyiség kezelése esetén (pl. ár-összehasonlítás
-                vagy akciós termékek lekérdezése).</li>
-            <li>Memóriaigény: Az alkalmazás futtatásához minimum 2 GB RAM szükséges, de a jobb teljesítmény érdekében
-                javasolt a 4 GB RAM használata. Ez garantálja a többfeladatos működést, különösen, ha a felhasználó
-                párhuzamosan más alkalmazásokat is használ.</li>
-            <li>Tárhelyigény: A rendszer telepítéséhez és adatainak tárolásához minimum 500 MB szabad tárhely szükséges.
-                Az alkalmazás további 200 MB-ot foglalhat le cache és log fájlok számára, amelyeket időszakosan tisztít
-                a rendszer.</li>
-            <li>Sávszélesség: Az alkalmazás optimális működéséhez legalább 1 Mbps internetkapcsolat szükséges. A nagyobb
-                adatmennyiség (például receptek és termékadatok szinkronizálása) gyorsabb kapcsolattal (legalább 5 Mbps)
-                történik hatékonyabban.</li>
-        </ul>
-    </div>
-
-    <br>
-    <br>
-
-    <!-- 7. Támogatottság -->
-    <div class="section" id="tamogatottsag">
-        <h2>7. Támogatottság</h2>
-
-        <h3>7.1 Üzemeltetés</h3>
-        <p>Az alkalmazásnak lesz egy minimum operációs rendszeri követelménye, android esetében az Android 14, Apple telefonok esetében az IOS 16. Ha a felhasználó nem kívánja letölteni az alkalmazást, egy
-            korlátozott funkciókkal ellátott verzió a weben is elérhető lesz.</p>
-
-        <h3>7.2 Elnevezési konvenciók, kódolási szabványok</h3>
-        <ul>
-            <li>Kódolási szabványok: A fejlesztőknek be kell tartaniuk az általánosan elfogadott kódolási szabványokat,
-                hogy a karbantartási műveletek során könnyen érthető és követhető legyen a kód. Ez segít abban, hogy a
-                szoftver karbantartói gyorsan azonosíthassák a problémákat és hibákat.</li>
-            <li>Elnevezési konvenciók: Az alkalmazásban egységes elnevezési konvenciókat kell alkalmazni (például az
-                osztályok PascalCase, a változók camelCase formátumot használjanak), amelyek elősegítik a kód
-                olvashatóságát és karbantarthatóságát.</li>
-        </ul>
-
-        <h3>7.3 Karbantartóknak és üzemeltetőknek szükséges funkciók</h3>
-        <ul>
-            <li>Adminisztrátori hozzáférés: A rendszer tartalmaz egy speciális adminisztrátori felületet, amely csak a
-                karbantartók és üzemeltetők számára elérhető. Ez a felület biztosít hozzáférést a naplókhoz,
-                konfigurációs beállításokhoz és az adatbázis-kezelési eszközökhöz.</li>
-            <li>Felhasználói aktivitás követése: Az adminisztrátori felületen a karbantartók megtekinthetik a
-                felhasználói aktivitásokat, például a bevásárlólisták létrehozását, módosítását, és az
-                ár-összehasonlítás használatának gyakoriságát. Ezek az adatok segítik az esetleges hibák és
-                teljesítményproblémák nyomon követését.</li>
-        </ul>
-
-        <h3>7.4 Naplózás és hibakeresés</h3>
-        <ul>
-            <li>Naplók generálása: A rendszer az alkalmazás működése során részletes naplókat készít minden jelentős
-                eseményről, beleértve a felhasználói tevékenységeket, hibákat, adatbázis műveleteket és API hívásokat.
-                Ezek a naplók segítenek a későbbi hibakeresésben és finomhangolásban.</li>
-            <li>Hibajelentések: A naplók automatikusan hibajelentéseket generálnak súlyos hibák esetén, amelyeket a
-                karbantartók az adminisztrátori felületen keresztül azonnal láthatnak. A hibajelentések tartalmazzák a
-                hiba időpontját, az érintett funkciókat és a releváns naplóbejegyzéseket.</li>
-        </ul>
-    </div>
-
-    <br>
-    <br>
-
-    <!-- 8. Tervezési korlátozások -->
-    <div class="section" id="tervezesi-korlatozasok">
-        <h2>8. Tervezési korlátozások</h2>
-
-        <h3>8.1 Használandó programozási nyelvek</h3>
-        <ul>
-            <li>Java és React Native: Az alkalmazás fejlesztéséhez Java-t fogunk használni a backend fejlesztéséhez, míg
-                a frontendhez a React Native-ot, hogy biztosítsuk a többplatformos támogatást (Android és iOS).</li>
-        </ul>
-
-        <h3>8.2 Fejlesztői környezet</h3>
-        <ul>
-            <li>IntelliJ IDEA és Visual Studio Code: A fejlesztéshez az IntelliJ IDEA használjuk a backend oldalon
-                történő fejlesztésekhez, míg a frontend fejlesztéshez a Visual Studio Code-ot.</li>
-        </ul>
-
-        <h3>8.3 Újra felhasználható elemek</h3>
-        <ul>
-            <li>Komponens- és osztálykönyvtárak: A fejlesztés során újra felhasználható külső könyvtárak beépítése fog
-                történni, különösen olyan bevásárlólista-kezelő és táplálkozásfigyelő API-k esetében, amelyek
-                megkönnyítik a feladatok gyorsabb megvalósítását.</li>
+    
+    <h1 id="login">Bejelentkezési és regisztrációs képernyők</h1>
+    <p>A SmartCart alkalmazás elindítása után a login panel felületét látják. Itt regisztrálhatnak meguknak felhasználót, vagy bejelentkezhetnek egy már meglévőbe.</p>
+
+    <h3>Bejelentkezés</h3>
+    <ol>
+        <li><strong>Bejelentkezési panel</strong> – A "Bejelentkezés" fül kiválasztása után a felhasználók megadhatják:
             <ul>
-                <li>Backend komponensek: Az alkalmazás adatbáziskezelésére a Hibernate keretrendszer alkalmazása
-                    kötelező, amely biztosítja az adatok hatékony tárolását és kezelését.</li>
-                <li>Frontend komponensek: A felhasználói felület létrehozásához újra felhasználható React Native
-                    komponensek, például React Navigation használata kötelező a navigációs rendszer megvalósításához.
-                </li>
+                <li><strong>Felhasználónév</strong> – Írják be a regisztrációkor megadott felhasználónevüket.</li>
+                <li><strong>Jelszó</strong> – Adják meg a fiókhoz tartozó jelszót.</li>
             </ul>
-        </ul>
+        </li>
+        <li>A szükséges adatok megadása után a "Bejelentkezés" gomb megnyomásával a felhasználók hozzáférhetnek az alkalmazás összes funkciójához.</li>
+    </ol>
 
-        <h3>8.4 Fejlesztési módszertan</h3>
-        <ul>
-            <li>Agilis módszertan: A fejlesztés során kötelező az Agile Scrum módszertan alkalmazása, amely lehetővé
-                teszi a rendszeres iterációkat és a felhasználói visszajelzések alapján történő gyors módosításokat. Az
-                agilis ciklusokat 2 hetes sprintekben kell végrehajtani.</li>
+    <h3>Regisztráció</h3>
+    <ol>
+        <li><strong>Regisztrációs panel</strong> – Az "Regisztráció" fül kiválasztásával a felhasználók új fiókot hozhatnak létre. A következő adatokat szükséges megadni:
             <ul>
-                <li>Napi Scrum megbeszélések: Minden fejlesztési nap kezdete előtt egy 15 perces napi Scrum megbeszélés
-                    tartandó, amelyen a csapat tagjai áttekintik az előző nap történéseit és meghatározzák a napi
-                    célokat.</li>
+                <li><strong>Vezetéknév</strong> – A felhasználó vezetékneve.</li>
+                <li><strong>Keresztnév</strong> – A felhasználó keresztneve.</li>
+                <li><strong>Felhasználónév</strong> – Az egyedi felhasználónév, amit a bejelentkezéshez használnak majd.</li>
+                <li><strong>Jelszó</strong> – A fiókhoz tartozó biztonságos jelszó.</li>
             </ul>
-        </ul>
-
-        <h3>8.5 Platformspecifikus korlátozások</h3>
-        <ul>
-            <li>Android és iOS támogatás: Alkalmazásunknak az Android és iOS operációs rendszereken is egyaránt jól kell
-                működnie, ezért figyelembe kell venni a platformspecifikus követelményeket, például az Android esetében
-                a GMD irányelvek, míg iOS-en a HIG betartását.</li>
-        </ul>
-
-        <h3>8.6 Külső szolgáltatások integrálása</h3>
-        <ul>
-            <li>Helyalapú szolgáltatások: Az alkalmazásunkba integrálni kell a Google Maps vagy az Apple Maps helyalapú
-                szolgáltatásokat az üzletek és az abban aktív akciók megjelenítéséhez.</li>
-        </ul>
+        </li>
+        <li>Az összes mező kitöltése után a "Regisztráció" gomb megnyomásával a felhasználók új fiókot hozhatnak létre, és beléphetnek az alkalmazásba.</li>
+    </ol>
+    <br>
+    <div class="image-row">
+        <img src="screenshots/app_loginpanel1.png" alt="loginpanel1" style="max-width:35%;">
+        <img src="screenshots/app_loginpanel2.png" alt="loginanel2" style="max-width:35%;">
     </div>
     <br>
     <br>
 
-    <!--9. Online dokumentacio-->
-    <div class="section" id="online-dokumentacio">
-        <h2>9. Online dokumentáció</h2>
-        <p>Az alkalmazáshoz részletes online dokumentáció és súgórendszer érhető el, amely képekkel, lépésről lépésre
-            mutatja be a funkciókat.</p>
-    </div>
-    <br>
-    <br>
 
-    <!--10. Felhasznalt kesz komponensek-->
-    <div class="section" id="felhasznalt-komponensek">
-        <h2>10. Felhasznált kész komponensek</h2>
-        <h3>10.1 Vásárolt komponensek</h3>
-        <h4>10.1.1 Google Maps API</h4>
-        <ul>
-            <li>Beszerzés körülményei: A helyalapú szolgáltatások megvalósításához szükséges a Google Maps API
-                megvásárlása. A szolgáltatás a Google által biztosított, és felhasználói helyek követésére, valamint
-                üzletek és akciók megjelenítésére szolgál.</li>
-            <li>Költségek: A Google Maps API használata a forgalom alapján történik, és a díjak felhasználási arányban
-                növekednek. Kezdetben az API ingyenes havi kvótát biztosít, azonban nagyobb használat esetén az ár
-                növekedhet.</li>
-            <li>Havi kvóta: Ingyenes havi kvóta 200 dollárig.</li>
-            <li>Túlhasználati díj: 7-14 dollár/1000 kérés az ingyenes keret túllépése után.</li>
-            <li>Licencelési és szabályok: Az API használatát a Google felhasználási feltételei szabályozzák, amelyek
-                megkövetelik a Google Maps logó feltüntetését az alkalmazásban, valamint biztosítják, hogy az API
-                adatokat csak jogszerű módon használják fel.</li>
-        </ul>
-        <h3>10.2 Szabad felhasználású komponensek</h3>
-        <h4>10.2.1 Apple Maps API</h4>
-        <ul>
-            <li>Beszerzés körülményei: Az Apple Maps API integrálásához szükséges egy Apple fejlesztői fiók
-                regisztrálása, amely előfeltétele az API-k használatának. Az API-t ingyenesen biztosítják, de a
-                felhasználóknak meg kell felelniük az Apple Maps szolgáltatásra vonatkozó szabályoknak. </li>
-            <li>Költségek: Az API használata ingyenes, de magas forgalom esetén korlátozásokat léptethetnek életbe,
-                amelyek csökkenthetik a szolgáltatás sebességét, vagy felárat szabhatnak ki bizonyos kérések után. </li>
-            <li>Fejlesztői fiók díja: Az Apple fejlesztői fiók éves díja 99 USD.</li>
-            <li>Licencelési és szabályok: Az Apple Maps API használatát az Apple Developer Program License Agreement
-                szabályozza, amely megköveteli a megfelelő forrásmegjelölést, és biztosítja, hogy az API-val
-                összegyűjtött adatokat a felhasználó beleegyezésével használják fel. Az Apple Maps API felhasználása
-                során a felhasználói adatvédelmi előírások betartása is szükséges, különösen a helyalapú
-                szolgáltatásokkal kapcsolatban.</li>
-        </ul>
-        <h4>10.2.2 React Native</h4>
-        <ul>
-            <li>Forrás és felhasználás: A React Native egy nyílt forráskódú keretrendszer, amelyet a Facebook fejleszt
-                és tart fenn. Az alkalmazás felhasználói felületének létrehozására használatos, és ingyenesen elérhető a
-                GitHub-on.</li>
-            <li>Felhasználás szabályai: A React Native felhasználásához be kell tartani az MIT licenc feltételeit, amely
-                lehetővé teszi a szabad felhasználást és módosítást, de megköveteli a szerzői jogi megjegyzés és a
-                licenc feltüntetését a forráskódban.</li>
-            <li>Hatások és kötelezettségek: A React Native alkalmazása biztosítja a többplatformos támogatást (Android
-                és iOS), minimalizálja a fejlesztési költségeket, és csökkenti a karbantartási időt. Az MIT licenc nem
-                kötelezi a fejlesztőket jogdíjfizetésre vagy másköltségek viselésére.</li>
-        </ul>
-        <h4>10.2.3 React Navigation</h4>
-        <ul>
-            <li>Forrás és felhasználás: A React Navigation egy szabadon felhasználható komponens, amely a React Native
-                projektekhez biztosít navigációs eszközöket. A GitHub-on elérhető, és széles körben használják
-                mobilalkalmazások fejlesztésére.</li>
-            <li>Felhasználás szabályai: Az eszköz szintén MIT licenc alatt áll, amely lehetővé teszi a szabad
-                felhasználást és módosítást.
-            <li>Hatások és kötelezettségek: A React Navigation integrációja lehetővé teszi a többképernyős navigáció
-                könnyű kezelését, ami javítja a felhasználói élményt. A nyílt forráskódú licenc nem jár kötelező
-                költségekkel.</li>
-        </ul>
-    </div>
-    <br>
+    <h1>Fő funkciók</h1>
+    <h2 id="shopping-list">1. Bevásárlólista</h3>
+    <p>A bevásárlólista funkció lehetővé teszi a felhasználók számára, hogy listát készítsenek a vásárolni kívánt termékekről. Az alábbi lehetőségek állnak rendelkezésre:</p>
+    <ul>
+        <h3>Termék neve és mennyisége</h3>
+            <ul>
+                <li>A felhasználók egy szövegmezőben beírhatják a termék nevét és egy külön mezőben a mennyiséget.</li>
+                <li>A "Hozzáadás" gomb megnyomásával a termék és a mennyiség bekerül a listára.</li>
+                <br>
+                <li><strong>Validáció</strong>: Üres mező esetén a "Hozzáadás" gomb nem elérhető, figyelmeztetés nem jelenik meg.</li>
+                <li><strong>Egység kiválasztása</strong>: A mennyiséghez választható egységek (pl. darab, kg, liter) legördülő menüből választhatók ki.</li>
+            </ul>
+        </li>
+    </ul>
     <br>
 
-    <!--11. Interfeszek-->
-    <div class="section" id="interfeszek">
-        <h2>11. Interfészek</h2>
-        <h3>11.1 Felhasználói felület</h3>
-        <p>Célcsoport: Az alkalmazás végfelhasználói, akik a bevásárlási és készletkezelési funkciókat szeretnék
-            kihasználni.</p>
-        <p>Funkciók:</p>
-        <ul>
-            <li>Termékkeresés és kategorizálás: A felhasználók könnyedén kereshetnek termékek között és kategóriákba
-                sorolhatják azokat a hatékony böngészés érdekében.</li>
-            <li>Közös bevásárlólista: A felhasználók lehetőséget kapnak közös listák létrehozására és megosztására
-                családtagokkal vagy barátokkal.</li>
-            <li>Ajánlások és értesítések: Az alkalmazás dinamikusan ajánlásokat tesz a felhasználók vásárlási szokásai
-                és a készletei alapján, valamint értesítéseket küld a kifogyó vagy lejáró árucikkekről.</li>
-            <li>Helyalapú akciók: Az alkalmazás képes megjeleníteni az üzletek akcióit a felhasználó aktuális
-                tartózkodási helye alapján, növelve ezzel a felhasználói élményt.</li>
-            <li>Receptek és táplálkozási információk: A felhasználók recepteket oszthatnak meg, és figyelemmel
-                kísérhetik a táplálkozási adataikat és a kalóriákat.</li>
-        </ul>
-        <h3>11.2 Fejlesztői/Karbantartói felület</h3>
-        <p>Célcsoport: A fejlesztők és karbantartók, akik a rendszer működését és karbantartását végzik.</p>
-        <p>Funkciók:</p>
-        <ul>
-            <li>Rendszerfigyelés: A karbantartók nyomon követhetik a rendszer teljesítményét, a felhasználói aktivitást,
-                valamint az esetleges hibákat és leállásokat.</li>
-            <li>Hibaelhárítási eszközök: A felület hozzáférést biztosít a rendszer naplóihoz, amelyek segítenek a hibák
-                azonosításában és javításában.</li>
-            <li>Karbantartási feladatok: A karbantartók könnyedén elvégezhetik a szükséges feladataikat, mint például a
-                frissítések telepítése, a rendszerdokumentáció frissítése, és a felhasználói adatok kezelése.</li>
-            <li>Új funkciók integrálása: A fejlesztők számára eszközök állnak rendelkezésre új funkciók fejlesztéséhez
-                és integrálásához, valamint a meglévő funkciók bővítéséhez.</li>
-            <li>Biztonsági beállítások kezelése: A karbantartók kezelhetik a rendszer biztonsági beállításait, beleértve
-                a felhasználói jogosultságokat és az adatvédelmi szabályokat.</li>
-        </ul>
-    </div>
-    <br>
+    <h2 id="items-on-list">2. Termékek megjelenítése a listán</h2>
+    <ul>
+        <h3>Listanézet</h3>
+            <ul>
+                <li>A bevásárlólistán szereplő termékek és azok mennyisége táblázatos formában jelennek meg.</li>
+                <li>Minden tételnél legyen egy kis ikon vagy jelzés az egység típusához <em>(pl.: darab, kg).</em> </li>
+            </ul>
+        </li>
+        <br>
+            <ul>
+                <li><strong>Tételek szerkesztése</strong>: Az adott termék kiválasztása után a felhasználó módosíthatja a nevét és a mennyiségét, majd egy <em>"Mentés" </em>gombbal frissítheti a listán.</li>
+                <li><strong>Tételek törlése</strong>: A törlés ikon vagy gomb lehetővé teszi a felhasználónak, hogy eltávolítsa a terméket a listáról.</li>
+            </ul>
+        </li>
+    </ul>
     <br>
 
-    <!--12. Alkalmazasi szabalyok-->
-    <div class="section" id="alkalmazasi-szabalyok">
-        <h2>12. Alkalmazási szabályok</h2>
-        <h3>12.1 Kötelezően alkalmazandó szabványok</h3>
-        <ul>
-            <li>GDPR (Általános Adatvédelmi Rendelet): Az alkalmazásnak meg kell felelnie az Európai Unió adatvédelmi
-                szabályainak, különösen a felhasználói adatok gyűjtése, tárolása és kezelése terén. </li>
-            <li>WCAG (Web Content Accessibility Guidelines): A felhasználói felületnek meg kell felelnie a webes
-                hozzáférhetőségi irányelveknek, hogy a lehető legszélesebb körű felhasználói bázist szolgálja ki,
-                beleértve a fogyatékkal élő felhasználókat is.</li>
-            <li>ISO/IEC 27001: Az információbiztonság irányítási rendszerének követelményeit tartalmazza, amely
-                biztosítja, hogy az alkalmazás és a felhasználói adatok védve legyenek a nem kívánt hozzáféréstől és
-                adatlopástól.</li>
-            <li>PCI DSS (Payment Card Industry Data Security Standard): Amennyiben az alkalmazásban online vásárlások
-                zajlanak, meg kell felelni a kártyaérvényesítési előírásoknak, hogy a felhasználók pénzügyi adatai
-                biztonságban legyenek.</li>
-        </ul>
-        <h3>12.2 Választás alapján alkalmazott szabványok</h3>
-        <ul>
-            <li>IEEE 829 (Software Test Documentation): A szoftver tesztelési folyamatának dokumentálására szolgáló
-                szabvány, amely biztosítja, hogy a tesztelés átlátható és jól dokumentált legyen, így megkönnyíti a
-                hibakeresést és a minőségbiztosítást.</li>
-            <li>Agilis módszertanok: Az alkalmazásunk fejlesztése során agilis módszertanokat (pl. Scrum, Kanban)
-                alkalmazunk a gyors iteráció és a felhasználói visszajelzések alapján történő folyamatos fejlesztés
-                érdekében.</li>
-            <li>RESTful API design: A rendszer felépítése során a RESTful API design elvei alapján történik a szerver és
-                kliens közötti kommunikáció, amely biztosítja a skálázhatóságot és a könnyű integrálhatóságot más
-                rendszerekkel.</li>
-            <li>Material Design: Az alkalmazás felhasználói felületének kialakítása során a Google által kidolgozott
-                Material Design irányelveit követjük, hogy vizuálisan vonzó és felhasználóbarát élményt nyújtsunk.</li>
-        </ul>
-    </div>
+    <h2 id="nutritional-data">3. Táplálkozási adatok</h2>
+    <ul>
+        <li><strong>Kalóriabevitel és cél:</strong>: A felhasználók láthatják az aznapi kalóriabevitelüket és a kitűzött napi kalóriacéljukat. Az alkalmazás automatikusan frissíti a bevitt kalóriákat az elfogyasztott ételek alapján.</li>
+        <li><strong>Makrotápanyagok nyomon követése:</strong>: A felhasználók számára megjelenik a fehérje, szénhidrát és zsír bevitel aktuális mennyisége és a célérték. Ez segít a felhasználóknak az étrendjük optimalizálásában.</li>
+        <li><strong>Részletes adatok megtekintése:</strong>: Egy <em>"Részletes adatok"</em> gomb megnyomásával a felhasználók további táplálkozási információkat kaphatnak, például az étkezések részleteit, napi trendeket és heti összegzést.</li>
+        <br>
+        <img src="screenshots/app_taplalkozasiadatok.png" alt="taplalkozasiadatok" style="max-width:35%;">
+        <br>
+        <br>
+    </ul>
+
+    <h2 id="list-sync">4. Lista szinkronizálása és megosztása</h2>
+    <ul>
+        <li><strong>Lista mentése és szinkronizálása</strong>: A lista automatikusan mentésre kerül a felhasználó profiljához, és több eszköz között is szinkronizálható legyen.</li>
+        <li><strong>Közös lista használata</strong>: A felhasználók meghívhatnak másokat a bevásárlólistához, és valós idejű szerkesztés válik lehetővé. Ha egy tételt hozzáadnak vagy módosítanak, az azonnal frissül minden csatlakoztatott eszközön.</li>
+    </ul>
+
+    <h2 id="dynamic-recommendations">5. Dinamikus ajánlások</h2>
+    <ul>
+        <h3>Ajánlások korábbi listák alapján</h3>
+            <ul>
+                <li>A rendszer javaslatokat kínál korábbi bevásárlólisták alapján egy adatbázisból, figyelve a szezonális vagy rendszeresen vásárolt termékek fajtáját.</li>
+                <li>Ezek az ajánlások az <em>"Ajánlott termékek"</em> szekcióban jelenhetnek meg, és akár egy kattintással hozzáadhatók a bevásárlólistához.</li>
+            </ul>
+        </li>
+        <br>
+    </ul>
+
+    <h2 id="location-features">6. Helymeghatározás alapú funkciók</h2>
+    <ul>
+    <h3>Boltok, bolti ajánlatok megjelenítése</h3>
+    
+        <li><strong>Automatikus ajánlatok</strong>: Az alkalmazás a felhasználó jelenlegi helyzetének meghatározásával (hálózati alapú GPS helymeghatározás) automatikusan megkeresi a közelben található szupermarketeket, boltokat.</li>
+        <li><strong>Akciók listája</strong>: Az alkalmazás lekéri az adott bolt adatbázisából az aktív akciókat, és megjeleníti azokat kártya nézetben.</li>
+        <li><strong>Személyre szabott ajánlások</strong>: Az alkalmazás figyelembe veszi a felhasználó korábbi vásárlási szokásait, és ezek alapján kiemelt ajánlatokat jelenít meg a közelben lévő boltok kínálatából.</li>
+        <br>
+        <img src="screenshots/app_helyalapu.png" alt="helyalapu" style="max-width:35%;">
+        <br>
+        <br>
+    </ul>
+
+    <h3>Üzletek elérhetőségei és térképnézet</h3>
+    <ul>
+        <li><strong>Interaktív térkép</strong>: A térképen megjelennek a felhasználó közelében lévő boltok ikonokkal jelölve. Az ikonok függnek az bolt fajtájától <em>(pl.: szupermarket, vegyesbolt)</em></li>
+        <li><strong>Navigációs opciók</strong>: A felhasználók rákattinthatnak az egyes boltok ikonjaira, ahol részletes információkat láthatnak, például a bolt pontos címe, nyitvatartási idő, elérhetőségek.</li>
+        <li><strong>Térkép- és műholdas nézet váltás</strong>: Az alkalmazás támogatja a térkép- és műholdas nézet közötti váltást egy jobb sarokban található gombbal, hogy a felhasználók a számukra szimpatikusabb nézetet használhassák.</li>
+        <li><strong>Útvonaltervezés</strong>: Az alkalmazásba integrált térkép API lehetőséget biztosít az útvonaltervezésre is, így a felhasználó könnyen megtalálhatja az útvonalat a választott bolt felé.</li>
+    </ul>
+    <br>
+
+    <h2 id="stock monitoring">7. Készletfigyelés</h2>
+    <ul>
+        <li><strong>Lejárati figyelmeztetés:</strong> A rendszer automatikusan figyeli a termékek felhasználó által megadott lejárati idejét, és figyelmeztetést küld, ha egy termék hamarosan lejár.</li>
+        <li>Pl.: <em>"2 nap múlva lejár"</em> jelzés piros színnel kiemelve, hogy a felhasználó gyorsan észrevegye.</li>
+        <br>
+        <li><strong>Kifogyási állapot:</strong> Ha egy termék közel áll a kifogyáshoz, a rendszer "Kifogyóban" státusszal jelzi ezt a felhasználónak. A <em>"Kifogyóban"</em> státusz szintén kiemelve jelenik meg, piros vagy más figyelemfelkeltő színnel.</li>
+        <li><strong>Készlet frissítése:</strong> A <em>"Készlet frissítése"</em> gomb lehetőséget biztosít a felhasználóknak, hogy manuálisan frissítsék a készlet állapotát. A gomb megnyomásával a rendszer újraellenőrzi a készlet adatait, és frissíti a státuszokat.</li>
+    </ul>
+    <br>
+
+    <h2 id="items">8. Termékek</h2>
+    <ul>
+        <li><strong>Terméklista:</strong> A felhasználók láthatják a manuálisan szerkeszthető táblázatban az otthon elérhető termékek nevét és árát.</li>
+        <li>Pl.:<em>"Tej – 300 Ft", "Kenyér – 150 Ft", "Sajt – 500 Ft".</em></li>
+    <br>
+        <li>Ez a lista vizuálisan jól elkülöníthető elemekből álljon, például sorokba rendezve, ahol a termék neve és ára külön oszlopban jelenik meg.</li>
+    <br>
+        <li><strong>Költséghatékony vásárlás:</strong> Az aktuális árak megjelenítése segíti a felhasználókat a költségek áttekintésében, így könnyen tervezhetik meg a következő bevásárlást. A felhasználók számára világosan látszik, mely termékek állnak rendelkezésre otthon, és azok ára a választott boltban, ami segít a vásárlási döntések meghozatalában.</li>
+    <br>
+    <img src="screenshots/app_termerkek.png" alt="termekek" style="max-width:35%;">
     <br>
     <br>
+    </ul>
+    
+    <h2 id="social-functions">9. Közösségi funkciók</h2>
+    <ul>
+        <li><strong>Barátok meghívása: </strong>A felhasználók meghívhatják barátaikat az alkalmazás használatára egy linkkel társított meghívó küldésével (pl.: SMS, iMessage, Messenger, stb), ami az alkalmazás App Store vagy Google Play oldalára irányítja a meghívottat. Amikor a meghívott személy regisztrál a kapot linken, automatikusan hozzáadódik a meghívó felhasználó barátai közé és egyből lehetővé téve a közös funkciók használatát.</li>
+    <br>
+        <li><strong>Recept megosztása:</strong> A felhasználók megoszthatják saját receptjeiket a barátaikkal vagy nyilvánosan az alkalmazás receptmegosztó felületén. A recept tartalmazza a hozzávalókat, az elkészítési időt, és a részletes lépéseket. Megosztás előtt a felhasználó választhat olyan opciót, hogy a recept privát vagy nyilvános legyen.</li>
+    <br> 
+        <li><strong>Akció megosztása:</strong> A felhasználók küldhetnek értesítőt a barátaiknak az aktuális akciókról, amelyeket az alkalmazás helymeghatározás alapján megjelenít. Az akció megosztásakor a felhasználók hozzáadhatják az akció részleteit, például a termék nevét, árát, és az akció végének dátumát. Az akciókat közvetlen üzenetként is megoszthatják a barátaikkal az alkalmazáson belül privát chatablak nyitásával.</li>
+    <br> 
+        <li><strong>Közös lista:</strong> A közös bevásárlólista funkció lehetővé teszi, hogy a felhasználók akár egy háztartáson belül közösen kezeljék ugyanazt bevásárlólistát. A listához minden felhasználó hozzáadhat és eltávolíthat tételeket, amelyek azonnal szinkronizálódnak minden csatlakoztatott felhasználó eszközén. A közös lista frissítése során az alkalmazás értesítést küld a többi felhasználónak a változásokról, így mindenki naprakész marad.</li>
+    </ul>
 
-    <!-- 13. pont: Mellékletek -->
-    <div class="section" id="mellekletek">
-        <h2>13. Mellékletek</h2>
-            <p>Alkalmazásunk design-ja még csak kezdetleges, azonban csapatunk igyekszik egy letisztult és átlátható UI-t biztosítani az alkalmazásunknak. Az alábbi képek az alkalmazásunk egy lehetséges design sémája, nem végleges a kinézet.</p>
-        <h3>13.1 Login panel</h3>
-            <p>Az alkalmazás első indításakor a login panel jelenik meg, ahol a felhasználók létrehozhatják a saját profilukat, jelszóemlékeztetőt kérhetnék, vagy bejelentkezhetnek a már meglévő fiókjukba. </p>
-            <img src="screenshots/loginpanel.png" alt="Login panel" style="max-width:35%;">   
-
-        <h3>13.2 Nyitóoldal</h3>
-            <p>A nyitóoldalon a felhasználók egy rövid ismertetőt olvashatnak az applikációról. </p>
-            <img src="screenshots/nyitooldal.png" alt="Nyitóoldal" style="max-width:35%;">
-
-        <h3>13.3 Funckióismertető</h3>
-            <p>A következő fülön a felhasználók rövid leírással találkoznak az alkalmazás funckióival kapcsolatban.</p>
-            <img src="screenshots/funckiok.png" alt="Funkciók" style="max-width:35%;">
-
-        <h3>13.4 Rólunk</h3>
-            <p>Ebben a részben a felhasználók a fejlesztőkről olvashatnak információt, illetve a kapcsolatfelvételhez találnak email címet.</p>
-            <img src="screenshots/rolunk.png" alt="Rólunk" style="max-width:35%;">
-    </div>
-</body>
-
-</html>
+    <h2 id="recipes">10. Receptek</h2>
+    <ul>
+        <li><strong>Új recept hozzáadása: </strong> A felhasználók manuálisan vihetnek fel új recepteket, megadva a recept nevét, hozzávalókat, elkészítési időt és lépésről-lépésre történő útmutatót. A felhasználó hozzáadhat képeket is a recepthez, hogy vizuálisan is megjelenítse az elkészítési folyamatot vagy a kész ételt. A mentett receptek a felhasználó profiljához kapcsolódnak, így könnyen elérhetők a későbbiekben is.</li>
+    <br>
+        <li><strong>Recept böngészése:</strong> A felhasználók böngészhetnek a mások által megosztott receptek között, kategóriák vagy népszerűség szerint szűrve a találatokat. Ha internetkapcsolatuk van, a felhasználók külső weboldalról is kereshetnek akár új recepteket, amelyek könnyedén hozzáadhatók az alkalmazás receptjeihez. Minden recepthez tartoznak értékelések és hozzászólások, így a felhasználók megoszthatják tapasztalataikat és ötleteiket a közösséggel.</li>
+    </ul>
+    <br>
+        <img src="screenshots/app_kozossegi.png" alt="kozossegi" style="max-width:35%;">       
