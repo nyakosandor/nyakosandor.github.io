@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="hu">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Analízis modell</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+            line-height: 1.6;
+            margin-left: 350px;
+            margin-right: 350px;
+            background: linear-gradient(to right, rgb(239, 193, 108), white);
+        }
+
+        h1, h2 {
+            color: #ff5100;
+        }
+
+        .class-description {
+            margin-bottom: 30px;
+        }
+
+        .class-description h3 {
+            color: #4a90e2;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Analízis modell</h1>
+    <div class="toc">
+        <h2>Tartalomjegyzék</h2>
+        <ul>
+            <li><a href="#bevezetes">1. Bevezetés</a></li>
+            <li><a href="#kezdeti_osztalydiagram">2. Kezdeti osztálydiagram</a></li>
+            <ul>
+                <li><a href="#2.1">2.1 A kezdeti osztálydiagram elemzése</a></li>
+                <ul>
+                    <li><a href="#2.1.1">2.1.1 Felhasználó (User)</a></li>
+                    <li><a href="#2.1.2">2.1.2 Bevásárlólista (ShoppingList)</a></li>
+                    <li><a href="#2.1.3">2.1.3 Termék (Product)</a></li>
+                    <li><a href="#2.1.4">2.1.4 Készlet (Inventory)</a></li>
+                    <li><a href="#2.1.5">2.1.5 Recept (Recipe)</a></li>
+                    <li><a href="#2.1.6">2.1.6 Barát (Friend)</a></li>
+                    <li><a href="#2.1.7">2.1.7 Bolt (Store)</a></li>
+                    <li><a href="#2.1.8">2.1.8 Akció (Promotion)</a></li>
+                </ul>
+            </ul>
+            <li><a href="#teljes_osztalydiagram">3. Teljes osztálydiagram</a></li>
+            <ul>
+                <li><a href="#3.1">3.1 Osztályok felsorolása</a></li>
+                <ul>
+                    <li><a href="#user">3.1.1. Felhasználó (User)</a></li>
+                    <li><a href="#shoppinglist">3.1.2. Bevásárlólista (ShoppingList)</a></li>
+                    <li><a href="#product">3.1.3. Termék (Product)</a></li>
+                    <li><a href="#inventory">3.1.4. Készlet (Inventory)</a></li>
+                    <li><a href="#recipe">3.1.5. Recept (Recipe)</a></li>
+                    <li><a href="#friend">3.1.6. Barát (Friend)</a></li>
+                    <li><a href="#store">3.1.7. Bolt (Store)</a></li>
+                    <li><a href="#promotion">3.1.8. Akció (Promotion)</a></li>
+                    <li><a href="#locationservice">3.1.9. Helymeghatározás szolgáltatás (LocationService)</a></li>
+                    <li><a href="#nutritiontracker">3.1.10. Táplálkozási nyomkövető (NutritionTracker)</a></li>
+                </ul>
+            </ul>
+        </ul>
+    </div>
+
+    <h1 id="bevezetes">1. Bevezetés</h1>
+        <p>A szoftver segíti a felhasználókat bevásárlásaik és készleteik hatékony kezelésében. Dinamikus ajánlásokat kínál, kategorizálja a termékeket, és figyelmeztet a kifogyó vagy lejáró árucikkekre. Támogatja az ár-összehasonlítást, a közös lista használatát, valamint a felhasználók szokásaihoz alkalmazkodva javaslatokat tesz. Az alkalmazás képes helymeghatározás alapján üzletenként megjeleníteni az akciókat, továbbá táplálkozási és kalóriafigyelést nyújt, valamint lehetőséget ad receptek megosztására és közösségi interakció.</p>
+
+    <h1 id="kezdeti_osztalydiagram">2. Kezdeti osztálydiagram</h1>
+
+    <img src="basic_class_diagram.png" alt="basic_class_diagram" style="max-width:100%;">
+    <br>
+
+    <h2 id="2.1">2.1. A kezdeti osztálydiagram elemzése</h2>
+
+    <div class="class-description">
+        <h3 id="2.1.1">2.1.1. Felhasználó (User)</h3>
+        <p>A <strong>Felhasználó</strong> osztály képviseli az alkalmazás használóit. Ez az osztály tartalmazza a felhasználó azonosító adatait, például felhasználónevet, jelszót és e-mail címet. Egy felhasználóhoz több bevásárlólista, készlet, recept, és barát társítható.</p>
+    </div>
+
+    <div class="class-description">
+        <h3 id="2.1.2">2.1.2. Bevásárlólista (ShoppingList)</h3>
+        <p>A <strong>Bevásárlólista</strong> osztály egy adott vásárlásra létrehozott lista, amelyben termékek szerepelnek. Tartalmazza a lista nevét, létrehozási dátumát, és lehetőséget biztosít a termékek hozzáadására, eltávolítására vagy szerkesztésére.</p>
+    </div>
+
+    <div class="class-description">
+        <h3 id="2.1.3">2.1.3. Termék (Product)</h3>
+        <p>A <strong>Termék</strong> osztály a bevásárlólistán vagy készletben szereplő egyes árucikkeket reprezentálja. Minden termékhez tartozik név, kategória, egységár, mennyiség és lejárati dátum.</p>
+    </div>
+
+    <div class="class-description">
+        <h3 id="2.1.4">2.1.4. Készlet (Inventory)</h3>
+        <p>A <strong>Készlet</strong> osztály a felhasználó otthoni készleteit kezeli. Ez az osztály nyomon követi, hogy milyen termékek találhatók a háztartásban, azok mennyiségét és lejárati idejét.</p>
+    </div>
+
+    <div class="class-description">
+        <h3 id="2.1.5">2.1.5. Recept (Recipe)</h3>
+        <p>A <strong>Recept</strong> osztály a felhasználók által létrehozott vagy megosztott főzési útmutatókat képviseli. Tartalmazza a recept nevét, hozzávalók listáját, elkészítési időt és a főzési lépéseket.</p>
+    </div>
+
+    <div class="class-description">
+        <h3 id="2.1.6">2.1.6. Barát (Friend)</h3>
+        <p>A <strong>Barát</strong> osztály a felhasználók közötti kapcsolatokat tárolja. Ez lehetővé teszi a barátok hozzáadását, elfogadását és közös funkciók megosztását (pl. listák vagy receptek).</p>
+    </div>
+
+    <div class="class-description">
+        <h3 id="2.1.7">2.1.7. Bolt (Store)</h3>
+        <p>A <strong>Bolt</strong> osztály a különböző üzleteket és azok jellemzőit (név, cím, nyitvatartás, akciók) írja le. Az alkalmazás segítségével a boltok termékeit és akcióit meg lehet tekinteni.</p>
+    </div>
+
+    <div class="class-description">
+        <h3 id="2.1.8">2.1.8. Akció (Promotion)</h3>
+        <p>Az <strong>Akció</strong> osztály egy bolt által kínált kedvezményeket reprezentálja. Tartalmazza az akció leírását, kezdő és záró dátumát, valamint az érintett termékeket.</p>
+    </div>
+
+    <h1 id="teljes_osztalydiagram">3. Teljes osztálydiagram</h1>
+
+    <img src="class_diagram_full.png" alt="class_diagram_full" style="max-width:100%;">
+    <br>
+
+    <h2 id="3.1">3.1. Osztályok felsorolása</h2>
+
+    <div class="class-description">
+        <h3 id="user">3.1.1. Felhasználó (User)</h3>
+        <p>A <strong>Felhasználó</strong> osztály az alkalmazás használóit képviseli. Tartalmazza a felhasználók azonosító adatait (felhasználónév, jelszó, e-mail cím), valamint tárolja a hozzájuk tartozó bevásárlólistákat, barátokat és recepteket.</p>
+        <div class="fields">
+            <strong>Fields:</strong>
+            <ul>
+                <li>instance: User (static)</li>
+                <li>username: String</li>
+                <li>password: String</li>
+                <li>email: String</li>
+                <li>profileData: Object</li>
+            </ul>
+        </div>
+        <div class="methods">
+            <strong>Methods:</strong>
+            <ul>
+                <li>constructor(username: String, password: String, email: String)</li>
+                <li>initInstance(username: String, password: String, email: String): User (static)</li>
+                <li>getInstance(): User (static)</li>
+                <li>updateProfile(data: Object): void</li>
+                <li>addShoppingList(list: ShoppingList): void</li>
+                <li>getShoppingLists(): List&lt;ShoppingList&gt;</li>
+                <li>addFriend(friend: Friend): void</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="class-description">
+        <h3 id="shoppinglist">3.1.2. Bevásárlólista (ShoppingList)</h3>
+        <p>A <strong>Bevásárlólista</strong> osztály a felhasználók által létrehozott bevásárlólistákat reprezentálja, amelyek termékeket tartalmaznak.</p>
+        <div class="fields">
+            <strong>Fields:</strong>
+            <ul>
+                <li>name: String</li>
+                <li>createdDate: Date</li>
+                <li>items: List&lt;Product&gt;</li>
+            </ul>
+        </div>
+        <div class="methods">
+            <strong>Methods:</strong>
+            <ul>
+                <li>constructor(name: String)</li>
+                <li>addItem(product: Product): void</li>
+                <li>removeItem(product: Product): void</li>
+                <li>getItems(): List&lt;Product&gt;</li>
+                <li>shareListWithUser(user: User): void</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="class-description">
+        <h3 id="product">3.1.3. Termék (Product)</h3>
+        <p>A <strong>Termék</strong> osztály a bevásárlólistán és a készletben lévő árucikkeket reprezentálja.</p>
+        <div class="fields">
+            <strong>Fields:</strong>
+            <ul>
+                <li>name: String</li>
+                <li>category: String</li>
+                <li>price: float</li>
+                <li>quantity: int</li>
+                <li>expirationDate: Date</li>
+            </ul>
+        </div>
+        <div class="methods">
+            <strong>Methods:</strong>
+            <ul>
+                <li>constructor(name: String, category: String, price: float, quantity: int, expirationDate: Date)</li>
+                <li>updateQuantity(newQuantity: int): void</li>
+                <li>calculateTotalPrice(): float</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="class-description">
+        <h3 id="inventory">3.1.4. Készlet (Inventory)</h3>
+        <p>A <strong>Készlet</strong> osztály nyomon követi a felhasználó otthoni készleteit, beleértve a termékek mennyiségét és lejárati dátumát.</p>
+        <div class="fields">
+            <strong>Fields:</strong>
+            <ul>
+                <li>products: List&lt;Product&gt;</li>
+                <li>lastUpdated: Date</li>
+            </ul>
+        </div>
+        <div class="methods">
+            <strong>Methods:</strong>
+            <ul>
+                <li>addProduct(product: Product): void</li>
+                <li>removeProduct(product: Product): void</li>
+                <li>checkExpiration(): List&lt;Product&gt;</li>
+                <li>calculateInventoryValue(): float</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="class-description">
+        <h3 id="recipe">3.1.5. Recept (Recipe)</h3>
+        <p>A <strong>Recept</strong> osztály a főzési útmutatókat reprezentálja, beleértve a hozzávalókat és az elkészítési lépéseket.</p>
+        <div class="fields">
+            <strong>Fields:</strong>
+            <ul>
+                <li>name: String</li>
+                <li>ingredients: List&lt;Product&gt;</li>
+                <li>instructions: String</li>
+                <li>cookTime: int</li>
+            </ul>
+        </div>
+        <div class="methods">
+            <strong>Methods:</strong>
+            <ul>
+                <li>constructor(name: String, ingredients: List&lt;Product&gt;, instructions: String, cookTime: int)</li>
+                <li>addIngredient(product: Product): void</li>
+                <li>getIngredients(): List&lt;Product&gt;</li>
+                <li>calculateTotalIngredientsCost(): float</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="class-description">
+        <h3 id="friend">3.1.6. Barát (Friend)</h3>
+        <p>A <strong>Barát</strong> osztály a felhasználók közötti kapcsolatokat kezeli, például bevásárlólisták megosztását teszi lehetővé.</p>
+        <div class="fields">
+            <strong>Fields:</strong>
+            <ul>
+                <li>friendId: String</li>
+                <li>status: String</li>
+            </ul>
+        </div>
+        <div class="methods">
+            <strong>Methods:</strong>
+            <ul>
+                <li>addFriend(friendId: String): void</li>
+                <li>removeFriend(friendId: String): void</li>
+                <li>getFriends(): List&lt;String&gt;</li>
+                <li>shareShoppingList(list: ShoppingList): void</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="class-description">
+        <h3 id="store">3.1.7. Bolt (Store)</h3>
+        <p>A <strong>Bolt</strong> osztály az üzletek és azok akcióit kezeli, valamint lehetőséget nyújt termékek keresésére.</p>
+        <div class="fields">
+            <strong>Fields:</strong>
+            <ul>
+                <li>name: String</li>
+                <li>address: String</li>
+                <li>openingHours: String</li>
+                <li>promotions: List&lt;Promotion&gt;</li>
+            </ul>
+        </div>
+        <div class="methods">
+            <strong>Methods:</strong>
+            <ul>
+                <li>addPromotion(promotion: Promotion): void</li>
+                <li>getPromotions(): List&lt;Promotion&gt;</li>
+                <li>findProductByName(name: String): List&lt;Product&gt;</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="class-description">
+        <h3 id="promotion">3.1.8. Akció (Promotion)</h3>
+        <p>Az <strong>Akció</strong> osztály egy bolt által kínált kedvezményeket reprezentálja.</p>
+        <div class="fields">
+            <strong>Fields:</strong>
+            <ul>
+                <li>description: String</li>
+                <li>startDate: Date</li>
+                <li>endDate: Date</li>
+                <li>discount: float</li>
+                <li>products: List&lt;Product&gt;</li>
+            </ul>
+        </div>
+        <div class="methods">
+            <strong>Methods:</strong>
+            <ul>
+                <li>constructor(description: String, startDate: Date, endDate: Date, discount: float, products: List&lt;Product&gt;)</li>
+                <li>isActive(): boolean</li>
+                <li>applyPromotionToProduct(product: Product): float</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="class-description">
+        <h3 id="locationservice">3.1.9. Helymeghatározás szolgáltatás (LocationService)</h3>
+        <p>A <strong>Helymeghatározás szolgáltatás</strong> osztály kezeli a közeli boltok és promóciók megjelenítését a felhasználó aktuális helyzetének figyelembevételével.</p>
+        <div class="fields">
+            <strong>Fields:</strong>
+            <ul>
+                <li>currentLocation: String</li>
+            </ul>
+        </div>
+        <div class="methods">
+            <strong>Methods:</strong>
+            <ul>
+                <li>findNearbyStores(): List&lt;Store&gt;</li>
+                <li>getPromotionsFromNearbyStores(): List&lt;Promotion&gt;</li>
+                <li>calculateDistanceToStore(store: Store): float</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="class-description">
+        <h3 id="nutritiontracker">3.1.10. Táplálkozási nyomkövető (NutritionTracker)</h3>
+        <p>A <strong>Táplálkozási nyomkövető</strong> osztály a napi kalória- és makrotápanyag-bevitel nyomon követését biztosítja.</p>
+        <div class="fields">
+            <strong>Fields:</strong>
+            <ul>
+                <li>caloriesConsumed: float</li>
+                <li>dailyCalorieGoal: float</li>
+                <li>protein: float</li>
+                <li>carbs: float</li>
+                <li>fats: float</li>
+            </ul>
+        </div>
+        <div class="methods">
+            <strong>Methods:</strong>
+            <ul>
+                <li>addMeal(calories: float, protein: float, carbs: float, fats: float): void</li>
+                <li>getRemainingCalories(): float</li>
+                <li>getDailyNutritionSummary(): String</li>
+            </ul>
+        </div>
+    </div>
+
+</body>
+
+</html>
