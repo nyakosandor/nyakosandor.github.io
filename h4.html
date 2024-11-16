@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>H3</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .docs-container {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            width: 100%;
+        }
+        .doc-tile {
+            padding: 20px;
+            text-align: center;
+            background-color: #ffffff;
+            border: 1px solid #e1e1e1;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        .doc-tile:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+        }
+        .home-tile {
+            border: 2px solid #333;
+            background-color: #f8f8f8;
+            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.15);
+        }
+        .home-tile:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+
+        <h1 class="section-title">H4 - Analízis fázis</h1>
+
+        <div class="docs-container">
+            
+            <div class="doc-tile">
+                <a href="Nullak_es_Egyesek_ANALxx.html"><h1>Analízis modell</h1></a>
+            </div>
+
+            <div class="doc-tile">
+                <a href="dictionary.html"><h1>Rendszerterv</h1></a>
+            </div>
+
+            <div class="doc-tile">
+                <a href="dictionary.html"><h1>Szótár</h1></a>
+            </div>
+
+            <div class="doc-tile">
+                <a href="projektnaplo.html"><h1>Munkanapló</h1></a>
+            </div>
+          
+            <div class="doc-tile home-tile">
+                <a href="index.html" style="color: black; text-decoration: none;"><h1>Főoldal</h1></a>
+            </div>
+
+        </div>
+    
+    </div>
+
+    <script src="scripts.js"></script>
+</body>
+</html>
