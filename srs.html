@@ -207,23 +207,42 @@
 <ul>
     <li><strong>Felhasználói műveletek:</strong> 
         <ul>
-            <li>A felhasználó megoszthatja a listát ismerősökkel (e-mail vagy alkalmazáson belüli meghívó küldésével).</li>
-            <li>Meghívott felhasználók a saját eszközeiken megtekinthetik, szerkeszthetik és bővíthetik a megosztott listát.</li>
+            <li>A felhasználó megoszthatja a listát az alkalmazáson belüli barátaival (alkalmazáson belüli meghívó küldésével).</li>
+            <li>A meghívott felhasználók a saját eszközeiken megtekinthetik, szerkeszthetik és bővíthetik a megosztott listát.</li>
         </ul>
     </li>
-    <li><strong>Bemenetek:</strong> Meghívott felhasználó e-mail címe, jogosultságok beállítása (pl. csak megtekintés vagy szerkesztés engedélyezése).</li>
+    <li><strong>Bemenetek:</strong> A meghívott felhasználó e-mail címe, jogosultságok beállítása (pl. csak megtekintés vagy szerkesztés engedélyezése).</li>
     <li><strong>Érvényesítések:</strong> 
         <ul>
-            <li>Érvényes e-mail cím szükséges meghívás esetén.</li>
-            <li>A meghívott felhasználó alkalmazásfiókkal rendelkezzen.</li>
+            <li>Érvényes e-mail cím szükséges.</li>
+            <li>A meghívott felhasználó aktivált fiókkal rendelkezzen.</li>
         </ul>
     </li>
-    <li><strong>Kimenetek és állapotváltozás:</strong> Meghívó küldése, listán belüli változtatások valós idejű szinkronizálása az összes meghívott eszközön.</li>
+    <li><strong>Kimenetek és állapotváltozás:</strong> Meghívó küldése, listán belüli változtatások valós idejű szinkronizálása az összes meghívott felhasználó eszközén.</li>
 </ul>
 
-<h3>3.1.4 Automatikus frissítések</h3>
+<h3>3.1.4 Saját lista létrehozása és szerkesztése</h3>
 <ul>
-    <li><strong>Leírás:</strong> A rendszer automatikusan frissíti a bevásárlólistát, figyelembe véve a felhasználó korábbi vásárlásait és a készleten lévő termékek állapotát.</li>
+    <li><strong>Felhasználói műveletek:</strong> 
+        <ul>
+            <li>A felhasználó privát bevásárlólistát hozhat létre egy megadott névvel (pl. "Heti bevásárlás"), mely listának kiválaszthat egy listakategóriát is (pl. élelmiszerek, háztartási cikkek).</li>
+            <li>Listén szereplő termékek bővítése, listatulajdonságok szerkesztése, pl. név, kategória módosítása.</li>
+        </ul>
+    </li>
+    <li><strong>Bemenetek:</strong> Lista neve, kategória választása.</li>
+    <li><strong>Érvényesítések:</strong> 
+        <ul>
+            <li>A lista neve nem lehet üres, legalább 3 karakterből kell állnia.</li>
+            <li>Kategória kiválasztása kötelező.</li>
+            <li>Nem muszáj a listán belül elemeknek lennie, lehet üres lista is</li>
+        </ul>
+    </li>
+    <li><strong>Kimenetek és állapotváltozás:</strong> Új lista megjelenítése a fő képernyőn, frissített lista állapota és szerkesztett adatok tárolása.</li>
+</ul>
+
+<h3>3.1.5 Automatikus frissítések</h3>
+<ul>
+    <li><strong>Leírás:</strong> A megosztott bevásárlólista esetén a rendszer automatikusan frissíti a módosításokat minden felhasználónál, akikkel a listát közösen kezelik.</li>
     <li><strong>Felhasználói műveletek:</strong> Az alkalmazás automatikusan javaslatokat ad a felhasználó számára a listához adható termékekről a korábbi vásárlások alapján.</li>
     <li><strong>Kimenetek:</strong> Dinamikus javaslatok megjelenítése a bevásárlólista szerkesztő képernyőn, termékek automatikus hozzáadása a listához, ha kifogynak a készletből.</li>
 </ul>
@@ -267,7 +286,7 @@
     </li>
 </ul>
 
-<h3>3.2.3 Készletértékelés</h3>
+<h3>3.2.3 Készletstatisztika</h3>
 <ul>
     <li><strong>Leírás:</strong> A rendszer statisztikákat készít a felhasználó fogyasztási szokásairól, bemutatva, hogy milyen termékek fogynak el gyakran, illetve melyek maradnak meg hosszabb ideig.</li>
     <li><strong>Felhasználói műveletek:</strong> 
@@ -279,7 +298,7 @@
     <li><strong>Kimenetek:</strong> 
         <ul>
             <li>Diagramok és listák, amelyek bemutatják a leggyakrabban fogyó és a legritkábban használt termékeket.</li>
-            <li>Statisztikák elérhetők az alkalmazás "Készletértékelés" menüpontjában.</li>
+            <li>Statisztikák elérhetők az alkalmazás "Készletstatisztikák" menüpontjában.</li>
         </ul>
     </li>
 </ul>
@@ -291,14 +310,14 @@
 <ul>
     <li><strong>Felhasználói műveletek:</strong> 
         <ul>
-            <li>A felhasználó megtekintheti egy adott termék aktuális árait különböző boltokból, egy áttekinthető árösszehasonlító listában.</li>
+            <li>A felhasználó megtekintheti egy adott termék aktuális árait különböző boltokból egy árösszehasonlító listában.</li>
             <li>A felhasználó szűrhet boltokra, vagy kiválaszthatja a legkedvezőbb árú lehetőséget.</li>
         </ul>
     </li>
     <li><strong>Bemenetek:</strong> Terméknév vagy termékkategória kiválasztása.</li>
     <li><strong>Érvényesítések:</strong> 
         <ul>
-            <li>A keresett terméknek rendelkezésre kell állnia a rendszer adatbázisában ahhoz, hogy árakat tudjon megjeleníteni.</li>
+            <li>A keresett terméknek rendelkezésre kell állnia a boltok adatbázisában ahhoz, hogy árakat tudjon megjeleníteni.</li>
         </ul>
     </li>
     <li><strong>Kimenetek:</strong> 
@@ -350,8 +369,8 @@
 <ul>
     <li><strong>Felhasználói műveletek:</strong> 
         <ul>
-            <li>A felhasználó megtekintheti a bevásárlólistán vagy a készleten lévő termékek tápanyagtartalmát, beleértve a kalória-, zsír-, fehérje- és szénhidráttartalmat.</li>
-            <li>A felhasználó szűrheti a listát tápanyagok alapján, hogy könnyen azonosítsa a számára megfelelő termékeket.</li>
+            <li>A felhasználó megtekintheti a bevásárlólistán vagy a készleten lévő termékek tápanyagtartalmát, beleértve a kalória-, zsír-, fehérje- és szénhidráttartalmat. Ezen adatokat az adott termék pontos kiválasztásával érné el, mely név alapján az alkalmazás kilistázná az adott termék mikrotápanyag tartalmát egy adatbázisból.</li>
+            <li>A felhasználó szűrheti a listát a mikrotápanyagok alapján, hogy könnyen azonosítsa a számára megfelelő termékeket.</li>
         </ul>
     </li>
     <li><strong>Bemenetek:</strong> Terméknév, kiválasztott tápanyag szűrés.</li>
@@ -372,27 +391,27 @@
 <ul>
     <li><strong>Felhasználói műveletek:</strong> 
         <ul>
-            <li>A felhasználó rögzítheti napi étkezéseit, beleértve az egyes ételek és termékek tápanyagtartalmát és kalóriabevitelét.</li>
-            <li>A felhasználó napi vagy heti összefoglalót kérhet a kalóriabevitelről.</li>
+            <li>A felhasználó rögzítheti napi étkezéseit, beleértve az egyes ételek és termékek tápanyagtartalmát és kalóriabevitelét. A pontos eredmények megjelenítéséhez szükséges a felhasználónak megadni az életkorát, magasságát és testsúlyát is.</li>
+            <li>A felhasználó napi vagy heti összefoglalót kérhet az megadott súly, életkor és magasság adatai alapján az ajánlott kalóriabevitelről. Az ajánlást egy már meglévő, beépített webes kalóriakalkulátor segítségével tenné.</li>
         </ul>
     </li>
-    <li><strong>Bemenetek:</strong> Elfogyasztott termékek neve, mennyiség, és adagok száma.</li>
+    <li><strong>Bemenetek:</strong> User életkora, testmagassága, súlya, elfogyasztott termékek neve, mennyisége, és adagok száma.</li>
     <li><strong>Érvényesítések:</strong> 
         <ul>
-            <li>A napi kalóriabevitel rögzítéséhez minden étkezésnek tartalmaznia kell legalább egy terméket vagy receptet.</li>
+            <li>A napi kalóriabevitel rögzítéséhez minden étkezésnek tartalmaznia kell legalább egy terméket vagy receptet, melyek az alkalmazás által elért adatbázisban is elérhetőek kellenek hogy legyenek, máskülönben a makrotápanyagok adatai hiányában nem lesz valós az output.</li>
         </ul>
     </li>
     <li><strong>Kimenetek:</strong> 
         <ul>
-            <li>Napi étkezési napló, amely összegzi az elfogyasztott kalóriákat és tápanyagokat.</li>
-            <li>Heti összesített kalória- és tápanyagfogyasztás grafikus megjelenítése.</li>
+            <li>Napi étkezési napló, amely összegzi az elfogyasztott kalóriákat és makrotápanyagokat.</li>
+            <li>Heti összesített kalória- és makrotápanyagfogyasztás grafikus megjelenítése.</li>
         </ul>
     </li>
 </ul>
 
 <h3>3.4.3 Ajánlások és szokások figyelése</h3>
 <ul>
-    <li><strong>Leírás:</strong> A rendszer nyomon követi a felhasználó étkezési szokásait, és ezek alapján személyre szabott recepteket és termékeket ajánl, amelyek megfelelnek a táplálkozási céloknak.</li>
+    <li><strong>Leírás:</strong> A rendszer nyomon követi a felhasználó étkezési szokásait, és ezek alapján személyre szabott recepteket és termékeket ajánl, amelyek megfelelnek a táplálkozási céloknak, legyen az kalóriadeficitre törekvés, vagy plusz fehérjebevitel izomnövelés szempontjából.</li>
     <li><strong>Felhasználói műveletek:</strong> 
         <ul>
             <li>A felhasználó beállíthatja a táplálkozási céljait, pl. fogyás, izomtömeg növelés vagy egészségesebb étkezés.</li>
@@ -465,20 +484,20 @@
         <ul>
             <li>A felhasználó létrehozhat egy új receptet, beleértve az összetevőket, elkészítési útmutatót és képeket.</li>
             <li>A felhasználó megoszthatja receptjét más felhasználókkal a platformon.</li>
-            <li>A felhasználó módosíthatja vagy törölheti saját receptjeit.</li>
+            <li>A felhasználó módosíthatja vagy törölheti saját receptjeit. Ha a recept megosztásra került más userekkel, ez esetben náluk is lefrissülnének az adott receptek tartalmai.</li>
         </ul>
     </li>
-    <li><strong>Bemenetek:</strong> Recept neve, hozzávalók, elkészítési útmutató, opcionális képek és címkék.</li>
+    <li><strong>Bemenetek:</strong> Recept neve, hozzávalók, elkészítési útmutató, opcionálisan képek.</li>
     <li><strong>Érvényesítések:</strong> 
         <ul>
             <li>A recept megosztásához minden kötelező mezőt (név, hozzávalók, elkészítési útmutató) ki kell tölteni.</li>
-            <li>A feltöltött képek fájlformátuma és mérete ellenőrzött.</li>
+            <li>A feltöltött képek fájlformátuma és mérete ellenőrzött, csak 5MB alatti jpg, png képek engedélyezettek.</li>
         </ul>
     </li>
     <li><strong>Kimenetek:</strong> 
         <ul>
             <li>A megosztott recept megjelenik más felhasználók számára a rendszerben.</li>
-            <li>Visszajelzés a sikeres közzétételről vagy a szükséges javításokról.</li>
+            <li>Visszajelzés a sikeres közzétételről vagy a szükségesen elvégzendő javításokról.</li>
         </ul>
     </li>
 </ul>
@@ -559,14 +578,14 @@
             <li>Megosztás előtt a felhasználó kiválaszthatja, hogy a recept privát vagy nyilvános legyen.</li>
         </ul>
     </li>
-    <li><strong>Bemenetek:</strong> Recept neve, hozzávalók, elkészítési idő, elkészítési útmutató, valamint megosztási beállítások (privát vagy nyilvános).</li>
+    <li><strong>Bemenetek:</strong> Recept neve, hozzávalók, elkészítési idő, elkészítési útmutató, opcionális képek, valamint megosztási beállítások (privát vagy nyilvános).</li>
     <li><strong>Érvényesítések:</strong> 
         <ul>
             <li>A megosztani kívánt recept összes szükséges mezője ki legyen töltve.</li>
             <li>A recept nyilvános megosztása esetén a rendszer ellenőrizze a tartalom helyességét és relevanciáját.</li>
         </ul>
     </li>
-    <li><strong>Kimenetek:</strong> A recept megosztása a kiválasztott beállítások szerint, elérhetővé téve barátok vagy a nyilvános közösség számára.</li>
+    <li><strong>Kimenetek:</strong> A recept megosztása a kiválasztott beállítások szerint, elérhetővé téve a barátok vagy a nyilvános közösség számára.</li>
 </ul>
 
 <h3>3.7.3 Akció megosztása</h3>
@@ -891,9 +910,16 @@
                 növekedhet.</li>
             <li>Havi kvóta: Ingyenes havi kvóta 200 dollárig.</li>
             <li>Túlhasználati díj: 7-14 dollár/1000 kérés az ingyenes keret túllépése után.</li>
-            <li>Licencelési és szabályok: Az API használatát a Google felhasználási feltételei szabályozzák, amelyek
+            <li>Licencelés és szabályok: Az API használatát a Google felhasználási feltételei szabályozzák, amelyek megkövetelik a Google Maps logó feltüntetését az alkalmazásban, valamint biztosítják, hogy az API adatokat csak jogszerű módon használják fel.</li>
+        <h4>10.1.2 Kalóriakalkulátor</h4>
+        <ul>
+            <li>Beszerzés körülményei: A kalóriafigyelés és táplálkozási ajánlásokhoz szükséges egy már meglévő kalóriakalkulátor, mely API-t egy webes felületű kalóriakalkulátor tulajdonosától bérelnénk.</li>
+            <li>Költségek: A Kalóriakalkulátor bérlése a weboldal tulajdonosától függne, akitől közös megegyezés alapján kapnánk egy árajánlatot. Becsléseink szerint egy havi 5-10$ körüli összegről lenne szó 500 kérelmenként.</li>
+            <li>Havi kvóta: 5-10$</li>
+            <li>Túlhasználati díj: -</li>
+            <li>Licencelés és szabályok: Az API használatát a Google felhasználási feltételei szabályozzák, amelyek
                 megkövetelik a Google Maps logó feltüntetését az alkalmazásban, valamint biztosítják, hogy az API
-                adatokat csak jogszerű módon használják fel.</li>
+                adatokat csak jogszerű módon használják fel.</li>    
         </ul>
         <h3>10.2 Szabad felhasználású komponensek</h3>
         <h4>10.2.1 Apple Maps API</h4>
@@ -904,11 +930,7 @@
             <li>Költségek: Az API használata ingyenes, de magas forgalom esetén korlátozásokat léptethetnek életbe,
                 amelyek csökkenthetik a szolgáltatás sebességét, vagy felárat szabhatnak ki bizonyos kérések után. </li>
             <li>Fejlesztői fiók díja: Az Apple fejlesztői fiók éves díja 99 USD.</li>
-            <li>Licencelési és szabályok: Az Apple Maps API használatát az Apple Developer Program License Agreement
-                szabályozza, amely megköveteli a megfelelő forrásmegjelölést, és biztosítja, hogy az API-val
-                összegyűjtött adatokat a felhasználó beleegyezésével használják fel. Az Apple Maps API felhasználása
-                során a felhasználói adatvédelmi előírások betartása is szükséges, különösen a helyalapú
-                szolgáltatásokkal kapcsolatban.</li>
+            <li>Licencelés és szabályok: Mivel harmadik féltől származó API integrációja esetéről van szó, ezért az API szolgáltatójának szerződési feltételei (Terms of Service) és licenszfeltételei érvényesek (pl.: Kereskedelmi célú licenc).</li>
         </ul>
         <h4>10.2.2 React Native</h4>
         <ul>
