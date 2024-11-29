@@ -8,29 +8,31 @@
         body {
             font-family: Arial, sans-serif;
             padding: 20px;
+            line-height: 1.6;
             margin-left: 350px;
             margin-right: 350px;
             background: linear-gradient(to right, rgb(239, 193, 108), white);
         }
-        h1, h2, h3 {
+
+        h1, h2, h3, h4 {
             color: #ff5100;
         }
-        p {
-            line-height: 1.6;
-        }
-        ul {
-            list-style-type: none;
-            padding: 0;
-        }
-        ul.toc li {
-            margin-bottom: 5px;
-        }
-        ul.toc a {
-            color: #3700ff;
+
+        .toc a {
             text-decoration: none;
+            color: #4a90e2;
         }
-        ul.toc a:hover {
+
+        .toc a:hover {
             text-decoration: underline;
+        }
+
+        .toc {
+            margin-bottom: 30px;
+        }
+
+        .section {
+            margin-top: 20px;
         }
     </style>
 </head>
@@ -41,17 +43,17 @@
     <!-- Tartalomjegyzék -->
     <h2>Tartalomjegyzék</h2>
     <ul class="toc">
-        <li><a href="#login">Bejelentkezési és regisztrációs képernyők</a></li>
-    <li><a href="#shopping-list">Bevásárlólista</a></li>
-    <li><a href="#items-on-list">Termékek megjelenítése a listán</a></li>
-    <li><a href="#nutritional-data">Táplálkozási adatok</a></li> 
-    <li><a href="#list-sync">Lista szinkronizálása és megosztása</a></li>
-    <li><a href="#dynamic-recommendations">Dinamikus ajánlások</a></li>
-    <li><a href="#location-features">Helymeghatározás alapú funkciók</a></li>
-    <li><a href="#stock monitoring">Készletfigyelés</a></li>
-    <li><a href="#items">Termékek</a></li>
-    <li><a href="#social-functions">Közösségi funkciók</a></li>
-    <li><a href="#recipes">Receptek</a></li>
+        <p><a href="#login">Bejelentkezési és regisztrációs képernyők</a></p>
+    <p><a href="#shopping-list">Bevásárlólista</a></p>
+    <p><a href="#items-on-list">Termékek megjelenítése a listán</a></p>
+    <p><a href="#nutritional-data">Táplálkozási adatok</a></p> 
+    <p><a href="#list-sync">Lista szinkronizálása és megosztása</a></p>
+    <p><a href="#dynamic-recommendations">Dinamikus ajánlások</a></p>
+    <p><a href="#location-features">Helymeghatározás alapú funkciók</a></p>
+    <p><a href="#stock monitoring">Készletfigyelés</a></p>
+    <p><a href="#items">Termékek</a></p>
+    <p><a href="#social-functions">Közösségi funkciók</a></p>
+    <p><a href="#recipes">Receptek</a></p>
     </ul>
     <br>
     <br>
@@ -67,7 +69,7 @@
                 <li><strong>Jelszó</strong> – Adják meg a fiókhoz tartozó jelszót.</li>
             </ul>
         </li>
-        <li>A szükséges adatok megadása után a "Bejelentkezés" gomb megnyomásával a felhasználók hozzáférhetnek az alkalmazás összes funkciójához.</li>
+        <li>A szükséges adatok megadása után a "Bejelentkezés" gomb megnyomásával, aktiválatlan fiók esetén a validálási kód megadása után, már aktivált fiókkal pedig egyből hozzáférhetnek a userek az alkalmazás összes funkciójához.</li>
     </ol>
 
     <h3>Regisztráció</h3>
@@ -77,10 +79,11 @@
                 <li><strong>Vezetéknév</strong> – A felhasználó vezetékneve.</li>
                 <li><strong>Keresztnév</strong> – A felhasználó keresztneve.</li>
                 <li><strong>Felhasználónév</strong> – Az egyedi felhasználónév, amit a bejelentkezéshez használnak majd.</li>
+                <li><strong>Email cím</strong> – A felhasználó által megadott email, mely nem tartozhat más fiókhoz.</li>
                 <li><strong>Jelszó</strong> – A fiókhoz tartozó biztonságos jelszó.</li>
             </ul>
         </li>
-        <li>Az összes mező kitöltése után a "Regisztráció" gomb megnyomásával a felhasználók új fiókot hozhatnak létre, és beléphetnek az alkalmazásba.</li>
+        <li>Az összes mező kitöltése után a "Regisztráció" gomb megnyomásával a felhasználók a megadott email címűkre egy validálási levelet kapnak, melyben az aktiválási kódot találják a fiókjuk hitelesítéséhez. Ezt a kódot az első belépés alkalmával kell csak megadni, ezek után a fiókjuk aktivált lesz.</li>
     </ol>
     <br>
     <div class="image-row">
@@ -100,8 +103,8 @@
                 <li>A felhasználók egy szövegmezőben beírhatják a termék nevét és egy külön mezőben a mennyiséget.</li>
                 <li>A "Hozzáadás" gomb megnyomásával a termék és a mennyiség bekerül a listára.</li>
                 <br>
-                <li><strong>Validáció</strong>: Üres mező esetén a "Hozzáadás" gomb nem elérhető, figyelmeztetés nem jelenik meg.</li>
-                <li><strong>Egység kiválasztása</strong>: A mennyiséghez választható egységek (pl. darab, kg, liter) legördülő menüből választhatók ki.</li>
+                <li><strong>Validáció:</strong> Üres mező esetén a "Hozzáadás" gomb nem elérhető, figyelmeztetés nem jelenik meg.</li>
+                <li><strong>Egység kiválasztása:</strong> A mennyiséghez választható egységek (pl. darab, kg, liter) legördülő menüből választhatók ki.</li>
             </ul>
         </li>
     </ul>
@@ -117,8 +120,8 @@
         </li>
         <br>
             <ul>
-                <li><strong>Tételek szerkesztése</strong>: Az adott termék kiválasztása után a felhasználó módosíthatja a nevét és a mennyiségét, majd egy <em>"Mentés" </em>gombbal frissítheti a listán.</li>
-                <li><strong>Tételek törlése</strong>: A törlés ikon vagy gomb lehetővé teszi a felhasználónak, hogy eltávolítsa a terméket a listáról.</li>
+                <li><strong>Tételek szerkesztése:</strong> Az adott termék kiválasztása után a felhasználó módosíthatja a nevét és a mennyiségét, majd egy <em>"Mentés" </em>gombbal frissítheti a listán.</li>
+                <li><strong>Tételek törlése:</strong> A törlés ikon vagy gomb lehetővé teszi a felhasználónak, hogy eltávolítsa a terméket a listáról.</li>
             </ul>
         </li>
     </ul>
@@ -126,9 +129,10 @@
 
     <h2 id="nutritional-data">3. Táplálkozási adatok</h2>
     <ul>
-        <li><strong>Kalóriabevitel és cél:</strong>: A felhasználók láthatják az aznapi kalóriabevitelüket és a kitűzött napi kalóriacéljukat. Az alkalmazás automatikusan frissíti a bevitt kalóriákat az elfogyasztott ételek alapján.</li>
-        <li><strong>Makrotápanyagok nyomon követése:</strong>: A felhasználók számára megjelenik a fehérje, szénhidrát és zsír bevitel aktuális mennyisége és a célérték. Ez segít a felhasználóknak az étrendjük optimalizálásában.</li>
-        <li><strong>Részletes adatok megtekintése:</strong>: Egy <em>"Részletes adatok"</em> gomb megnyomásával a felhasználók további táplálkozási információkat kaphatnak, például az étkezések részleteit, napi trendeket és heti összegzést.</li>
+        <li><strong>Kalóriabevitel és cél:</strong> A felhasználók láthatják az aznapi kalóriabevitelüket és a kitűzött napi kalóriacéljukat. Az alkalmazás automatikusan frissíti a bevitt kalóriákat az elfogyasztott ételek alapján.</li>
+        <li><strong>Makrotápanyagok nyomon követése:</strong> A felhasználók számára megjelenik a fehérje, szénhidrát és zsír bevitel aktuális mennyisége és a célérték. Ez segít a felhasználóknak az étrendjük optimalizálásában.</li>
+        <li><strong>Részletes adatok megtekintése:</strong> Egy <em>"Részletes adatok"</em> gomb megnyomásával a felhasználók további táplálkozási információkat kaphatnak, például az étkezések részleteit, napi trendeket és heti összegzést.</li>
+        <li><strong>Allergiafigyelő:</strong> A felhasználó megadhatja azokat az allergéneket (pl. glutén, laktóz, diófélék), amelyeket el szeretne kerülni, így az ezeket tartalmazó termékeket narancssárga "!" jellel fogja megjelölni az app.</li>
         <br>
         <img src="screenshots/app_taplalkozasiadatok.png" alt="taplalkozasiadatok" style="max-width:35%;">
         <br>
@@ -137,8 +141,8 @@
 
     <h2 id="list-sync">4. Lista szinkronizálása és megosztása</h2>
     <ul>
-        <li><strong>Lista mentése és szinkronizálása</strong>: A lista automatikusan mentésre kerül a felhasználó profiljához, és több eszköz között is szinkronizálható legyen.</li>
-        <li><strong>Közös lista használata</strong>: A felhasználók meghívhatnak másokat a bevásárlólistához, és valós idejű szerkesztés válik lehetővé. Ha egy tételt hozzáadnak vagy módosítanak, az azonnal frissül minden csatlakoztatott eszközön.</li>
+        <li><strong>Lista mentése és szinkronizálása:</strong> A lista automatikusan mentésre kerül a felhasználó profiljához, és több eszköz között is szinkronizálható legyen.</li>
+        <li><strong>Közös lista használata:</strong> A felhasználók meghívhatnak másokat a bevásárlólistához, és valós idejű szerkesztés válik lehetővé. Ha egy tételt hozzáadnak vagy módosítanak, az azonnal frissül minden csatlakoztatott eszközön.</li>
     </ul>
 
     <h2 id="dynamic-recommendations">5. Dinamikus ajánlások</h2>
@@ -156,23 +160,43 @@
     <ul>
     <h3>Boltok, bolti ajánlatok megjelenítése</h3>
     
-        <li><strong>Automatikus ajánlatok</strong>: Az alkalmazás a felhasználó jelenlegi helyzetének meghatározásával (hálózati alapú GPS helymeghatározás) automatikusan megkeresi a közelben található szupermarketeket, boltokat.</li>
-        <li><strong>Akciók listája</strong>: Az alkalmazás lekéri az adott bolt adatbázisából az aktív akciókat, és megjeleníti azokat kártya nézetben.</li>
-        <li><strong>Személyre szabott ajánlások</strong>: Az alkalmazás figyelembe veszi a felhasználó korábbi vásárlási szokásait, és ezek alapján kiemelt ajánlatokat jelenít meg a közelben lévő boltok kínálatából.</li>
+        <li><strong>Automatikus ajánlatok:</strong> Az alkalmazás a felhasználó jelenlegi helyzetének meghatározásával (hálózati alapú GPS helymeghatározás) automatikusan megkeresi a közelben található szupermarketeket, boltokat.</li>
+        <li><strong>Akciók listája:</strong> Az alkalmazás lekéri az adott bolt adatbázisából az aktív akciókat, és megjeleníti azokat kártya nézetben.</li>
+        <li><strong>Személyre szabott ajánlások:</strong> Az alkalmazás figyelembe veszi a felhasználó korábbi vásárlási szokásait, és ezek alapján kiemelt ajánlatokat jelenít meg a közelben lévő boltok kínálatából.</li>
         <br>
         <img src="screenshots/app_helyalapu.png" alt="helyalapu" style="max-width:35%;">
         <br>
         <br>
     </ul>
-
-    <h3>Üzletek elérhetőségei és térképnézet</h3>
+    
     <ul>
-        <li><strong>Interaktív térkép</strong>: A térképen megjelennek a felhasználó közelében lévő boltok ikonokkal jelölve. Az ikonok függnek az bolt fajtájától <em>(pl.: szupermarket, vegyesbolt)</em></li>
-        <li><strong>Navigációs opciók</strong>: A felhasználók rákattinthatnak az egyes boltok ikonjaira, ahol részletes információkat láthatnak, például a bolt pontos címe, nyitvatartási idő, elérhetőségek.</li>
-        <li><strong>Térkép- és műholdas nézet váltás</strong>: Az alkalmazás támogatja a térkép- és műholdas nézet közötti váltást egy jobb sarokban található gombbal, hogy a felhasználók a számukra szimpatikusabb nézetet használhassák.</li>
-        <li><strong>Útvonaltervezés</strong>: Az alkalmazásba integrált térkép API lehetőséget biztosít az útvonaltervezésre is, így a felhasználó könnyen megtalálhatja az útvonalat a választott bolt felé.</li>
+    <h3>Üzletek elérhetőségei és térképnézet</h3>
+    
+        <li><strong>Interaktív térkép:</strong> A térképen megjelennek a felhasználó közelében lévő boltok ikonokkal jelölve. Az ikonok függnek az bolt fajtájától <em>(pl.: szupermarket, vegyesbolt)</em></li>
+        <li><strong>Navigációs opciók:</strong> A felhasználók rákattinthatnak az egyes boltok ikonjaira, ahol részletes információkat láthatnak, például a bolt pontos címe, nyitvatartási idő, elérhetőségek.</li>
+        <li><strong>Térkép- és műholdas nézet váltás:</strong> Az alkalmazás támogatja a térkép- és műholdas nézet közötti váltást egy jobb sarokban található gombbal, hogy a felhasználók a számukra szimpatikusabb nézetet használhassák.</li>
+        <li><strong>Útvonaltervezés:</strong> Az alkalmazásba integrált térkép API lehetőséget biztosít az útvonaltervezésre is, így a felhasználó könnyen megtalálhatja az útvonalat a választott bolt felé.</li>
     </ul>
-    <br>
+
+    <ul>
+    <h3>Vásárlói sűrűség előrejelzése</h3>
+
+    <li><strong>Valós idejű sűrűségjelzés:</strong> Az alkalmazás megjeleníti a közelben található boltok forgalmát valós időben, jelzőszínekkel (pl. zöld - alacsony forgalom, sárga - közepes forgalom, piros - magas forgalom), hogy a felhasználók elkerüljék a zsúfolt helyeket.</li>
+    <li><strong>Időalapú javaslatok:</strong> A rendszer előrejelzéseket ad a forgalom várható alakulásáról a nap különböző időszakaiban, így a felhasználók a számukra optimális időpontban tervezhetik a vásárlást.</li>
+    <li><strong>Bolt szűrési lehetőségek:</strong> A felhasználók szűrhetik a listát, hogy csak az alacsony vagy közepes forgalmú boltokat lássák, ezzel még könnyebbé téve a tervezést.</li>
+    <li><strong>Sűrűség adatok forrása:</strong> A rendszer harmadik fél forgalmi API-t használ, amely a boltok valós idejű forgalmi adataiból dolgozik, így biztosítva a naprakész információkat.</li>
+    </ul>
+
+    <ul>
+    <h3>Vásárlói visszajelzések és értékelések</h3>
+
+    <li><strong>Vélemények olvasása:</strong> A felhasználók elolvashatják más vásárlók visszajelzéseit a boltokról, amelyek tartalmazhatják a kiszolgálás minőségét, az árakat és a bolti környezet tisztaságát.</li>
+    <li><strong>Értékelések készítése:</strong> A felhasználók saját tapasztalataik alapján szöveges véleményt írhatnak, valamint csillagokkal értékelhetik az üzleteket egy 1-től 5-ig terjedő skálán.</li>
+    <li><strong>Legjobb értékelésű boltok:</strong> Az alkalmazás kiemeli a legmagasabb értékeléseket kapott boltokat, hogy a felhasználók könnyen megtalálják a legnépszerűbb üzleteket a közelükben.</li>
+    <li><strong>Szűrés vélemények alapján:</strong> A felhasználók szűrhetnek a legfrissebb, legjobb vagy legrosszabb értékelések szerint, hogy gyorsan megtalálják a számukra releváns információkat.</li>
+    </ul>
+
+
 
     <h2 id="stock monitoring">7. Készletfigyelés</h2>
     <ul>
@@ -189,7 +213,7 @@
         <li><strong>Terméklista:</strong> A felhasználók láthatják a manuálisan szerkeszthető táblázatban az otthon elérhető termékek nevét és árát.</li>
         <li>Pl.:<em>"Tej – 300 Ft", "Kenyér – 150 Ft", "Sajt – 500 Ft".</em></li>
     <br>
-        <li>Ez a lista vizuálisan jól elkülöníthető elemekből álljon, például sorokba rendezve, ahol a termék neve és ára külön oszlopban jelenik meg.</li>
+        <li>Ez a lista vizuálisan könnyen áttekinthető, például sorokba rendezve, ahol a termék neve és ára külön oszlopban jelenik meg.</li>
     <br>
         <li><strong>Költséghatékony vásárlás:</strong> Az aktuális árak megjelenítése segíti a felhasználókat a költségek áttekintésében, így könnyen tervezhetik meg a következő bevásárlást. A felhasználók számára világosan látszik, mely termékek állnak rendelkezésre otthon, és azok ára a választott boltban, ami segít a vásárlási döntések meghozatalában.</li>
     <br>
@@ -207,6 +231,16 @@
         <li><strong>Akció megosztása:</strong> A felhasználók küldhetnek értesítőt a barátaiknak az aktuális akciókról, amelyeket az alkalmazás helymeghatározás alapján megjelenít. Az akció megosztásakor a felhasználók hozzáadhatják az akció részleteit, például a termék nevét, árát, és az akció végének dátumát. Az akciókat közvetlen üzenetként is megoszthatják a barátaikkal az alkalmazáson belül privát chatablak nyitásával.</li>
     <br> 
         <li><strong>Közös lista:</strong> A közös bevásárlólista funkció lehetővé teszi, hogy a felhasználók akár egy háztartáson belül közösen kezeljék ugyanazt bevásárlólistát. A listához minden felhasználó hozzáadhat és eltávolíthat tételeket, amelyek azonnal szinkronizálódnak minden csatlakoztatott felhasználó eszközén. A közös lista frissítése során az alkalmazás értesítést küld a többi felhasználónak a változásokról, így mindenki naprakész marad.</li>
+    <br>
+        <li><strong>Rangok:</strong> Az alkalmazás a felhasználók aktivitása alapján automatikusan rangokat oszt ki, amelyek tükrözik a közösségben való részvételüket. A rangokat a megosztott egyedi receptek száma, a receptekre kapott értékelések és kedvelések alapján számított pontszám határozza meg. A rangok a következők:</li>
+            <p><strong>1. Kezdő kukta</strong></p>
+            <p><strong>2. Haladó szakács</strong></p>
+            <p><strong>3. Mester séf</strong></p>
+            <p><strong>4. Gasztroisten</strong></p>
+            <p><strong>5. Gourmet Legenda</strong></p>
+    <br>
+        <li><strong>Chatelés barátokkal:</strong> Az appon belül a jobb szélen lévő chat fülön egyszerűen és gyorsan üzenhetünk a meglévő barátainknak. Mint a legtöbb modern üzenetküldő rendszer, képek és emojik küldése sem akadály.</li>
+    
     </ul>
 
     <h2 id="recipes">10. Receptek</h2>

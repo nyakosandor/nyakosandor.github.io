@@ -48,13 +48,14 @@
         <p><a href="#attekintes">2. Áttekintés</a></p>
         <p><a href="#rendszerfunkciok">3. Rendszer funkciói</a></p>
         <ul>
-            <p><a href="#3.1">3.1 Bevásárlólisták kezelése</a></p>
-            <p><a href="#3.2">3.2 Készletkezelés és figyelmeztetések</a></p>
-            <p><a href="#3.3">3.3 Ár-összehasonlítás</a></p>
-            <p><a href="#3.4">3.4 Táplálkozási- és kalóriafigyelés</a></p>
-            <p><a href="#3.5">3.5 Helymeghatározás alapú funkciók</a></p>
-            <p><a href="#3.6">3.6 Receptekkel kapcsolatos funkciók</a></p>
-            <p><a href="#3.7">3.7 Közösségi funkciók</a></p>
+            <p><a href="#3.1">3.1 Regisztráció, fiókaktiválás, belépés</a></p>
+            <p><a href="#3.2">3.2 Bevásárlólisták kezelése</a></p>
+            <p><a href="#3.3">3.3 Készletkezelés és figyelmeztetések</a></p>
+            <p><a href="#3.4">3.4 Ár-összehasonlítás</a></p>
+            <p><a href="#3.5">3.5 Táplálkozási- és kalóriafigyelés</a></p>
+            <p><a href="#3.6">3.6 Helymeghatározás alapú funkciók</a></p>
+            <p><a href="#3.7">3.7 Receptekkel kapcsolatos funkciók</a></p>
+            <p><a href="#3.8">3.8 Közösségi funkciók</a></p>
         </ul>    
         <p><a href="#hasznalhatosag">4. Használhatóság</a></p>
         <p><a href="#megbizhatosag">5. Megbízhatóság</a></p>
@@ -112,7 +113,7 @@
             <li>Ár-összehasonlítás: Különböző üzletek árait hasonlítja össze, hogy a felhasználók megtalálják a legjobb
                 ajánlatokat.</li>
             <li>Táplálkozási és kalóriafigyelés: Az alkalmazás segíti az egészséges étrend kialakítását
-                kalóriaszámlálással és táplálkozási </li>adatokkal.
+                kalóriaszámlálással és táplálkozási adatokkal.</li>
             <li>Receptek és közösségi interakció: Felhasználók recepteket oszthatnak meg, és bevásárlólistákat
                 használhatnak közösen.</li>
         </ul>
@@ -132,7 +133,7 @@
             <li>Korlátozott platform támogatás: Csak iOS és Android rendszereken működik.</li>
         </ul>
 
-        <h3>Feltételezések és függőségek</h3>
+        <h3>2.5 Feltételezések és függőségek</h3>
         <ul>
             <li>Adatforrások: Az árak és akciók megjelenítéséhez külső forrásokhoz (üzletek adatbázisaihoz) szükséges
                 hozzáférés.</li>
@@ -159,14 +160,74 @@
     <img src="diagrams/modified_usecase_SmartCart.jpg" alt="Usecase diagram" style="max-width:100%;">
     <br>
     <br>
+
+
     <!-- 3. Rendszer funkciói -->
     <div class="section" id="rendszerfunkciok">
         <h2>3. Rendszer funkciói</h2>
+        <h2 id="3.1">3.1 Regisztráció és bejelentkezés</h2>
+        <ul>
+        <p><strong>Leírás:</strong> A rendszer megköveteli a felhasználóktól, hogy fiókot regisztráljanak, majd bejelentkezzenek az alkalmazásba. A regisztrációhoz szükséges adatok megadása után a rendszer validálási emailt küld, amelyben található egy számsor, amit az első bejelentkezés előtt meg kell adni az email cím hitelesítéséhez.<p>
+            <br>
+            <li><strong>Regisztráció folyamata:</strong>
+                <ul>
+                    <li>A felhasználó megadja az alábbi adatokat:
+                        <ul>
+                            <li>Vezetéknév</li>
+                            <li>Keresztnév</li>
+                            <li>Felhasználónév</li>
+                            <li>Jelszó</li>
+                            <li>Email cím</li>
+                        </ul>
+                    </li>
+                    <li>A rendszer ellenőrzi, hogy a megadott email cím már létezik-e az adatbázisban.</li>
+                    <li>Ha az email cím új, a regisztráció után a rendszer emailt küld a MailerLite kiszolgálón keresztül a megadott címre egy validálási számsorral.</li>
+                    <li>A felhasználónak meg kell adnia ezt a számsort az alkalmazáson belül az első bejelentkezés előtt, ezzel hitelesítve az email címét.</li>
+                </ul>
+            </li>
+            <li><strong>Bejelentkezés folyamata:</strong>
+                <ul>
+                    <li>A felhasználó a regisztráció során megadott felhasználónevével és jelszavával jelentkezhet be.</li>
+                    <li>Ha az email cím nincs validálva, a rendszer értesíti a felhasználót, és kéri a validálási kód megadását.</li>
+                    <li>Sikeres validálás és bejelentkezés után a felhasználó teljes körűen használhatja az alkalmazást.</li>
+                </ul>
+            </li>
+            <li><strong>Bemenetek:</strong>
+                <ul>
+                    <li>Regisztrációhoz:
+                        <ul>
+                            <li>Vezetéknév</li>
+                            <li>Keresztnév</li>
+                            <li>Felhasználónév</li>
+                            <li>Jelszó</li>
+                            <li>Email cím</li>
+                        </ul>
+                    </li>
+                    <li>Validálási kód (emailből másolva).</li>
+                    <li>Bejelentkezéshez:
+                        <ul>
+                            <li>Felhasználónév</li>
+                            <li>Jelszó</li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+            <li><strong>Kimenetek:</strong>
+                <ul>
+                    <li>Sikeres regisztráció esetén validálási email küldése a felhasználó által megadott címre.</li>
+                    <li>Sikeres email validálás után a felhasználói fiók aktiválása.</li>
+                    <li>Sikeres bejelentkezés esetén a felhasználó belép az alkalmazásba.</li>
+                    <li>Hibás validálási kód vagy meglévő email cím esetén hibaüzenet jelenik meg.</li>
+                </ul>
+            </li>
+        </ul>
+    <br>
+    <br>
 
-        <h2 id="3.1">3.1 Bevásárlólisták kezelése</h2>
-<p><strong>Leírás:</strong> Dinamikusan frissíthető és kategorizálható bevásárlólisták, amelyek segítik a vásárlás folyamatát.</p>
+        <h2 id="3.2">3.2 Bevásárlólisták kezelése</h2>
+        <p><strong>Leírás:</strong> Dinamikusan frissíthető és kategorizálható bevásárlólisták, amelyek segítik a vásárlás folyamatát.</p>
 
-<h3>3.1.1 Lista létrehozása és szerkesztése</h3>
+<h3>3.2.1 Lista létrehozása és szerkesztése</h3>
 <ul>
     <li><strong>Felhasználói műveletek:</strong> 
         <ul>
@@ -184,7 +245,7 @@
     <li><strong>Kimenetek és állapotváltozás:</strong> Új lista megjelenítése a fő képernyőn, frissített lista állapota és szerkesztett adatok tárolása.</li>
 </ul>
 
-<h3>3.1.2 Termékek hozzáadása és eltávolítása</h3>
+<h3>3.2.2 Termékek hozzáadása és eltávolítása</h3>
 <ul>
     <li><strong>Felhasználói műveletek:</strong> 
         <ul>
@@ -203,7 +264,7 @@
     <li><strong>Kimenetek és állapotváltozás:</strong> A lista azonnali frissítése a fő képernyőn, eltávolított termékek törlése a memóriából.</li>
 </ul>
 
-<h3>3.1.3 Közös lista használata</h3>
+<h3>3.2.3 Közös lista használata</h3>
 <ul>
     <li><strong>Felhasználói műveletek:</strong> 
         <ul>
@@ -221,7 +282,7 @@
     <li><strong>Kimenetek és állapotváltozás:</strong> Meghívó küldése, listán belüli változtatások valós idejű szinkronizálása az összes meghívott felhasználó eszközén.</li>
 </ul>
 
-<h3>3.1.4 Saját lista létrehozása és szerkesztése</h3>
+<h3>3.2.4 Saját lista létrehozása és szerkesztése</h3>
 <ul>
     <li><strong>Felhasználói műveletek:</strong> 
         <ul>
@@ -240,17 +301,17 @@
     <li><strong>Kimenetek és állapotváltozás:</strong> Új lista megjelenítése a fő képernyőn, frissített lista állapota és szerkesztett adatok tárolása.</li>
 </ul>
 
-<h3>3.1.5 Automatikus frissítések</h3>
+<h3>3.2.5 Automatikus frissítések</h3>
 <ul>
     <li><strong>Leírás:</strong> A megosztott bevásárlólista esetén a rendszer automatikusan frissíti a módosításokat minden felhasználónál, akikkel a listát közösen kezelik.</li>
     <li><strong>Felhasználói műveletek:</strong> Az alkalmazás automatikusan javaslatokat ad a felhasználó számára a listához adható termékekről a korábbi vásárlások alapján.</li>
     <li><strong>Kimenetek:</strong> Dinamikus javaslatok megjelenítése a bevásárlólista szerkesztő képernyőn, termékek automatikus hozzáadása a listához, ha kifogynak a készletből.</li>
 </ul>
 
-<h2 id="3.2">3.2 Készletkezelés és figyelmeztetések</h2>
+<h2 id="3.3">3.3 Készletkezelés és figyelmeztetések</h2>
 <p><strong>Leírás:</strong> A rendszer segíti a felhasználókat otthoni készleteik nyilvántartásában és figyelmeztetéseket biztosít a lejáró és alacsony készletű termékekről. Emellett részletes statisztikákat nyújt a felhasználó fogyasztási szokásairól.</p>
 
-<h3>3.2.1 Termékek nyilvántartása</h3>
+<h3>3.3.1 Termékek nyilvántartása</h3>
 <ul>
     <li><strong>Felhasználói műveletek:</strong> 
         <ul>
@@ -269,7 +330,7 @@
     <li><strong>Kimenetek és állapotváltozás:</strong> A rendszer tárolja a készleten lévő termékek adatait, és azok elérhetők a készlet áttekintő felületen.</li>
 </ul>
 
-<h3>3.2.2 Lejárati és kifogyási figyelmeztetések</h3>
+<h3>3.3.2 Lejárati és kifogyási figyelmeztetések</h3>
 <ul>
     <li><strong>Felhasználói műveletek:</strong> A rendszer automatikusan ellenőrzi a készleten lévő termékek lejárati dátumát és mennyiségét, figyelmeztetve a felhasználót, ha egy termék hamarosan lejár vagy közel van a kifogyáshoz.</li>
     <li><strong>Értesítési feltételek:</strong> 
@@ -286,7 +347,7 @@
     </li>
 </ul>
 
-<h3>3.2.3 Készletstatisztika</h3>
+<h3>3.3.3 Készletstatisztika</h3>
 <ul>
     <li><strong>Leírás:</strong> A rendszer statisztikákat készít a felhasználó fogyasztási szokásairól, bemutatva, hogy milyen termékek fogynak el gyakran, illetve melyek maradnak meg hosszabb ideig.</li>
     <li><strong>Felhasználói műveletek:</strong> 
@@ -297,16 +358,16 @@
     </li>
     <li><strong>Kimenetek:</strong> 
         <ul>
-            <li>Diagramok és listák, amelyek bemutatják a leggyakrabban fogyó és a legritkábban használt termékeket.</li>
+            <li>Listák, amelyek bemutatják a leggyakrabban fogyó és a legritkábban használt termékeket.</li>
             <li>Statisztikák elérhetők az alkalmazás "Készletstatisztikák" menüpontjában.</li>
         </ul>
     </li>
 </ul>
 
-<h2 id="3.3">3.3 Ár-összehasonlítás</h2>
+<h2 id="3.4">3.4 Ár-összehasonlítás</h2>
 <p><strong>Leírás:</strong> A rendszer különböző boltokból gyűjt árakat, hogy segítse a felhasználót a vásárlás során a legjobb árak megtalálásában, akciós ajánlatok követésében, és bevásárlólistához kapcsolódó kedvező árú termékek kiválasztásában.</p>
 
-<h3>3.3.1 Termék árak megjelenítése</h3>
+<h3>3.4.1 Termék árak megjelenítése</h3>
 <ul>
     <li><strong>Felhasználói műveletek:</strong> 
         <ul>
@@ -328,7 +389,7 @@
     </li>
 </ul>
 
-<h3>3.3.2 Akciók megjelenítése</h3>
+<h3>3.4.2 Akciók megjelenítése</h3>
 <ul>
     <li><strong>Felhasználói műveletek:</strong> A felhasználó értesítést kap, ha egy közeli boltban akciós a kívánt termék.</li>
     <li><strong>Bemenetek:</strong> Felhasználói helymeghatározás (GPS vagy manuálisan megadott hely), illetve a követett termékek listája.</li>
@@ -345,7 +406,7 @@
     </li>
 </ul>
 
-<h3>3.3.3 Legjobb ajánlatok keresése</h3>
+<h3>3.4.3 Legjobb ajánlatok keresése</h3>
 <ul>
     <li><strong>Leírás:</strong> A rendszer automatikusan keresésbe kezd a felhasználó bevásárlólistáján szereplő termékek legjobb árai után, és ajánlatokat javasol, hogy a felhasználó a lehető legkedvezőbb áron vásárolhassa meg a termékeket.</li>
     <li><strong>Felhasználói műveletek:</strong> 
@@ -362,10 +423,10 @@
     </li>
 </ul>
 
-<h2 id="3.4">3.4 Táplálkozási- és kalóriafigyelés</h2>
+<h2 id="3.5">3.5 Táplálkozási- és kalóriafigyelés</h2>
 <p><strong>Leírás:</strong> A rendszer segíti a felhasználót táplálkozási és kalóriafigyelésben, megjeleníti a termékek tápanyagtartalmát, kalóriaszámlálást tesz lehetővé, és étkezési szokások alapján ajánl recepteket és termékeket.</p>
 
-<h3>3.4.1 Termékek tápanyagtartalmának megjelenítése</h3>
+<h3>3.5.1 Termékek tápanyagtartalmának megjelenítése</h3>
 <ul>
     <li><strong>Felhasználói műveletek:</strong> 
         <ul>
@@ -387,7 +448,7 @@
     </li>
 </ul>
 
-<h3>3.4.2 Étkezési napló</h3>
+<h3>3.5.2 Étkezési napló</h3>
 <ul>
     <li><strong>Felhasználói műveletek:</strong> 
         <ul>
@@ -409,9 +470,9 @@
     </li>
 </ul>
 
-<h3>3.4.3 Ajánlások és szokások figyelése</h3>
+<h3>3.5.3 Ajánlások és szokások figyelése</h3>
 <ul>
-    <li><strong>Leírás:</strong> A rendszer nyomon követi a felhasználó étkezési szokásait, és ezek alapján személyre szabott recepteket és termékeket ajánl, amelyek megfelelnek a táplálkozási céloknak, legyen az kalóriadeficitre törekvés, vagy plusz fehérjebevitel izomnövelés szempontjából.</li>
+    <li><strong>Leírás:</strong> Az alkalmazás nyomon követi a felhasználó étkezési szokásait, és ezek alapján személyre szabott recepteket és termékeket ajánl, amelyek megfelelnek a táplálkozási céloknak, legyen az kalóriadeficitre törekvés, vagy plusz fehérjebevitel izomnövelés szempontjából.</li>
     <li><strong>Felhasználói műveletek:</strong> 
         <ul>
             <li>A felhasználó beállíthatja a táplálkozási céljait, pl. fogyás, izomtömeg növelés vagy egészségesebb étkezés.</li>
@@ -427,10 +488,29 @@
     </li>
 </ul>
 
-<h2 id="3.5">3.5 Helymeghatározás alapú funkciók</h2>
+<h3>3.5.4 Allergiafigyelő</h3>
+<ul>
+    <li><strong>Leírás:</strong> Az app segíti a felhasználókat az allergének azonosításában és elkerülésében azáltal, hogy megvizsgálja a bevásárlólistán, recepteken szereplő termékadatok tartalmát. Az alkalmazás narancssárga "!" jellel jelzi az adott terméket a nevük mellett, ha az összetevőiben olyan allergén anyag található, amit a felhasználó megadott.</li>
+    <li><strong>Felhasználói műveletek:</strong> 
+        <ul>
+            <li>A felhasználó megadhatja azokat az allergéneket (pl. glutén, laktóz, diófélék), amelyeket el szeretne kerülni, így az ezeket tartalmazó termékeket narancssárga "!" jellel fogja megjelölni az app.</li>
+            <li>Lehetőség van a termékek adatlapjának részletes megtekintésére, amely tartalmazza az allergének pontos listáját is.</li>
+        </ul>
+    </li>
+    <li><strong>Bemenetek:</strong> A felhasználó által megadott allergének, melyeket szeretne, hogy az alkalmazás figyeljen.</li>
+    <li><strong>Kimenetek:</strong> 
+        <ul>
+            <li>Figyelmeztetés megjelenítése a termék neve mellett, ha megadott allergént tartalmaz.</li>
+            <li>Alternatív termékek ajánlása, amelyek mentesek a megadott allergénektől.</li>
+            <li>Információ az adott allergén elkerülésének módjairól.</li>
+        </ul>
+    </li>
+</ul>
+
+<h2 id="3.6">3.6 Helymeghatározás alapú funkciók</h2>
 <p><strong>Leírás:</strong> A rendszer GPS alapú funkciókat kínál a felhasználók számára, amelyek segítségével helyalapú ajánlatokat láthatnak, és navigálhatnak a legközelebbi boltokhoz, ahol a szükséges termékek elérhetők.</p>
 
-<h3>3.5.1 Bolti ajánlatok megjelenítése</h3>
+<h3>3.6.1 Bolti ajánlatok megjelenítése</h3>
 <ul>
     <li><strong>Felhasználói műveletek:</strong> 
         <ul>
@@ -452,7 +532,7 @@
     </li>
 </ul>
 
-<h3>3.5.2 Navigáció a legközelebbi bolthoz</h3>
+<h3>3.6.2 Navigáció a legközelebbi bolthoz</h3>
 <ul>
     <li><strong>Felhasználói műveletek:</strong> 
         <ul>
@@ -475,10 +555,54 @@
     </li>
 </ul>
 
-<h2 id="3.6">3.6 Receptekkel kapcsolatos funkciók</h2>
+<h3>3.6.3 Vásárlói visszajelzések és értékelések</h3>
+<ul>
+    <li><strong>Leírás:</strong> A felhasználók értékelhetik a boltokat és megoszthatják tapasztalataikat, amely segíti másokat a döntéshozatalban.</li>
+    <li><strong>Felhasználói műveletek:</strong>
+        <ul>
+            <li>A felhasználók véleményt írhatnak egy bolt ajánlatairól, termékek minőségéről vagy a kiszolgálásról.</li>
+            <li>Más felhasználók elolvashatják ezeket az értékeléseket, és szűrhetnek a legjobb értékelésű boltokra.</li>
+        </ul>
+    </li>
+    <li><strong>Bemenetek:</strong>
+        <ul>
+            <li>Felhasználói visszajelzések (szöveges vélemények és csillag alapú értékelések).</li>
+        </ul>
+    </li>
+    <li><strong>Kimenetek:</strong>
+        <ul>
+            <li>Értékelések és vélemények megjelenítése a boltok adatlapján.</li>
+            <li>Boltok rangsorolása az értékelések alapján.</li>
+        </ul>
+    </li>
+</ul>
+
+<h3>3.6.4 Vásárlói sűrűség előrejelzése</h3>
+<ul>
+    <li><strong>Leírás:</strong> A rendszer valós idejű adatokat jelenít meg a boltok vásárlói sűrűségéről, hogy a felhasználók elkerüljék a zsúfolt időszakokat.</li>
+    <li><strong>Felhasználói műveletek:</strong>
+        <ul>
+            <li>A felhasználó megtekintheti, hogy a közelében lévő boltok mennyire forgalmasak az adott időszakban.</li>
+            <li>Az app javaslatot tesz kevésbé zsúfolt időpontokra a vásárláshoz.</li>
+        </ul>
+    </li>
+    <li><strong>Bemenetek:</strong>
+        <ul>
+            <li>Valós idejű vásárlói forgalmi adatok a Google Maps és Apple Maps API-k adatai alapján.</li>
+        </ul>
+    </li>
+    <li><strong>Kimenetek:</strong>
+        <ul>
+            <li>Vásárlói sűrűség jelzése boltonként (pl. "zsúfolt", "közepes", "nyugodt").</li>
+            <li>Ajánlott időpontok a bevásárlásra.</li>
+        </ul>
+    </li>
+</ul>
+
+<h2 id="3.7">3.7 Receptekkel kapcsolatos funkciók</h2>
 <p><strong>Leírás:</strong> A rendszer lehetőséget biztosít a felhasználóknak receptek létrehozására, megosztására, és receptekhez kapcsolódó bevásárlólisták automatikus generálására. Emellett közösségi interakciós funkciókat is nyújt, mint az értékelés és hozzászólások.</p>
 
-<h3>3.6.1 Receptek megosztása</h3>
+<h3>3.7.1 Receptek megosztása</h3>
 <ul>
     <li><strong>Felhasználói műveletek:</strong> 
         <ul>
@@ -502,7 +626,7 @@
     </li>
 </ul>
 
-<h3>3.6.2 Receptekhez bevásárlólista</h3>
+<h3>3.7.2 Receptekhez bevásárlólista</h3>
 <ul>
     <li><strong>Felhasználói műveletek:</strong> 
         <ul>
@@ -524,7 +648,7 @@
     </li>
 </ul>
 
-<h3>3.6.3 Közösségi interakció</h3>
+<h3>3.7.3 Közösségi interakció</h3>
 <ul>
     <li><strong>Felhasználói műveletek:</strong> 
         <ul>
@@ -549,10 +673,10 @@
 </ul>
 
 
-<h2 id="3.7">3.7 Közösségi funkciók</h2>
+<h2 id="3.8">3.8 Közösségi funkciók</h2>
 <p><strong>Leírás:</strong> A közösségi funkciók célja, hogy a felhasználók kapcsolatot teremtsenek másokkal az alkalmazáson belül, recepteket, akciókat és bevásárlólistákat osszanak meg, valamint értesítéseket küldjenek egymásnak a közös vásárlási élmény érdekében.</p>
 
-<h3>3.7.1 Barátok meghívása</h3>
+<h3>3.8.1 Barátok meghívása</h3>
 <ul>
     <li><strong>Felhasználói műveletek:</strong>
         <ul>
@@ -570,7 +694,7 @@
     <li><strong>Kimenetek:</strong> Visszaigazolás a meghívó sikeres elküldéséről és a barát sikeres hozzáadásáról.</li>
 </ul>
 
-<h3>3.7.2 Recept megosztása</h3>
+<h3>3.8.2 Recept megosztása</h3>
 <ul>
     <li><strong>Felhasználói műveletek:</strong>
         <ul>
@@ -588,7 +712,7 @@
     <li><strong>Kimenetek:</strong> A recept megosztása a kiválasztott beállítások szerint, elérhetővé téve a barátok vagy a nyilvános közösség számára.</li>
 </ul>
 
-<h3>3.7.3 Akció megosztása</h3>
+<h3>3.8.3 Akció megosztása</h3>
 <ul>
     <li><strong>Felhasználói műveletek:</strong>
         <ul>
@@ -606,7 +730,50 @@
     <li><strong>Kimenetek:</strong> Az akció értesítése elérhetővé válik a címzett felhasználók számára az alkalmazáson belül.</li>
 </ul>
 
-<h3>3.7.4 Közös lista</h3>
+<h3>3.8.4 Felhasználói rangok és pontozási rendszer</h3>
+<ul>
+    <li><strong>Leírás:</strong> Az alkalmazás a felhasználók aktivitása alapján automatikusan rangokat oszt ki, amelyek tükrözik a közösségben való részvételüket. A rangokat a megosztott egyedi receptek száma, a receptekre kapott értékelések és kedvelések alapján számított pontszám határozza meg.</li>
+    <li><strong>Felhasználói műveletek:</strong>
+        <ul>
+            <li>A felhasználók megoszthatják receptjeiket nyilvánosan, amelyeket mások értékelhetnek és kedvelhetnek.</li>
+            <li>Az értékelések és kedvelések alapján a userek pontokat gyűjtenek, amelyekkel elérhetnek különböző rangokat.</li>
+            <li>A felhasználók profiloldalukon megtekinthetik aktuális pontjaikat és rangjukat is.</li>
+        </ul>
+    </li>
+    <li><strong>Rangok:</strong>
+        <ul>
+            <li><strong>Kezdő kukta:</strong> 0-99 pont.</li>
+            <li><strong>Haladó szakács:</strong> 100-499 pont.</li>
+            <li><strong>Mester séf:</strong> 500-999 pont.</li>
+            <li><strong>Gasztroisten:</strong> 1000-1499 pont.</li>
+            <li><strong>Gourmet Legenda:</strong> 1500+ pont.</li>
+        </ul>
+    </li>
+    <li><strong>Pontozási rendszer:</strong>
+        <ul>
+            <li>Minden megosztott egyedi receptért +10 pont jár.</li>
+            <li>Minden kedvelt receptért +3 pont jár.</li>
+            <li>Minden receptért kapott pozitív értékelés (pl. 4 vagy 5 csillag) +7 pontot ér.</li>
+            <li>Negatív értékelések esetén nincs pontlevonás, de ezek nem számítanak a pontgyűjtésbe.</li>
+        </ul>
+    </li>
+    <li><strong>Bemenetek:</strong>
+        <ul>
+            <li>A felhasználók által megosztott receptek.</li>
+            <li>Más userek által megosztott receptek értékelései (1-5 csillag).</li>
+            <li>Más userek által megosztott receptek kedvelése.</li>
+        </ul>
+    </li>
+    <li><strong>Kimenetek:</strong>
+        <ul>
+            <li>Felhasználók pontszámának valós idejű frissítése.</li>
+            <li>Felhasználói profilokhoz tartozó rangok automatikus frissítése.</li>
+            <li>Értesítések, amikor a felhasználók elérnek egy új rangot.</li>
+        </ul>
+    </li>
+</ul>
+
+<h3>3.8.5 Közös lista</h3>
 <ul>
     <li><strong>Felhasználói műveletek:</strong>
         <ul>
@@ -625,6 +792,54 @@
         <ul>
             <li>Valós idejű frissítés és értesítések a közös bevásárlólistán végzett változtatásokról.</li>
             <li>A lista elemeinek azonnali szinkronizálása minden csatlakozott felhasználó eszközén.</li>
+        </ul>
+    </li>
+</ul>
+
+<h3>3.8.6 Chat funkció az alkalmazáson belül</h3>
+<ul>
+    <li><strong>Leírás:</strong> Az alkalmazás lehetőséget biztosít a felhasználók számára, hogy az alkalmazáson belül a barátaikkal chateljenek. A chatelés egy meglévő API-val, a Stream Chat-tel történne, amely biztosítja az üzenetek gyors és biztonságos küldését és fogadását.</li>
+    <li><strong>Felhasználói műveletek:</strong>
+        <ul>
+            <li>A felhasználók hozzáadhatják barátaikat az alkalmazás "Barátok" fülén keresztül.</li>
+            <li>Baráti kapcsolat megléte esetén a felhasználók egy privát chat szobában üzenhetnek egymásnak.</li>
+            <li>A chat támogatja a szöveges üzenetek, hangulatjelek, valamint képek küldését (opcionális).</li>
+        </ul>
+    </li>
+    <li><strong>Bemenetek:</strong>
+        <ul>
+            <li>Felhasználói usernevek a barátok bejelöléséhez, kivéve, ha meghívó alapján már bevannak egymásnak jelölve barátként.</li>
+            <li>Chat üzenetek (szöveg, képek) a felhasználóktól.</li>
+        </ul>
+    </li>
+    <li><strong>Kimenetek:</strong>
+        <ul>
+            <li>Chat üzenetek valós idejű megjelenítése a felhasználói felületen.</li>
+            <li>Értesítések új üzenetek érkezésekor, ha a felhasználó nincs az aktív chat szobában.</li>
+        </ul>
+    </li>
+</ul>
+
+<h3>3.8.7 Közös receptgyűjtemény</h3>
+<ul>
+    <li><strong>Leírás:</strong> Baráti körök vagy közösségek számára lehetőség van egy közös receptgyűjtemény létrehozására, amelyben minden tag hozzáadhatja kedvenc receptjeit.</li>
+    <li><strong>Funkciók:</strong>
+        <ul>
+            <li>Tagok értékelhetik és kommentelhetik egymás receptjeit.</li>
+            <li>A közös gyűjteményben a legkedveltebb receptek előre sorolódnak.</li>
+            <li>A gyűjtemény akár exportálható is egy PDF formátumú "közös szakácskönyvként".</li>
+        </ul>
+    </li>
+    <li><strong>Bemenetek:</strong>
+        <ul>
+            <li>A felhasználók által megadott receptek (hozzávalók, elkészítési idő, lépések).</li>
+            <li>A receptekhez kapcsolódó kommentek és értékelések.</li>
+        </ul>
+    </li>
+    <li><strong>Kimenetek:</strong>
+        <ul>
+            <li>Egy dinamikus receptgyűjtemény, amelyben a receptek rangsorolva jelennek meg.</li>
+            <li>A PDF formátumú "közös szakácskönyv" exportálásának lehetősége.</li>
         </ul>
     </li>
 </ul>
@@ -900,7 +1115,8 @@
     <div class="section" id="felhasznalt-komponensek">
         <h2>10. Felhasznált kész komponensek</h2>
         <h3>10.1 Vásárolt komponensek</h3>
-        <h4>10.1.1 Google Maps API</h4>
+
+            <h4>10.1.1 Google Maps API</h4>
         <ul>
             <li>Beszerzés körülményei: A helyalapú szolgáltatások megvalósításához szükséges a Google Maps API
                 megvásárlása. A szolgáltatás a Google által biztosított, és felhasználói helyek követésére, valamint
@@ -911,7 +1127,9 @@
             <li>Havi kvóta: Ingyenes havi kvóta 200 dollárig.</li>
             <li>Túlhasználati díj: 7-14 dollár/1000 kérés az ingyenes keret túllépése után.</li>
             <li>Licencelés és szabályok: Az API használatát a Google felhasználási feltételei szabályozzák, amelyek megkövetelik a Google Maps logó feltüntetését az alkalmazásban, valamint biztosítják, hogy az API adatokat csak jogszerű módon használják fel.</li>
-        <h4>10.1.2 Kalóriakalkulátor</h4>
+        </ul>
+
+            <h4>10.1.2 Kalóriakalkulátor</h4>
         <ul>
             <li>Beszerzés körülményei: A kalóriafigyelés és táplálkozási ajánlásokhoz szükséges egy már meglévő kalóriakalkulátor, mely API-t egy webes felületű kalóriakalkulátor tulajdonosától bérelnénk.</li>
             <li>Költségek: A Kalóriakalkulátor bérlése a weboldal tulajdonosától függne, akitől közös megegyezés alapján kapnánk egy árajánlatot. Becsléseink szerint egy havi 5-10$ körüli összegről lenne szó 500 kérelmenként.</li>
@@ -921,7 +1139,9 @@
                 megkövetelik a Google Maps logó feltüntetését az alkalmazásban, valamint biztosítják, hogy az API
                 adatokat csak jogszerű módon használják fel.</li>    
         </ul>
+
         <h3>10.2 Szabad felhasználású komponensek</h3>
+        
         <h4>10.2.1 Apple Maps API</h4>
         <ul>
             <li>Beszerzés körülményei: Az Apple Maps API integrálásához szükséges egy Apple fejlesztői fiók
@@ -932,7 +1152,16 @@
             <li>Fejlesztői fiók díja: Az Apple fejlesztői fiók éves díja 99 USD.</li>
             <li>Licencelés és szabályok: Mivel harmadik féltől származó API integrációja esetéről van szó, ezért az API szolgáltatójának szerződési feltételei (Terms of Service) és licenszfeltételei érvényesek (pl.: Kereskedelmi célú licenc).</li>
         </ul>
-        <h4>10.2.2 React Native</h4>
+
+        <h4>10.2.2 MailerLite</h4>
+        <ul>
+            <li><strong>Beszerzés körülményei:</strong> A MailerLite integrálásához szükség van egy regisztrált MailerLite fiókra, amely lehetővé teszi az validáló emailek kiküldéseket a regisztrálók számára. A fiók regisztrációja ingyenes, és a szolgáltatás alapvető funkciói bizonyos limitekig korlátozások nélkül használhatók.</li>
+            <li><strong>Költségek:</strong> Az API alapvető funkciói ingyenesek maradnak, amíg az email küldések száma nem haladja meg a havi 12 000 levelet. Nagyobb forgalom vagy további funkciók igénybevétele esetén a MailerLite díjazást alkalmaz, amely a választott előfizetési csomagtól függ.</li>
+            <li><strong>Fejlesztői fiók díja:</strong> A MailerLite használatához nincs külön fejlesztői fiók díj, de az előfizetési csomag költsége az alkalmazott email mennyiségétől és előfizetők számától függően változik.</li>
+            <li><strong>Licencelés és szabályok:</strong> Mivel egy harmadik féltől származó API-t integrálunk, az API használatára a MailerLite Általános Szerződési Feltételei (Terms of Service) és Adatvédelmi Szabályzata (Privacy Policy) vonatkozik. Az alkalmazásnak meg kell felelnie a MailerLite előírásainak, különösen a spamellenes szabályoknak és az email marketing előírásainak.</li>
+        </ul>
+
+        <h4>10.2.3 React Native</h4>
         <ul>
             <li>Forrás és felhasználás: A React Native egy nyílt forráskódú keretrendszer, amelyet a Facebook fejleszt
                 és tart fenn. Az alkalmazás felhasználói felületének létrehozására használatos, és ingyenesen elérhető a
@@ -944,7 +1173,8 @@
                 és iOS), minimalizálja a fejlesztési költségeket, és csökkenti a karbantartási időt. Az MIT licenc nem
                 kötelezi a fejlesztőket jogdíjfizetésre vagy másköltségek viselésére.</li>
         </ul>
-        <h4>10.2.3 React Navigation</h4>
+
+        <h4>10.2.4 React Navigation</h4>
         <ul>
             <li>Forrás és felhasználás: A React Navigation egy szabadon felhasználható komponens, amely a React Native
                 projektekhez biztosít navigációs eszközöket. A GitHub-on elérhető, és széles körben használják
@@ -953,8 +1183,7 @@
                 felhasználást és módosítást.
             <li>Hatások és kötelezettségek: A React Navigation integrációja lehetővé teszi a többképernyős navigáció
                 könnyű kezelését, ami javítja a felhasználói élményt. A nyílt forráskódú licenc nem jár kötelező
-                költségekkel.</li>
-        </ul>
+                költségekkel.</li>  
     </div>
     <br>
     <br>
