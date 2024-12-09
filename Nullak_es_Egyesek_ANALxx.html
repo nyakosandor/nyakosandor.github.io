@@ -75,11 +75,24 @@
                     <p><a href="#product">3.1.3. Termék (Product)</a></p>
                     <p><a href="#inventory">3.1.4. Készlet (Inventory)</a></p>
                     <p><a href="#recipe">3.1.5. Recept (Recipe)</a></p>
-                    <p><a href="#friend">3.1.6. Barát (Friend)</a></p>
-                    <p><a href="#store">3.1.7. Bolt (Store)</a></p>
-                    <p><a href="#promotion">3.1.8. Akció (Promotion)</a></p>
-                    <p><a href="#locationservice">3.1.9. Helymeghatározás szolgáltatás (LocationService)</a></p>
-                    <p><a href="#nutritiontracker">3.1.10. Táplálkozási nyomkövető (NutritionTracker)</a></p>
+                    <p><a href="#notification">3.1.6. Értesítés (Notification)</a></p>
+                    <p><a href="#communitypanel">3.1.7. Közösségi panel (CommunityPanel)</a></p>
+                    <p><a href="#locationpanel">3.1.8. Helyalapú funkciók panel (LocationBasedFeaturesPanel)</a></p>
+                    <p><a href="#chat">3.1.9. Chat</a></p>
+                    <p><a href="#discount">3.1.10. Akció (Discount)</a></p>
+                    <p><a href="#nutritionpanel">3.1.11. Táplálkozási adatok panel (NutritionDataPanel)</a></p>
+                    <p><a href="#inventorypanel">3.1.12. Készlet panel (InventoryPanel)</a></p>
+                    <p><a href="#reciperating">3.1.13. Recept értékelés (RecipeRating)</a></p>
+                    <p><a href="#recipecategory">3.1.14. Recept kategória (RecipeCategory)</a></p>
+                    <p><a href="#pushnotification">3.1.15. Push értesítés (PushNotification)</a></p>
+                    <p><a href="#loginpanel">3.1.16. Bejelentkezési panel (LoginPanel)</a></p>
+                    <p><a href="#registrationpanel">3.1.17. Regisztrációs panel (RegistrationPanel)</a></p>
+                    <p><a href="#community">3.1.18. Közösségi osztály (Community)</a></p>
+                    <p><a href="#allergytracker">3.1.19. Allergia figyelő (AllergyTracker)</a></p>
+                    <p><a href="#store">3.1.20. Bolt (Store)</a></p>
+                    <p><a href="#shoppinglistpanel">3.1.21. Vásárlási lista panel (ShoppingListPanel)</a></p>
+                    <p><a href="#contactpanel">3.1.22. Kapcsolat panel (ContactSection)</a></p>
+                    <p><a href="#aboutuspanel">3.1.23. Rólunk panel (AboutSection)</a></p>
                 </ul>
             </ul>
         </ul>
@@ -137,234 +150,452 @@
 
     <h1 id="teljes_osztalydiagram">3. Teljes osztálydiagram</h1>
 
-    <img src="diagrams/class_diagram_full.png" alt="Teljes osztálydiagram" style="max-width:100%;">
+    <img src="class_diagram_full_extended.png" alt="Teljes osztálydiagram" style="max-width:110%;">
     <br>
 
     <h2 id="3.1">3.1. Osztályok felsorolása</h2>
 
-    <div class="class-description">
-        <h3 id="user">3.1.1. Felhasználó (User)</h3>
-        <p>A <strong>Felhasználó</strong> osztály az alkalmazás használóit képviseli. Tartalmazza a felhasználók azonosító adatait (felhasználónév, jelszó, e-mail cím), valamint tárolja a hozzájuk tartozó bevásárlólistákat, barátokat és recepteket.</p>
-        <div class="fields">
-            <strong>Fields:</strong>
-            <ul>
-                <li>instance: User (static)</li>
-                <li>username: String</li>
-                <li>password: String</li>
-                <li>email: String</li>
-                <li>profileData: Object</li>
-            </ul>
-        </div>
-        <div class="methods">
-            <strong>Methods:</strong>
-            <ul>
-                <li>constructor(username: String, password: String, email: String)</li>
-                <li>initInstance(username: String, password: String, email: String): User (static)</li>
-                <li>getInstance(): User (static)</li>
-                <li>updateProfile(data: Object): void</li>
-                <li>addShoppingList(list: ShoppingList): void</li>
-                <li>getShoppingLists(): List&lt;ShoppingList&gt;</li>
-                <li>addFriend(friend: Friend): void</li>
-            </ul>
-        </div>
+    <h2 id="user">3.1.1. Felhasználó (User)</h2>
+    <p>A Felhasználó osztály az alkalmazás használóit képviseli, és tárolja az azonosító adatokat.</p>
+    <div class="fields">
+        <strong>Fields:</strong>
+        <ul>
+            <li>Id: int</li>
+            <li>FirstName: string</li>
+            <li>LastName: string</li>
+            <li>Username: string</li>
+            <li>Password: string</li>
+            <li>Email: string</li>
+            <li>IsEmailVerified: bool</li>
+        </ul>
+    </div>
+    <div class="methods">
+        <strong>Methods:</strong>
+        <ul>
+            <li>Register()</li>
+            <li>Login(username: string, password: string)</li>
+            <li>VerifyEmailCode(code: string)</li>
+            <li>InviteFriend(email: string)</li>
+        </ul>
     </div>
 
-    <div class="class-description">
-        <h3 id="shoppinglist">3.1.2. Bevásárlólista (ShoppingList)</h3>
-        <p>A <strong>Bevásárlólista</strong> osztály a felhasználók által létrehozott bevásárlólistákat reprezentálja, amelyek termékeket tartalmaznak.</p>
-        <div class="fields">
-            <strong>Fields:</strong>
-            <ul>
-                <li>name: String</li>
-                <li>createdDate: Date</li>
-                <li>items: List&lt;Product&gt;</li>
-            </ul>
-        </div>
-        <div class="methods">
-            <strong>Methods:</strong>
-            <ul>
-                <li>constructor(name: String)</li>
-                <li>addItem(product: Product): void</li>
-                <li>removeItem(product: Product): void</li>
-                <li>getItems(): List&lt;Product&gt;</li>
-                <li>shareListWithUser(user: User): void</li>
-            </ul>
-        </div>
+    <h2 id="shoppinglist">3.1.2. Bevásárlólista (ShoppingList)</h2>
+    <p>A Bevásárlólista osztály a felhasználók által létrehozott listákat reprezentálja, amelyek termékeket tartalmaznak.</p>
+    <div class="fields">
+        <strong>Fields:</strong>
+        <ul>
+            <li>Id: int</li>
+            <li>Name: string</li>
+            <li>Category: string</li>
+            <li>IsShared: bool</li>
+        </ul>
+    </div>
+    <div class="methods">
+        <strong>Methods:</strong>
+        <ul>
+            <li>CreateList(name: string, category: string)</li>
+            <li>EditList(name: string, category: string)</li>
+            <li>DeleteList()</li>
+            <li>ShareList(email: string, permissions: string)</li>
+        </ul>
     </div>
 
-    <div class="class-description">
-        <h3 id="product">3.1.3. Termék (Product)</h3>
-        <p>A <strong>Termék</strong> osztály a bevásárlólistán és a készletben lévő árucikkeket reprezentálja.</p>
-        <div class="fields">
-            <strong>Fields:</strong>
-            <ul>
-                <li>name: String</li>
-                <li>category: String</li>
-                <li>price: float</li>
-                <li>quantity: int</li>
-                <li>expirationDate: Date</li>
-            </ul>
-        </div>
-        <div class="methods">
-            <strong>Methods:</strong>
-            <ul>
-                <li>constructor(name: String, category: String, price: float, quantity: int, expirationDate: Date)</li>
-                <li>updateQuantity(newQuantity: int): void</li>
-                <li>calculateTotalPrice(): float</li>
-            </ul>
-        </div>
+    <h2 id="product">3.1.3. Termék (Product)</h2>
+    <p>A Termék osztály egyedi árucikkeket reprezentál, amelyek bevásárlólistához vagy készlethez tartoznak.</p>
+    <div class="fields">
+        <strong>Fields:</strong>
+        <ul>
+            <li>Id: int</li>
+            <li>Name: string</li>
+            <li>Category: string</li>
+            <li>Quantity: int</li>
+            <li>Unit: string</li>
+        </ul>
+    </div>
+    <div class="methods">
+        <strong>Methods:</strong>
+        <ul>
+            <li>AddToList(listId: int, name: string, category: string, quantity: int, unit: string)</li>
+            <li>EditProduct(productId: int, name: string, quantity: int, unit: string)</li>
+            <li>DeleteProduct(productId: int)</li>
+        </ul>
     </div>
 
-    <div class="class-description">
-        <h3 id="inventory">3.1.4. Készlet (Inventory)</h3>
-        <p>A <strong>Készlet</strong> osztály nyomon követi a felhasználó otthoni készleteit, beleértve a termékek mennyiségét és lejárati dátumát.</p>
-        <div class="fields">
-            <strong>Fields:</strong>
-            <ul>
-                <li>products: List&lt;Product&gt;</li>
-                <li>lastUpdated: Date</li>
-            </ul>
-        </div>
-        <div class="methods">
-            <strong>Methods:</strong>
-            <ul>
-                <li>addProduct(product: Product): void</li>
-                <li>removeProduct(product: Product): void</li>
-                <li>checkExpiration(): List&lt;Product&gt;</li>
-                <li>calculateInventoryValue(): float</li>
-            </ul>
-        </div>
+    <h2 id="inventory">3.1.4. Készlet (Inventory)</h2>
+    <p>A Készlet osztály a felhasználók otthoni készleteit kezeli.</p>
+    <div class="fields">
+        <strong>Fields:</strong>
+        <ul>
+            <li>Id: int</li>
+            <li>UserId: int</li>
+            <li>ProductId: int</li>
+            <li>ExpirationDate: DateTime</li>
+        </ul>
+    </div>
+    <div class="methods">
+        <strong>Methods:</strong>
+        <ul>
+            <li>AddToInventory(productId: int, quantity: int, expirationDate: DateTime)</li>
+            <li>UpdateInventory(productId: int, quantity: int)</li>
+            <li>CheckExpiry()</li>
+        </ul>
     </div>
 
-    <div class="class-description">
-        <h3 id="recipe">3.1.5. Recept (Recipe)</h3>
-        <p>A <strong>Recept</strong> osztály a főzési útmutatókat reprezentálja, beleértve a hozzávalókat és az elkészítési lépéseket.</p>
-        <div class="fields">
-            <strong>Fields:</strong>
-            <ul>
-                <li>name: String</li>
-                <li>ingredients: List&lt;Product&gt;</li>
-                <li>instructions: String</li>
-                <li>cookTime: int</li>
-            </ul>
-        </div>
-        <div class="methods">
-            <strong>Methods:</strong>
-            <ul>
-                <li>constructor(name: String, ingredients: List&lt;Product&gt;, instructions: String, cookTime: int)</li>
-                <li>addIngredient(product: Product): void</li>
-                <li>getIngredients(): List&lt;Product&gt;</li>
-                <li>calculateTotalIngredientsCost(): float</li>
-            </ul>
-        </div>
+    <h2 id="recipe">3.1.5. Recept (Recipe)</h2>
+    <p>A Recept osztály a főzési recepteket és azok összetevőit reprezentálja.</p>
+    <div class="fields">
+        <strong>Fields:</strong>
+        <ul>
+            <li>Id: int</li>
+            <li>Name: string</li>
+            <li>Ingredients: list<Product></li>
+            <li>Instructions: string</li>
+            <li>IsShared: bool</li>
+        </ul>
+    </div>
+    <div class="methods">
+        <strong>Methods:</strong>
+        <ul>
+            <li>CreateRecipe(name: string, ingredients: list<Product>, instructions: string)</li>
+            <li>EditRecipe(recipeId: int, name: string, instructions: string)</li>
+            <li>ShareRecipe(recipeId: int, isShared: bool)</li>
+        </ul>
     </div>
 
-    <div class="class-description">
-        <h3 id="friend">3.1.6. Barát (Friend)</h3>
-        <p>A <strong>Barát</strong> osztály a felhasználók közötti kapcsolatokat kezeli, például bevásárlólisták megosztását teszi lehetővé.</p>
-        <div class="fields">
-            <strong>Fields:</strong>
-            <ul>
-                <li>friendId: String</li>
-                <li>status: String</li>
-            </ul>
-        </div>
-        <div class="methods">
-            <strong>Methods:</strong>
-            <ul>
-                <li>addFriend(friendId: String): void</li>
-                <li>removeFriend(friendId: String): void</li>
-                <li>getFriends(): List&lt;String&gt;</li>
-                <li>shareShoppingList(list: ShoppingList): void</li>
-            </ul>
-        </div>
+    <h2 id="notification">3.1.6. Értesítés (Notification)</h2>
+    <p>Az Értesítés osztály felhasználóknak küldött üzeneteket kezel.</p>
+    <div class="fields">
+        <strong>Fields:</strong>
+        <ul>
+            <li>Id: int</li>
+            <li>UserId: int</li>
+            <li>Message: string</li>
+            <li>Type: string</li>
+        </ul>
+    </div>
+    <div class="methods">
+        <strong>Methods:</strong>
+        <ul>
+            <li>SendNotification(userId: int, message: string, type: string)</li>
+        </ul>
     </div>
 
-    <div class="class-description">
-        <h3 id="store">3.1.7. Bolt (Store)</h3>
-        <p>A <strong>Bolt</strong> osztály az üzletek és azok akcióit kezeli, valamint lehetőséget nyújt termékek keresésére.</p>
-        <div class="fields">
-            <strong>Fields:</strong>
-            <ul>
-                <li>name: String</li>
-                <li>address: String</li>
-                <li>openingHours: String</li>
-                <li>promotions: List&lt;Promotion&gt;</li>
-            </ul>
-        </div>
-        <div class="methods">
-            <strong>Methods:</strong>
-            <ul>
-                <li>addPromotion(promotion: Promotion): void</li>
-                <li>getPromotions(): List&lt;Promotion&gt;</li>
-                <li>findProductByName(name: String): List&lt;Product&gt;</li>
-            </ul>
-        </div>
+    <h2 id="communitypanel">3.1.7. Közösségi panel (CommunityPanel)</h2>
+    <p>A Közösségi panel osztály a felhasználók közötti interakciókat kezeli.</p>
+    <div class="fields">
+        <strong>Fields:</strong>
+        <ul>
+            <li>FriendsList: list<User></li>
+            <li>SharedRecipes: list<Recipe></li>
+            <li>SharedShoppingLists: list<ShoppingList></li>
+        </ul>
+    </div>
+    <div class="methods">
+        <strong>Methods:</strong>
+        <ul>
+            <li>InviteFriend(email: string)</li>
+            <li>ShareRecipe(recipeId: int)</li>
+            <li>ShareShoppingList(listId: int)</li>
+        </ul>
     </div>
 
-    <div class="class-description">
-        <h3 id="promotion">3.1.8. Akció (Promotion)</h3>
-        <p>Az <strong>Akció</strong> osztály egy bolt által kínált kedvezményeket reprezentálja.</p>
-        <div class="fields">
-            <strong>Fields:</strong>
-            <ul>
-                <li>description: String</li>
-                <li>startDate: Date</li>
-                <li>endDate: Date</li>
-                <li>discount: float</li>
-                <li>products: List&lt;Product&gt;</li>
-            </ul>
-        </div>
-        <div class="methods">
-            <strong>Methods:</strong>
-            <ul>
-                <li>constructor(description: String, startDate: Date, endDate: Date, discount: float, products: List&lt;Product&gt;)</li>
-                <li>isActive(): boolean</li>
-                <li>applyPromotionToProduct(product: Product): float</li>
-            </ul>
-        </div>
+    <h2 id="locationpanel">3.1.8. Helyalapú funkciók panel (LocationBasedFeaturesPanel)</h2>
+    <p>A Helyalapú funkciók panel osztály a felhasználók helyzetére alapozott ajánlatokat kezeli.</p>
+    <div class="fields">
+        <strong>Fields:</strong>
+        <ul>
+            <li>CurrentLocation: string</li>
+            <li>NearbyStores: list&lt;string&gt;</li>
+            <li>Offers: list&lt;string&gt;</li>
+        </ul>
+    </div>
+    <div class="methods">
+        <strong>Methods:</strong>
+        <ul>
+            <li>ShowNearbyStores(location: string)</li>
+            <li>DisplayOffersForProduct(productId: int)</li>
+        </ul>
     </div>
 
-    <div class="class-description">
-        <h3 id="locationservice">3.1.9. Helymeghatározás szolgáltatás (LocationService)</h3>
-        <p>A <strong>Helymeghatározás szolgáltatás</strong> osztály kezeli a közeli boltok és promóciók megjelenítését a felhasználó aktuális helyzetének figyelembevételével.</p>
-        <div class="fields">
-            <strong>Fields:</strong>
-            <ul>
-                <li>currentLocation: String</li>
-            </ul>
-        </div>
-        <div class="methods">
-            <strong>Methods:</strong>
-            <ul>
-                <li>findNearbyStores(): List&lt;Store&gt;</li>
-                <li>getPromotionsFromNearbyStores(): List&lt;Promotion&gt;</li>
-                <li>calculateDistanceToStore(store: Store): float</li>
-            </ul>
-        </div>
+    <h2 id="chat">3.1.9. Chat</h2>
+    <p>A Chat osztály a felhasználók közötti üzenetküldést biztosítja.</p>
+    <div class="fields">
+        <strong>Fields:</strong>
+        <ul>
+            <li>ChatId: int</li>
+            <li>Participants: list&lt;User&gt;</li>
+            <li>Messages: list&lt;string&gt;</li>
+        </ul>
+    </div>
+    <div class="methods">
+        <strong>Methods:</strong>
+        <ul>
+            <li>SendMessage(senderId: int, message: string)</li>
+            <li>ReceiveMessage()</li>
+        </ul>
     </div>
 
-    <div class="class-description">
-        <h3 id="nutritiontracker">3.1.10. Táplálkozási nyomkövető (NutritionTracker)</h3>
-        <p>A <strong>Táplálkozási nyomkövető</strong> osztály a napi kalória- és makrotápanyag-bevitel nyomon követését biztosítja.</p>
-        <div class="fields">
-            <strong>Fields:</strong>
-            <ul>
-                <li>caloriesConsumed: float</li>
-                <li>dailyCalorieGoal: float</li>
-                <li>protein: float</li>
-                <li>carbs: float</li>
-                <li>fats: float</li>
-            </ul>
-        </div>
-        <div class="methods">
-            <strong>Methods:</strong>
-            <ul>
-                <li>addMeal(calories: float, protein: float, carbs: float, fats: float): void</li>
-                <li>getRemainingCalories(): float</li>
-                <li>getDailyNutritionSummary(): String</li>
-            </ul>
-        </div>
+    <h2 id="discount">3.1.10. Akció (Discount)</h2>
+    <p>Az Akció osztály a termékek kedvezményeit kezeli.</p>
+    <div class="fields">
+        <strong>Fields:</strong>
+        <ul>
+            <li>DiscountId: int</li>
+            <li>ProductId: int</li>
+            <li>StoreName: string</li>
+            <li>DiscountRate: float</li>
+            <li>ExpirationDate: DateTime</li>
+        </ul>
+    </div>
+    <div class="methods">
+        <strong>Methods:</strong>
+        <ul>
+            <li>AddDiscount(productId: int, store: string, rate: float, expiration: DateTime)</li>
+            <li>CheckDiscountValidity(discountId: int)</li>
+        </ul>
+    </div>
+
+    <h2 id="nutritionpanel">3.1.11. Táplálkozási adatok panel (NutritionDataPanel)</h2>
+    <p>A Táplálkozási adatok panel osztály a felhasználók kalória- és makrotápanyag-adatait kezeli.</p>
+    <div class="fields">
+        <strong>Fields:</strong>
+        <ul>
+            <li>DailyCalories: int</li>
+            <li>ProteinIntake: int</li>
+            <li>CarbsIntake: int</li>
+            <li>FatIntake: int</li>
+        </ul>
+    </div>
+    <div class="methods">
+        <strong>Methods:</strong>
+        <ul>
+            <li>ShowNutritionDetails(productId: int)</li>
+            <li>UpdateDailyIntake(data: NutritionData)</li>
+        </ul>
+    </div>
+
+    <h2 id="inventorypanel">3.1.12. Készlet panel (InventoryPanel)</h2>
+    <p>A Készlet panel osztály a felhasználók készleteinek nyomon követésére szolgál.</p>
+    <div class="fields">
+        <strong>Fields:</strong>
+        <ul>
+            <li>InventoryItems: list&lt;Inventory&gt;</li>
+        </ul>
+    </div>
+    <div class="methods">
+        <strong>Methods:</strong>
+        <ul>
+            <li>CheckLowStock()</li>
+            <li>UpdateInventoryItem(itemId: int, quantity: int)</li>
+        </ul>
+    </div>
+
+    <h2 id="reciperating">3.1.13. Recept értékelés (RecipeRating)</h2>
+    <p>A Recept értékelés osztály a felhasználók által adott értékeléseket kezeli.</p>
+    <div class="fields">
+        <strong>Fields:</strong>
+        <ul>
+            <li>RatingId: int</li>
+            <li>RecipeId: int</li>
+            <li>UserId: int</li>
+            <li>Rating: int</li>
+            <li>Comment: string</li>
+        </ul>
+    </div>
+    <div class="methods">
+        <strong>Methods:</strong>
+        <ul>
+            <li>AddRating(recipeId: int, userId: int, rating: int, comment: string)</li>
+            <li>GetAverageRating(recipeId: int)</li>
+        </ul>
+    </div>
+
+    <h2 id="recipecategory">3.1.14. Recept kategória (RecipeCategory)</h2>
+    <p>A Recept kategória osztály a receptek kategóriákba sorolását végzi.</p>
+    <div class="fields">
+        <strong>Fields:</strong>
+        <ul>
+            <li>CategoryId: int</li>
+            <li>Name: string</li>
+            <li>Recipes: list&lt;Recipe&gt;</li>
+        </ul>
+    </div>
+    <div class="methods">
+        <strong>Methods:</strong>
+        <ul>
+            <li>AddRecipeToCategory(recipeId: int)</li>
+            <li>GetRecipesByCategory(categoryId: int)</li>
+        </ul>
+    </div>
+
+    <h2 id="pushnotification">3.1.15. Push értesítés (PushNotification)</h2>
+    <p>A Push értesítés osztály valós idejű értesítéseket küld a felhasználóknak.</p>
+    <div class="fields">
+        <strong>Fields:</strong>
+        <ul>
+            <li>NotificationId: int</li>
+            <li>UserId: int</li>
+            <li>Message: string</li>
+            <li>SentDate: DateTime</li>
+        </ul>
+    </div>
+    <div class="methods">
+        <strong>Methods:</strong>
+        <ul>
+            <li>SendPushNotification(userId: int, message: string)</li>
+            <li>TrackNotificationDelivery(notificationId: int)</li>
+        </ul>
+    </div>
+
+    <div class="methods">
+        <strong>Methods:</strong>
+        <ul>
+            <li>SendNotification(userId: int, message: string, type: string)</li>
+        </ul>
+    </div>
+
+    <h2 id="loginpanel">3.1.16. Bejelentkezési panel (LoginPanel)</h2>
+    <p>A Bejelentkezési panel osztály a felhasználók hitelesítését kezeli.</p>
+    <div class="fields">
+        <strong>Fields:</strong>
+        <ul>
+            <li>Username: string</li>
+            <li>Password: string</li>
+            <li>IsLoggedIn: bool</li>
+        </ul>
+    </div>
+    <div class="methods">
+        <strong>Methods:</strong>
+        <ul>
+            <li>Login(username: string, password: string)</li>
+            <li>ShowRegistrationForm()</li>
+        </ul>
+    </div>
+
+    <h2 id="registrationpanel">3.1.17. Regisztrációs panel (RegistrationPanel)</h2>
+    <p>A Regisztrációs panel osztály a felhasználók regisztrációjának kezelésére szolgál.</p>
+    <div class="fields">
+        <strong>Fields:</strong>
+        <ul>
+            <li>FirstName: string</li>
+            <li>LastName: string</li>
+            <li>Email: string</li>
+            <li>Username: string</li>
+            <li>Password: string</li>
+        </ul>
+    </div>
+    <div class="methods">
+        <strong>Methods:</strong>
+        <ul>
+            <li>RegisterUser(data: User)</li>
+            <li>SendValidationEmail(email: string)</li>
+        </ul>
+    </div>
+
+    <h2 id="community">3.1.18. Közösségi osztály (Community)</h2>
+    <p>A Közösségi osztály a felhasználók közötti kapcsolatok kezelésére szolgál.</p>
+    <div class="fields">
+        <strong>Fields:</strong>
+        <ul>
+            <li>Id: int</li>
+            <li>UserId: int</li>
+            <li>Friends: list&lt;User&gt;</li>
+        </ul>
+    </div>
+    <div class="methods">
+        <strong>Methods:</strong>
+        <ul>
+            <li>AddFriend(userId: int, friendId: int)</li>
+            <li>ShareRecipeWithCommunity(recipeId: int)</li>
+            <li>GenerateSharedCookbook()</li>
+        </ul>
+    </div>
+
+    <h2 id="allergytracker">3.1.19. Allergia figyelő (AllergyTracker)</h2>
+    <p>Az Allergia figyelő osztály az allergének nyomon követésére szolgál.</p>
+    <div class="fields">
+        <strong>Fields:</strong>
+        <ul>
+            <li>Allergens: list&lt;string&gt;</li>
+            <li>AlertMessage: string</li>
+        </ul>
+    </div>
+    <div class="methods">
+        <strong>Methods:</strong>
+        <ul>
+            <li>AddAllergen(allergen: string)</li>
+            <li>CheckForAllergens(productId: int)</li>
+        </ul>
+    </div>
+
+    <h2 id="store">3.1.20. Bolt (Store)</h2>
+    <p>A Bolt osztály a termékeket kínáló üzleteket reprezentálja.</p>
+    <div class="fields">
+        <strong>Fields:</strong>
+        <ul>
+            <li>StoreId: int</li>
+            <li>Name: string</li>
+            <li>Location: string</li>
+            <li>Products: list&lt;Product&gt;</li>
+        </ul>
+    </div>
+    <div class="methods">
+        <strong>Methods:</strong>
+        <ul>
+            <li>AddProduct(product: Product)</li>
+            <li>GetStoreDetails(storeId: int)</li>
+        </ul>
+    </div>
+
+    <h2 id="shoppinglistpanel">3.1.21. Vásárlási lista panel (ShoppingListPanel)</h2>
+    <p>A Vásárlási lista panel osztály a felhasználó bevásárlólistáival kapcsolatos műveleteket kezeli.</p>
+    <div class="fields">
+        <strong>Fields:</strong>
+        <ul>
+            <li>ShoppingLists: list&lt;ShoppingList&gt;</li>
+            <li>SelectedList: ShoppingList</li>
+        </ul>
+    </div>
+    <div class="methods">
+        <strong>Methods:</strong>
+        <ul>
+            <li>CreateNewList(name: string, category: string)</li>
+            <li>AddProductToList(listId: int, product: Product)</li>
+            <li>RemoveProductFromList(productId: int)</li>
+        </ul>
+    </div>
+
+    <h2 id="contactpanel">3.1.22. Kapcsolat panel (ContactSection)</h2>
+    <p>A Kapcsolat panelben találják a userek a kérdések, problémák felmerülése esetében felkereshető email címet.</p>
+    <div class="fields">
+        <strong>Fields:</strong>
+        <ul>
+            <li>ContactEmail: string</li>
+            <li>Copyrightinfo: string</li>
+        </ul>
+    </div>
+    <div class="methods">
+        <strong>Methods:</strong>
+        <ul>
+            <li>DisplayContactinfo()</li>
+            <li>SendEmail(string)</li>
+        </ul>
+    </div>
+
+    <h2 id="aboutuspanel">3.1.23. Rólunk panel (AboutSection)</h2>
+    <p>A Róluk panelben találják a userek a főbb tudnivalókat, bemutatkozásokat az alkalmazás fejlesztőiről.</p>
+    <div class="fields">
+        <strong>Fields:</strong>
+        <ul>
+            <li>Title: string</li>
+            <li>Descriptions: string</li>
+        </ul>
+    </div>
+    <div class="methods">
+        <strong>Methods:</strong>
+        <ul>
+            <li>DisplayAboutinfo()</li>
+        </ul>
     </div>
 
 </body>
