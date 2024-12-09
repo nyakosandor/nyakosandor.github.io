@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html>
+<html lang="hu">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>H5</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+            line-height: 1.6;
+            margin-left: 350px;
+            margin-right: 350px;
+            background: linear-gradient(to right, rgb(239, 193, 108), white);
+
+        h1, h2, h3 {
+            color: #ff5100;
+        }
+            
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            font-size: 18px;
+            text-align: left;
+        }
+
+        .toc a {
+            text-decoration: none;
+            color: #4a90e2;
+        }
+
+        .toc a:hover {
+            text-decoration: underline;
+        }
+
+        .toc {
+            margin-bottom: 30px;
+        }
+
+        th,td {
+            padding: 12px;
+            border: 1px solid #ddd;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
+
+</head>
+
+<body>
+    <h1>OMT objektum tervezési fázisa</h1>
+    <h2>1. Rendszer vezérlésének kidolgozása</h2>
+    <p>A vezérlésre vonatkozóan különböző típusú objektumok vannak, például aktív, passzív, és vezérlő objektumok.</p>
+    <h2>Aktív objektumok</h2>
+    <p>Az aktív objektumok azok, amelyek közvetlenül befolyásolják a rendszer működését, és amelyek folyamatosan elvégzik a feladatokat a rendszerben. Ezek az objektumok rendelkeznek saját logikával, és a vezérlés szempontjából ők az irányítók, amelyek döntéseket hoznak, illetve eseményekre reagálnak. Az aktív objektumok közé tartoznak:</p> 
+    <ul>
+        <li><strong>Felhasználó (User): </strong>Mivel a felhasználó az alkalmazás központi szereplője, és képes különböző műveleteket végrehajtani (beváásárlólisták létrehozása, barátok hozzáadása stb.), aktív objektumként szerepel.</li>
+        <li><strong>Bolt (Store): </strong>A boltok is aktív objektumok, mert képesek interakcióba lépni a felhasználókkal és promóciókat kezelni.</li>
+        <li><strong>Akció (Promotion): </strong>Az akciók aktívak, mivel kapcsolatba lépnek a boltokkal, és végrehajtják a kedvezményeket.</li>
+    </ul>
+    <h2>Passzív objektumok</h2>
+    <p>A passzív objektumok azok, amelyek nem végeznek aktív műveleteket, hanem egyszerűen tárolják az adatokat vagy információkat, amiket az aktív objektumok használnak. Például egy adatbázis, amely a felhasználói adatokat vagy a termékek listáját tárolja. A passzív objektumok nem változtatják meg az állapotukat saját döntésük alapján, hanem a külső rendszerek vagy aktív objektumok beavatkozása szükséges a működésükhöz. A passzív objektumok azok, amelyek nem végeznek aktív műveleteket, hanem egyszerűen tárolják az adatokat vagy információkat, amiket az aktív objektumok használnak. Például egy adatbázis, amely a felhasználói adatokat vagy a termékek listáját tárolja. A passzív objektumok nem változtatják meg az állapotukat saját döntésük alapján, hanem a külső rendszerek vagy aktív objektumok beavatkozása szükséges a működésükhöz.</p> 
+    <ul>
+        <li><strong>Bevásárlólista (ShoppingList): </strong>A bevásárlólisták adatokat tárolnak (termékek), de nem végeznek el saját műveleteket.</li>
+        <li><strong>Termék (Product): </strong>A termékek adatokat tartalmaznak, de nem tartalmaznak üzleti logikát.</li>
+        <li><strong>Készlet (Inventory): </strong>A készlet az otthoni termékeket tárolja, de nem hajt végre aktív műveleteket.</li>
+        <li><strong>Recept (Recipe): </strong>A receptek csak adatokat (összetevőket, elkészítési időt) tárolnak.</li>
+        <li><strong>Barát (Friend): </strong>A barátok listája tárolja a felhasználói kapcsolatokat, de nem tartalmaz üzleti logikát.</li>
+    </ul>
+    <h2>Vezérlő objektumok</h2>
+    <p>A vezérlő objektumok kulcsszerepet játszanak az egész rendszer működésében, mivel ők irányítják az aktív és passzív objektumok közötti interakciókat. A vezérlő objektumok biztosítják, hogy az egyes komponensek közötti kommunikáció megfelelően történjen, és az adatfolyamok szabályozottan haladjanak végig az alkalmazásban. </p> 
+    <ul>
+        <li><strong>LocationService: </strong>A helymeghatározás szolgáltatás aktív vezérlő objektum, mivel képes lekérdezni a közeli boltokat és promóciókat, és interakcióba lépni a boltokkal és a felhasználóval.</li>
+        <li><strong>NutritionTracker:  </strong>A táplálkozási nyomkövető egy vezérlő objektum, amely nyomon követi a felhasználó napi étkezését és tápanyagait.</li>
+    </ul>
+
+    <h2>2. Osztályok közötti kapcsolatok implementálása</h2>
+    <p>A rendszerben az osztályok közötti kapcsolatoknak tükrözniük kell a valóságos működést, például egy felhasználónak több bevásárlólistája lehet, és egy boltban lehetnek akciók, amelyek termékeket tartalmaznak. Az osztályok közötti kapcsolatok és azok implementálása a következő lehet:</p>
+    
+    <h3>2.1. Felhasználó és bevásárlólista kapcsolata</h3>
+    <p>A Felhasználó (User) és a Bevásárlólista (ShoppingList) között egy 1:N kapcsolat áll fenn, mivel egy felhasználónak több bevásárlólistája lehet. Az implementálásban a User osztály egy List &lt;ShoppingList&gt attribútummal tárolja a bevásárlólistákat. A ShoppingList osztályban pedig a felhasználó azonosítója szerepel, hogy az adott lista melyik felhasználóhoz tartozik.</p>
+
+    <h3>2.2. Felhasználó és Barát kapcsolata</h3>
+    <p>A Felhasználó (User) és a Barát (Friend) között szintén 1:N kapcsolat van. A User osztály tartalmazhat egy listát a barátok azonosítóival (List &lt;Friend&gt), így minden felhasználónak több barátja lehet. A Friend osztályban pedig az adott kapcsolat státuszát lehet tárolni.</p>
+
+    <h3>2.3. Bevásárlólista és Termék kapcsolata</h3>
+    <p>A Bevásárlólista (ShoppingList) és a Termék (Product) között 1:N kapcsolat van. A ShoppingList osztályban a termékek egy listában tárolódnak (List &lt;Product&gt), lehetővé téve azok hozzáadását és eltávolítását.</p>
+
+    <h3>2.4. Bolt és Akció kapcsolata</h3>
+    <p>A Bolt (Store) és az Akció (Promotion) között 1:N kapcsolat van. A Store osztály egy listát (List &lt;Promotion&gt) tartalmaz, amely az üzlet által kínált akciókat tárolja.</p>
+
+    <h3>2.5. Recept és Termék kapcsolata</h3>
+    <p>A Recept (Recipe) és a Termék (Product) között 1:N kapcsolat áll fenn, mivel egy recept több összetevőt is tartalmazhat. A Recipe osztály a hozzávalókat (List &lt;Product&gt) tárolja.</p>
+
+    <h3>2.6. LocationService és Bolt kapcsolata</h3>
+    <p>A LocationService osztály kapcsolódik a Store osztályhoz, mivel a felhasználó helyzetétől függően kell keresni a közeli boltokat. Ez egy N:M kapcsolatot jelent, mivel egy bolt több helyen is megtalálható lehet.</p>
+
+    
+    <h2>3. Osztályok csomagokba szervezése</h2>
+
+    <h3>3.1. User Package</h3>
+    <ul>
+        <li><strong>User</strong> osztály</li>
+        <li><strong>Friend</strong>  osztály</li>
+    </ul>
+
+    <h3>3.2. Shopping Package</h3>
+    <ul>
+        <li><strong>ShoppingList</strong> osztály</li>
+        <li><strong>Product</strong>  osztály</li>
+        <li><strong>Inventory</strong>  osztály</li>
+    </ul>
+
+    <h3>3.3. Recipe Package</h3>
+    <ul>
+        <li><strong>Recipe</strong> osztály</li>
+        
+    </ul>
+
+    <h3>3.4. Store Package</h3>
+    <ul>
+        <li><strong>Store</strong> osztály</li>
+        <li><strong>Promotion</strong>  osztály</li>
+        <li><strong>LocationService</strong>  osztály</li>
+    </ul>
+
+    <h3>3.5. Nutrition Package</h3>
+    <ul>
+        <li><strong>NutritionTracker</strong> osztály</li>
+    </ul>
+
+    <h2>4. Részletes implementációs javaslatok</h2>
+    <p>A szoftver implementációja során az osztályok közötti kommunikáció kulcsfontosságú, hogy biztosítsuk a rendszer hatékony és rugalmas működését. Az osztályok közötti interakciók megfelelő megtervezése érdekében célszerű olyan metódusokat létrehozni, amelyek világosan definiálják az adatátvitelt és a szükséges üzleti logikát. A megfelelő getter és setter metódusok létrehozása mellett a kommunikációt támogató üzleti logikai metódusok megtervezése az egyik legfontosabb lépés a fejlesztési ciklusban, mivel ezek biztosítják az alkalmazás gördülékeny működését és a felhasználók számára kényelmes élményt.</p>
+    <ul>
+        <li>A <strong>ShoppingList</strong> osztályban legyenek metódusok, amelyek lehetővé teszik a termékek hozzáadását és eltávolítását.</li>
+        <li>A <strong>User</strong> osztályhoz tartozó metódusok kezelhetik a bevásárlólisták, barátok és receptek kezelését.</li>
+    </ul>
+    <br><br><br>
+
+    <h1>Implementáció</h1>
+    <h2>Skeleton:</h2>
+    <p>A skeleton és a prototípus implementáció célja, hogy a szoftver alapvető struktúráját és fő funkcióit előzetesen meghatározzuk és kipróbáljuk. Ez az implementáció még nem tartalmazza a teljes funkcionalitást, de jól átláthatóvá és tesztelhetővé teszi az alkalmazás főbb komponenseit. A skeleton az architektúrát, míg a prototípus az egyes funkcionalitások próbaverzióját valósítja meg</p>
+    <p>A skeleton egy alapvető, minimális struktúra, amelyben az osztályok és metódusok már definiálva vannak, de azok implementációi (logikái) még nem teljesek. Például a SmartCart alkalmazásban elkészítjük az osztályok vázát, metódusdefiníciókat, interfészeket és néhány alapműveletet.</p>
+    <p><ul>
+        <li>
+            Osztályok létrehozása, például: ShoppingList, User, Recipe, Inventory.</li>
+        <li>Alapvető tulajdonságok és metódusok meghatározása, pl. hozzáadás, eltávolítás, keresés.</li>
+        <br>
+        <li><strong>Példa a ShoppingList skeletonjára:</strong></li>
+        <ul><li>import java.util.ArrayList;<br>
+            import java.util.List;<br>
+            <br>
+            public class ShoppingList {<br>
+                private List &lt;ShoppingListItem&gt items;<br>
+            
+                public ShoppingList() {<br>
+                    this.items = new ArrayList<>();<br>
+                }<br>
+            
+                public void addItem(String itemName, int quantity) {<br>
+                    items.add(new ShoppingListItem(itemName, quantity));<br>
+                }<br>
+            
+                public List &lt;ShoppingListItem&gt getItems() {<br>
+                    return items;<br>
+                }<br>
+            
+                public void printList() {<br>
+                    System.out.println("Shopping List:");<br>
+                    for (ShoppingListItem item : items) {<br>
+                        System.out.println(item.getName() + " - " + item.getQuantity());<br>
+                    }<br>
+                }
+            }
+            
+            class ShoppingListItem {<br>
+                private String name;<br>
+                private int quantity;<br>
+            
+                public ShoppingListItem(String name, int quantity) {<br>
+                    this.name = name;<br>
+                    this.quantity = quantity;<br>
+                }<br>
+            
+                public String getName() {<br>
+                    return name;<br>
+                }<br>
+            
+                public int getQuantity() {<br>
+                    return quantity;<br>
+                }<br>
+            
+                public void printItem() {<br>
+                    System.out.println(name + " - " + quantity);<br>
+                }
+            }
+    </li></ul>
+    <br>
+    <li><strong>Példa a User skeletonjára:</strong></li>
+    <ul><li>
+        public class User {<br>
+            private String name;<br>
+            private String email;<br>
+            private ShoppingList activeShoppingList;<br>
+        
+            public User(String name, String email) {<br>
+                this.name = name;<br>
+                this.email = email;<br>
+                this.activeShoppingList = new ShoppingList();<br>
+            }{<br>
+        
+            public String getName() {<br>
+                return name;<br>
+            }
+        
+            public String getEmail() {<br>
+                return email;<br>
+            }
+        
+            public ShoppingList getActiveShoppingList() {<br>
+                return activeShoppingList;<br>
+            }
+        }
+        
+    </li></ul>
+    <br>
+    <li><strong>Példa a Recipe skeletonjára:</strong></li>
+    <ul><li>
+        import java.util.HashMap;<br>
+        import java.util.Map;<br>
+        
+        public class Recipe {<br>
+            private String name;<br>
+            private Map &lt;String, Integer&gt ingredients;<br>
+        
+            public Recipe(String name) {<br>
+                this.name = name;<br>
+                this.ingredients = new HashMap<>();<br>
+            }
+        
+            public void addIngredient(String ingredient, int quantity) {<br>
+                ingredients.put(ingredient, quantity);<br>
+            }
+        
+            public Map &lt;String, Integer&gt getIngredients() {<br>
+                return ingredients;<br>
+            }
+        
+            public void printRecipe() {<br>
+                System.out.println("Recipe: " + name);<br>
+                for (Map.Entry &lt;String, Integer&gt entry : ingredients.entrySet()) {<br>
+                    System.out.println("- " + entry.getKey() + ": " + entry.getValue());<br>
+                }
+            }
+        }
+        
+        
+    </li></ul>
+    </ul></p>
+    <h2>Prototípus:</h2>
+    <p>A prototípus egy olyan fejlesztési szakasz, amely az alkalmazás fő funkcióinak egyszerűsített, kezdeti verzióját tartalmazza. A prototípus lehetővé teszi a fejlesztők és a felhasználók számára, hogy lássák, hogyan működik az alkalmazás alapvető funkcionalitása anélkül, hogy a teljes rendszer logikáját implementálnák. A prototípus célja a felhasználói interakciók és a rendszer alapvető működési elveinek tesztelése, valamint visszajelzések gyűjtése a fejlesztés további irányvonalának meghatározásához.</p>
+    <p><li>Példa a ShoppingList prototípusára:</li>
+    <ul><li>
+        import java.util.ArrayList;<br>
+import java.util.List;<br>
+
+public class ShoppingList {<br>
+    private List &lt;ShoppingListItem&gt items;<br>
+
+    public ShoppingList() {<br>
+        this.items = new ArrayList<>();<br>
+    }<br>
+
+    public void addItem(String itemName, int quantity) {<br>
+        items.add(new ShoppingListItem(itemName, quantity));<br>
+        System.out.println(itemName + " has been added to the shopping list.");<br>
+    }<br>
+
+    public List &lt;ShoppingListItem&gt getItems() {<br>
+        return items;<br>
+    }<br>
+
+    public void printList() {<br>
+        if (items.isEmpty()) {<br>
+            System.out.println("Your shopping list is empty.");<br>
+        } else {<br>
+            System.out.println("Shopping List:");<br>
+            for (ShoppingListItem item : items) {<br>
+                item.printItem();<br>
+            }<br>
+        }
+    }
+
+    public void removeItem(String itemName) {<br>
+        for (ShoppingListItem item : items) {<br>
+            if (item.getName().equals(itemName)) {<br>
+                items.remove(item);<br>
+                System.out.println(itemName + " has been removed from the shopping list.");<br>
+                return;<br>
+            }<br>
+        }<br>
+        System.out.println(itemName + " not found in the shopping list.");<br>
+    }<br>
+
+    public void updateItemQuantity(String itemName, int newQuantity) {<br>
+        for (ShoppingListItem item : items) {<br>
+            if (item.getName().equals(itemName)) {<br>
+                item.setQuantity(newQuantity);<br>
+                System.out.println(itemName + "'s quantity has been updated to " + newQuantity);<br>
+                return;<br>
+            }<br>
+        }<br>
+        System.out.println(itemName + " not found in the shopping list.");<br>
+    }<br>
+}<br>
+<br>
+class ShoppingListItem {<br>
+    private String name;<br>
+    private int quantity;<br>
+    public ShoppingListItem(String name, int quantity) {<br>
+        this.name = name;<br>
+        this.quantity = quantity;<br>
+    }<br>
+
+    public String getName() {<br>
+        return name;<br>
+    }<br>
+
+    public int getQuantity() {<br>
+        return quantity;<br>
+    }<br>
+
+    public void setQuantity(int quantity) {<br>
+        this.quantity = quantity;<br>
+    }<br>
+
+    public void printItem() {<br>
+        System.out.println(name + " - " + quantity);
+    }
+}
+
+public class SmartCartApp {<br>
+    public static void main(String[] args) {<br>
+        ShoppingList shoppingList = new ShoppingList();<br><br>
+
+        shoppingList.addItem("Apples", 5);<br>
+        shoppingList.addItem("Bananas", 3);<br>
+        shoppingList.addItem("Milk", 1);<br>
+        <br>
+        shoppingList.printList();<br>
+        <br>
+        shoppingList.updateItemQuantity("Apples", 10);<br>
+        shoppingList.printList();<br>
+        <br>
+        shoppingList.removeItem("Bananas");<br>
+        shoppingList.printList();
+    }
+}
+
+        
+        
+    </li></ul>
+    <li>Funkcionális működés: A prototípus már teljes működőképes metódusokat tartalmaz, mint az elemek hozzáadása, eltávolítása, mennyiségük módosítása és a lista kiíratása.</li>
+    <li>Működő logika: Az addItem metódus hozzáadja a tételt a listához, az removeItem törli a kívánt tételt, az updateItemQuantity módosítja a tétel mennyiségét. A printList metódus megjeleníti az összes elemet a listán.</li>
+    <li>Egyszerű felhasználói interakció: Az alkalmazás főosztálya (SmartCartApp) példányosítja a vásárlási listát és különböző műveleteket végez el rajta, bemutatva a prototípus funkcionalitását.</li>
+    </ul></p>
+
+    <h1>Tesztelési terv a ShoppingList-hez</h1>
+    <p><h3>1. Tesztelési Célok</h3>
+    <ul>
+        <li>Tesztelni kell, hogy a rendszer képes új tételt hozzáadni, eltávolítani és frissíteni a tétel mennyiségét.</li>
+        <li>Ellenőrizni kell a lista helyes megjelenítését, különös figyelmet fordítva az üres listára.</li>
+        <li>A hibakezelés tesztelése: például a nem létező tétel eltávolítása, üres tétel hozzáadása.</li>
+    </ul>
+    <h3>2. Tesztelési Típusok</h3>
+    <ul>
+        <li><strong>Funkcionális tesztelés:</strong> A funkciók működésének ellenőrzése.</li>
+        <li><strong>Hibakezelés tesztelése:</strong> Az érvénytelen bemenetek kezelése.</li>
+        <li><strong>Integrációs tesztelés:</strong> A vásárlási lista és a tételek közötti integráció tesztelése.</li>
+    </ul>
+    <h3>2. ShoppingList tesztelése</h3>
+    <ul>
+        <li>import static org.junit.jupiter.api.Assertions.*;<br>
+            import org.junit.jupiter.api.BeforeEach;<br>
+            import org.junit.jupiter.api.Test;<br>
+            
+            import java.util.List;<br>
+            <br>
+            public class ShoppingListTest {<br>
+            
+                private ShoppingList shoppingList;<br>
+            
+                @BeforeEach<br>
+                public void setUp() {<br>
+                    shoppingList = new ShoppingList();<br>
+                }<br>
+                <br>
+                @Test<br>
+                public void testAddItem() {<br>
+                    shoppingList.addItem("Apples", 3);<br>
+                    List &lt;ShoppingListItem&gt items = shoppingList.getItems();<br>
+                    assertEquals(1, items.size());<br>
+                    assertEquals("Apples", items.get(0).getName());<br>
+                    assertEquals(3, items.get(0).getQuantity());<br>
+                }<br>
+                <br>
+                @Test<br>
+                public void testRemoveItem() {<br>
+                    shoppingList.addItem("Bananas", 5);<br>
+                    shoppingList.removeItem("Bananas");<br>
+                    List &lt;ShoppingListItem&gt items = shoppingList.getItems();<br>
+                    assertTrue(items.isEmpty());<br>
+                }<br>
+                <br>
+                @Test<br>
+                public void testRemoveNonExistentItem() {<br>
+                    shoppingList.addItem("Oranges", 4);<br>
+                    shoppingList.removeItem("Apples");<br>
+                    // "Oranges" should still be in the list<br>
+                    List &lt;ShoppingListItem&gt items = shoppingList.getItems();<br>
+                    assertEquals(1, items.size());<br>
+                    assertEquals("Oranges", items.get(0).getName());<br>
+                }<br>
+                <br>
+                @Test<br>
+                public void testUpdateItemQuantity() {<br>
+                    shoppingList.addItem("Milk", 1);<br>
+                    shoppingList.updateItemQuantity("Milk", 3);<br>
+                    List &lt;ShoppingListItem&gt items = shoppingList.getItems();<br>
+                    assertEquals(3, items.get(0).getQuantity());<br>
+                }<br>
+                <br>
+                @Test<br>
+                public void testPrintList() {<br>
+                    shoppingList.addItem("Eggs", 6);<br>
+                    shoppingList.addItem("Cheese", 2);<br>
+                    shoppingList.printList();<br>
+                    // Output should be:<br>
+                    // Eggs - 6<br>
+                    // Cheese - 2<br>
+                }<br>
+                <br>
+                @Test<br>
+                public void testAddEmptyItem() {<br>
+                    shoppingList.addItem("", 0);<br>
+                    // Ensure no empty item is added<br>
+                    assertTrue(shoppingList.getItems().isEmpty());<br>
+                }<br>
+                <br>
+                @Test<br>
+                public void testPrintEmptyList() {<br>
+                    shoppingList.printList();<br>
+                    // Expected output: "Your shopping list is empty."<br>
+                }
+            }
+            </li>
+    </ul>
+    <h3>3. ShoppingList tesztelése magyarázat</h3>
+    <ul>
+        <li><strong>setUp() metódus</strong>: Minden teszt előtt egy új <code>ShoppingList</code> példányt hozunk létre, hogy biztosítsuk a tesztek függetlenségét.</li>
+        <li><strong>testAddItem() teszt</strong>: Ellenőrzi, hogy a rendszer képes új tételt hozzáadni a listához, és annak helyes nevét és mennyiségét is tárolja.</li>
+        <li><strong>testRemoveItem() teszt</strong>: Ellenőrzi, hogy a rendszer eltávolítja a tételt a listából.</li>
+        <li><strong>testRemoveNonExistentItem() teszt</strong>: Ellenőrzi, hogy a rendszer helyesen kezeli, amikor egy nem létező tételt próbálunk eltávolítani.</li>
+        <li><strong>testUpdateItemQuantity() teszt</strong>: Teszteli, hogy a rendszer helyesen frissíti a tétel mennyiségét.</li>
+        <li><strong>testPrintList() teszt</strong>: Ellenőrzi, hogy a lista helyesen jeleníti meg a tételeket.</li>
+        <li><strong>testAddEmptyItem() teszt</strong>: Teszteli, hogy a rendszer nem enged üres vagy érvénytelen tételt hozzáadni a listához.</li>
+        <li><strong>testPrintEmptyList() teszt</strong>: Teszteli, hogy az üres lista megfelelő üzenetet ír ki.</li>
+    </ul>
+    <br>
+    <p>A fenti tesztelési terv részletesen bemutatja a ShoppingList alkalmazás különböző funkcióit, és biztosítja, hogy minden egyes művelet helyesen történjen meg. A tesztkódok biztosítják, hogy a rendszer stabil maradjon és képes kezelni a felhasználói interakciókat, valamint a nem várt bemeneteket is megfelelően kezelje. A JUnit keretrendszer segít abban, hogy a tesztek automatikusan és könnyen futtathatóak legyenek a fejlesztési ciklus során.</p>
+
+
+
+
+
+</p>
+</body>
+
+</html>
