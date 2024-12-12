@@ -95,6 +95,7 @@
                     <p><a href="#aboutuspanel">3.1.23. Rólunk panel (AboutSection)</a></p>
                 </ul>
             </ul>
+            <p><a href="#dinamikusmodell">4. Dinamikus modell</a></p>
         </ul>
     </div>
 
@@ -597,6 +598,53 @@
             <li>DisplayAboutinfo()</li>
         </ul>
     </div>
+
+   <h2 id="dinamikusmodell">4. Dinamikus modell</h2>
+    <p>Minden fontos funkcióhoz egy használati eset tartozik, amely bemutatja, mit szeretne a felhasználó elérni, és hogy a rendszer ezt hogyan valósítja meg.</p>
+    <h3>Vásárlási lista összeállítása</h3>
+    <p>A felhasználó összeállít egy listát a vásárolni kívánt termékekből, amely alapján a rendszer ellenőrzi a készletet és ajánlásokat tesz.</p>
+    <ul>
+        <li>A felhasználó belép az alkalmazásba.</li>
+        <li>Kiválasztja a "Vásárlási lista" funkciót.</li>
+        <li>Hozzáadja a kívánt tételeket (pl. tej, kenyér).</li>
+        <li>A rendszer ellenőrzi a felhasználó készletét.</li>
+        <li>A rendszer javaslatot tesz receptekre.</li>
+        <li>A felhasználó elmenti a listát vagy módosítja.</li>
+    </ul>
+    <img src="diagrams/ShoppingListSequence.png" alt="Vásárlási lista szekvencia" >
+
+    <h3>Vásárlási lista állapotdiagramja</h3>
+    <p>Állapotok:</p>
+    <ul>
+        <li><strong>Üres:</strong> A lista még nem tartalmaz semmilyen tételt.</li>
+        <li><strong>Feltöltött:</strong> A felhasználó hozzáadott legalább egy tételt.</li>
+        <li><strong>Feldolgozás alatt:</strong> A rendszer ellenőrzi a készletet, és javaslatokat tesz.</li>
+        <li><strong>Elküldött:</strong> A felhasználó véglegesítette a listát, és elkezdte a vásárlást.</li>
+    </ul>
+    <p>Átmenetek:</p>
+    <ul>
+        <li>Üres → Feltöltött (tétel hozzáadása).</li>
+        <li>Feltöltött → Feldolgozás alatt ("Ellenőrzés" gomb megnyomása).</li>
+        <li>Feldolgozás alatt → Feltöltött (A felhasználó módosítja a listát).</li>
+        <li>Feldolgozás alatt → Elküldött ("Vásárlás indítása" gomb).</li>
+    </ul>
+    <img src="diagrams/ShoppingListStates.png"alt="Vásárlási lista állapotok" >
+
+
+    <h3>Felhasználói fiók állapotdiagramja</h3>
+    <p>Állapotok:</p>
+    <ul>
+        <li><strong>Nincs bejelentkezve:</strong> A felhasználó nem jelentkezett be.</li>
+        <li><strong>Bejelentkezve:</strong> A felhasználó aktív, hozzáfér az alkalmazás funkcióihoz.</li>
+        <li><strong>Inaktív:</strong> A munkamenet lejárt, a felhasználó inaktívvá vált.</li>
+    </ul>
+    <p>Átmenetek:</p>
+    <ul>
+        <li>Nincs bejelentkezve → Bejelentkezve (Sikeres bejelentkezés).</li>
+        <li>Bejelentkezve → Inaktív (Időtúllépés).</li>
+        <li>Inaktív → Bejelentkezve (Újra bejelentkezik).</li>
+    </ul>
+    <img src="diagrams/UserAccountStates.png" alt="Felhasználói fiók állapotok" > 
 
 </body>
 
